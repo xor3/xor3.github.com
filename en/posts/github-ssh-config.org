@@ -7,9 +7,6 @@
 .. description: 
 #+END_COMMENT
 
-
-Write your post here.
-
 * 测试 ssh
 
 #+BEGIN_SRC sh

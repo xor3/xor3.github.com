@@ -2,7 +2,7 @@
 .. title: python get mac address
 .. slug: python-get-mac-address-by-uuid
 .. date: 2014-10-03 01:50:00 UTC+08:00
-.. tags: python uuid
+.. tags: python,uuid
 .. link: 
 .. description: 
 .. type: text

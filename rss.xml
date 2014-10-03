@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Xor3's World!</title><link>/</link><description>This is a *** site.</description><language>zh_cn</language><lastBuildDate>Fri, 03 Oct 2014 23:01:31 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>nikola guide</title><link>/posts/nikola-guide.html</link><dc:creator>Xor3</dc:creator><description>&lt;div&gt;&lt;div id="table-of-contents"&gt;
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Xor3's World!</title><link>/</link><description>This is a *** site.</description><language>zh_cn</language><lastBuildDate>Fri, 03 Oct 2014 23:39:32 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>nikola guide</title><link>/posts/nikola-guide.html</link><dc:creator>Xor3</dc:creator><description>&lt;div&gt;&lt;div id="table-of-contents"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents"&gt;
 &lt;ul&gt;
@@ -31,45 +31,7 @@
 &lt;p&gt;
 在windows 下部分 python package 需要编译，若pip安装失败，请单独下载相应的package 执行文件安装 
 &lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-sec-3" class="outline-2"&gt;
-&lt;h2 id="sec-3"&gt;&lt;span class="section-number-2"&gt;3&lt;/span&gt; 常用命令&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-3"&gt;
-&lt;div class="org-src-container"&gt;
-
-&lt;pre class="src src-sh"&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;列出任务 (doit?)&lt;/span&gt;
-nikola list
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;构建 可接任务名&lt;/span&gt;
-nikola build
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;测试服务&lt;/span&gt;
- nikola serve --address 0.0.0.0 --port 8080
-&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class="org-src-container"&gt;
-
-&lt;pre class="src src-sh"&gt;nikola new_post -t &lt;span style="font-style: italic;"&gt;"How to make money"&lt;/span&gt; -f rst
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. title: How to make money&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. slug: how-to-make-money&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. date: 2012-09-15 19:52:05 UTC&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. tags: hello, world, how&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. link:&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. description:&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. type: text&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. nocomments: True&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. template: storyl.tmpl&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. password: True&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. category: How&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. (no)annotations: True&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. author: Xor3&lt;/span&gt;
-&lt;span style="font-weight: bold; font-style: italic;"&gt;# &lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;.. hidetitle: True&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;&lt;a href="/posts/nikola-guide.html"&gt;更多…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>/posts/nikola-guide.html</guid><pubDate>Fri, 03 Oct 2014 15:00:00 GMT</pubDate></item><item><title>python get mac address</title><link>/posts/python-get-mac-address-by-uuid.html</link><dc:creator>Xor3</dc:creator><description>&lt;div id="table-of-contents"&gt;
+&lt;p&gt;&lt;a href="/posts/nikola-guide.html"&gt;更多…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>guide</category><category>how</category><category>nikola</category><guid>/posts/nikola-guide.html</guid><pubDate>Fri, 03 Oct 2014 15:00:00 GMT</pubDate></item><item><title>python get mac address</title><link>/posts/python-get-mac-address-by-uuid.html</link><dc:creator>Xor3</dc:creator><description>&lt;div id="table-of-contents"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents"&gt;
 &lt;ul&gt;
@@ -97,7 +59,7 @@ nikola build
 
 &lt;div id="outline-container-sec-2" class="outline-2"&gt;
 &lt;h2 id="sec-2"&gt;&lt;span class="section-number-2"&gt;2&lt;/span&gt; doc &lt;a href="https://docs.python.org/2/library/uuid.html?highlight=uuid#module-uuid"&gt;在线文档 uuid library&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;</description><category>python uuid</category><guid>/posts/python-get-mac-address-by-uuid.html</guid><pubDate>Thu, 02 Oct 2014 17:50:00 GMT</pubDate></item><item><title>配置 github 的ssh</title><link>/posts/github-ssh-config.html</link><dc:creator>Xor3</dc:creator><description>&lt;div id="table-of-contents"&gt;
+&lt;/div&gt;</description><category>python</category><category>uuid</category><guid>/posts/python-get-mac-address-by-uuid.html</guid><pubDate>Thu, 02 Oct 2014 17:50:00 GMT</pubDate></item><item><title>配置 github 的ssh</title><link>/posts/github-ssh-config.html</link><dc:creator>Xor3</dc:creator><description>&lt;div id="table-of-contents"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents"&gt;
 &lt;ul&gt;
@@ -105,9 +67,6 @@ nikola build
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;
-Write your post here.
-&lt;/p&gt;
 
 &lt;div id="outline-container-sec-1" class="outline-2"&gt;
 &lt;h2 id="sec-1"&gt;&lt;span class="section-number-2"&gt;1&lt;/span&gt; 测试 ssh&lt;/h2&gt;

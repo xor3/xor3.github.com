@@ -3,7 +3,7 @@
 .. title: nikola guide
 .. slug: nikola-guide
 .. date: 2014-10-03 23:00:00 UTC+08:00
-.. tags: 
+.. tags: nikola, how, guide
 .. link: 
 .. description: 
 .. type: text
@@ -16,6 +16,9 @@
 
 #+END_SRC
   在windows 下部分 python package 需要编译，若pip安装失败，请单独下载相应的package 执行文件安装 
+#+BEGIN_HTML
+<!-- TEASER_END -->
+#+END_HTML
 
 * 常用命令
 #+BEGIN_SRC sh

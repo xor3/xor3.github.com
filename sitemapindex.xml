@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ <sitemap>
+  <loc>/categories/python-uuid.xml</loc>
+  <lastmod>2014-10-03</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/en/categories/python-uuid.xml</loc>
+  <lastmod>2014-10-03</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/en/galleries/rss.xml</loc>
+  <lastmod>2014-10-03</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/en/rss.xml</loc>
+  <lastmod>2014-10-03</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/galleries/rss.xml</loc>
+  <lastmod>2014-10-03</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/rss.xml</loc>
+  <lastmod>2014-10-03</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/sitemap.xml</loc>
+  <lastmod>2014-10-03</lastmod>
+ </sitemap>
+</sitemapindex>

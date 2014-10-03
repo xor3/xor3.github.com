@@ -1,0 +1,60 @@
+# -*- coding: utf-8; -*-
+#+BEGIN_COMMENT
+.. title: nikola guide
+.. slug: nikola-guide
+.. date: 2014-10-03 01:40:00 UTC+08:00
+.. tags: 
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+#+OPTIONS: ^:nil
+* [[http://getnikola.com/handbook.html][DOC online]]
+* nikola 安装 
+#+BEGIN_SRC sh
+  pip install nikola
+
+#+END_SRC
+  在windows 下部分 python package 需要编译，若pip安装失败，请单独下载相应的package 执行文件安装 
+
+* 常用命令
+#+BEGIN_SRC sh
+# 列出任务 (doit?)
+nikola list
+# 构建 可接任务名
+nikola build
+# 测试服务
+ nikola serve --address 0.0.0.0 --port 8080
+#+END_SRC
+
+#+BEGIN_SRC sh
+  nikola new_post -t "How to make money" -f rst
+  # .. title: How to make money
+  # .. slug: how-to-make-money
+  # .. date: 2012-09-15 19:52:05 UTC
+  # .. tags: hello, world, how
+  # .. link:
+  # .. description:
+  # .. type: text
+  # .. nocomments: True
+  # .. template: storyl.tmpl
+  # .. password: True
+  # .. category: How
+  # .. (no)annotations: True
+  # .. author: Xor3
+  # .. hidetitle: True
+#+END_SRC
+
+
+#+BEGIN_HTML
+<!-- TEASER_END -->
+#+END_HTML
+* 一些配置
+** draft tag
+   若在 posts 中的标签中加 draft , 则该 post 会编译但不会出现在索引中， 但仍会部署,除非配置DEPLOY_DRAFTS 为 False(默认True)
+** future date
+   当一篇 post 的时间是未来时，不会编译。除非 FUTURE_IS_NOW 为 True, DEPLOY_FUTURE 觉定是否部署
+** private tag 
+   不会显示，但会部署
+** post type
+   text, micro

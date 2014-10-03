@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>python get mac address | Xor3's World!</title>
+
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+                <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../rss.xml">
+                <link rel="alternate" type="application/rss+xml" title="RSS (zh_cn)" href="../../rss.xml">
+
+      <link rel="canonical" href="#">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]-->
+
+    
+
+
+    
+
+    <meta name="author" content="Xor3">
+        <link rel="prev" href="../.././en/posts/github-ssh-config.html" title="配置 github 的ssh" type="text/html">
+    
+    <meta name="og:title" content="python get mac address">
+    <meta name="og:url" content="/en/posts/python-get-mac-address-by-uuid.html">
+    <meta name="og:description" content="Table of Contents
+
+
+1. code
+2. doc 在线文档 uuid library
+
+
+
+
+
+
+1 code
+
+
+
+def get_mac_address():
+    import uuid
+    node = uuid.getnode()
+    mac = uuid.UUID(int = node).hex[-12:]
+    return mac
+
+
+
+
+
+
+2 d">
+    <meta name="og:site_name" content="Xor3's World!">
+    <meta name="og:type" content="article">
+
+    
+
+    
+                <link rel="alternate" hreflang="zh_cn" href="../../posts/python-get-mac-address-by-uuid.html">
+
+
+
+</head>
+<body>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F538e6e8c6738436ffa4aaba2c4afdda4' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../">
+
+                <span id="blog-title">Xor3's World!</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li>
+<a href="../../">Home</a>
+                </li>
+<li>
+<a href="../../archive.html">文章存档</a>
+                </li>
+<li>
+<a href="../../categories/index.html">标签</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+            </li>
+<li><a href="../../index.html" rel="alternate" hreflang="zh_cn">简体中文</a></li>
+
+                
+                    
+    <li>
+    <a href="../.././en/posts/python-get-mac-address-by-uuid.org" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="../.././en/posts/python-get-mac-address-by-uuid.html" class="u-url">python get mac address</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Xor3</span></p>
+            <p class="dateline"><a href="../.././en/posts/python-get-mac-address-by-uuid.html" rel="bookmark"><time class="published dt-published" datetime="2014-10-03T01:50:00+08:00" itemprop="datePublished" title="Publication date">2014-10-03 01:50</time></a></p>
+                <p class="commentline">
+        
+
+
+            
+        </p>
+<p class="sourceline"><a href="../.././en/posts/python-get-mac-address-by-uuid.org" id="sourcelink">Source</a></p>
+
+        </div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">Also available in:</h3>
+                <p><a href="../../posts/python-get-mac-address-by-uuid.html" rel="alternate" hreflang="zh_cn">简体中文</a></p>
+        </div>
+
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="../.././en/posts/python-get-mac-address-by-uuid.html#sec-1">1. code</a></li>
+<li><a href="../.././en/posts/python-get-mac-address-by-uuid.html#sec-2">2. doc 在线文档 uuid library</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">
+<span class="section-number-2">1</span> code</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">get_mac_address</span>():
+    <span style="font-weight: bold;">import</span> uuid
+    <span style="font-weight: bold; font-style: italic;">node</span> = uuid.getnode()
+    <span style="font-weight: bold; font-style: italic;">mac</span> = uuid.UUID(<span style="font-weight: bold;">int</span> = node).<span style="font-weight: bold;">hex</span>[-12:]
+    <span style="font-weight: bold;">return</span> mac
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">
+<span class="section-number-2">2</span> doc <a href="https://docs.python.org/2/library/uuid.html?highlight=uuid#module-uuid">在线文档 uuid library</a>
+</h2>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+        <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/python-uuid.html" rel="tag">python uuid</a></li>
+        </ul>
+
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../.././en/posts/github-ssh-config.html" rel="prev" title="配置 github 的ssh">Previous post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+        
+        
+
+
+        </section>
+    
+
+</article>
+
+        
+
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2014         <a href="mailto:xor3@outlook.com">Xor3</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/2.5/cn/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">Creative Commons Attribution-NonCommercial-ShareAlike 2.5 China Mainland License</a>.
+            
+        </footer>
+    </div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
+
+
+</body>
+</html>

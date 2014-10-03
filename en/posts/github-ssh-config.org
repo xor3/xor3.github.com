@@ -1,0 +1,17 @@
+#+BEGIN_COMMENT
+.. title: 配置 github 的ssh
+.. slug: github-ssh-config
+.. date: 2014-10-03 01:40:00 UTC+08:00
+.. tags: 
+.. link: 
+.. description: 
+#+END_COMMENT
+
+
+Write your post here.
+
+* 测试 ssh
+
+#+BEGIN_SRC sh
+ssh -T git@github.com
+#+END_SRC

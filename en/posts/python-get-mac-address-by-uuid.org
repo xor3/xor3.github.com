@@ -1,0 +1,22 @@
+#+BEGIN_COMMENT
+.. title: python get mac address
+.. slug: python-get-mac-address-by-uuid
+.. date: 2014-10-03 01:50:00 UTC+08:00
+.. tags: python uuid
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+
+* code
+#+BEGIN_SRC python
+  def get_mac_address():
+      import uuid
+      node = uuid.getnode()
+      mac = uuid.UUID(int = node).hex[-12:]
+      return mac
+
+#+END_SRC
+
+* doc [[https://docs.python.org/2/library/uuid.html?highlight%3Duuid#module-uuid][在线文档 uuid library]]

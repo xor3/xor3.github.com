@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="zh_cn">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Yasnippet | Xor3's World!</title>
+
+    
+            <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+                <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../en/rss.xml">
+                <link rel="alternate" type="application/rss+xml" title="RSS (zh_cn)" href="../rss.xml">
+
+      <link rel="canonical" href="#">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F538e6e8c6738436ffa4aaba2c4afdda4' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+
+    
+
+    <meta name="author" content="Xor3">
+        <link rel="next" href="github-ssh-config.html" title="配置 github 的ssh" type="text/html">
+    
+    <meta name="og:title" content="Yasnippet">
+    <meta name="og:url" content="/posts/yasnippet.html">
+    <meta name="og:description" content='Table of Contents
+
+
+1. Write Snippets  
+
+1.1. Snippet 的关键字
+1.2. 一般内容 (plain text)
+1.3. 在snippet 中使用 elisp "`…`" (embedded emacs-lisp code)
+1.4. 内容镜象 (mirrors)
+
+1.4.1. 定义
+1.4.2. Mirrors with transforma'>
+    <meta name="og:site_name" content="Xor3's World!">
+    <meta name="og:type" content="article">
+
+    
+
+    
+
+
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<div class="navbar navbar-fixed-top" id="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+
+            <a class="brand" href="../">
+
+                <span id="blog-title">Xor3's World!</span>
+            </a>
+            <!-- Everything you want hidden at 940px or less, place within here -->
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                <li>
+<a href="../">Home</a>
+                </li>
+<li>
+<a href="../archive.html">文章存档</a>
+                </li>
+<li>
+<a href="../categories/index.html">标签</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                    
+                </li>
+</ul>
+                <ul class="nav pull-right">
+                
+                    <li>
+            </li>
+<li><a href="../en/index.html" rel="alternate" hreflang="en">English</a></li>
+
+                
+                    <li>
+    </li>
+<li>
+    <a href="yasnippet.org" id="sourcelink">源代码</a>
+    </li>
+
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Menubar -->
+<div class="container-fluid" id="content">
+    <!--Body content-->
+    <div class="row-fluid">
+    <div class="span2"></div>
+    <div class="span8">
+    
+    
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Yasnippet</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Xor3</span></p>
+            <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2014-03-03T10:02:38+08:00" itemprop="datePublished" title="Publication date">2014-03-03 10:02</time></a></p>
+                <p class="commentline">
+        
+
+
+            
+        </p>
+<p class="sourceline"><a href="yasnippet.org" id="sourcelink">源代码</a></p>
+
+        </div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">其他语言版本：</h3>
+        </div>
+
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li>
+<a href="yasnippet.html#sec-1">1. Write Snippets  </a>
+<ul>
+<li><a href="yasnippet.html#sec-1-1">1.1. Snippet 的关键字</a></li>
+<li><a href="yasnippet.html#sec-1-2">1.2. 一般内容 (plain text)</a></li>
+<li><a href="yasnippet.html#sec-1-3">1.3. 在snippet 中使用 elisp "`…`" (embedded emacs-lisp code)</a></li>
+<li>
+<a href="yasnippet.html#sec-1-4">1.4. 内容镜象 (mirrors)</a>
+<ul>
+<li><a href="yasnippet.html#sec-1-4-1">1.4.1. 定义</a></li>
+<li><a href="yasnippet.html#sec-1-4-2">1.4.2. Mirrors with transformations</a></li>
+</ul>
+</li>
+<li><a href="yasnippet.html#sec-1-5">1.5. Fields with transformations</a></li>
+<li><a href="yasnippet.html#sec-1-6">1.6. 限定选择</a></li>
+<li><a href="yasnippet.html#sec-1-7">1.7. tricks</a></li>
+<li><a href="yasnippet.html#sec-1-8">1.8. 字段内嵌</a></li>
+<li><a href="yasnippet.html#sec-1-9">1.9. Customizable variables</a></li>
+<li><a href="yasnippet.html#sec-1-10">1.10. 常用于编写 snippet 的变量</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">
+<span class="section-number-2">1</span> Write Snippets  <sup><a id="fnr.1" name="fnr.1" class="footref" href="yasnippet.html#fn.1">1</a></sup>
+</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">
+<span class="section-number-3">1.1</span> Snippet 的关键字</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">
+<span class="section-number-3">1.2</span> 一般内容 (plain text)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+一般字符都可使用，其中 "\", "$", "`" 三个字符需要用 "\" 转义.
+</p>
+
+<!-- TEASER_END -->
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">
+<span class="section-number-3">1.3</span> 在snippet 中使用 elisp "`…`" (embedded emacs-lisp code)</h3>
+<div class="outline-text-3" id="text-1-3">
+<pre class="example">
+#ifndef ${1:_`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_H_}
+#define $1
+$0
+#endif /* $1 */
+
+for ($1;$2;$3) {
+  `yas/selected-text`$0
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">
+<span class="section-number-3">1.4</span> 内容镜象 (mirrors)</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-sec-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1">
+<span class="section-number-4">1.4.1</span> 定义</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+指某片段可以引用其他内容, 例如下例中end后的$1引用的是第一个中输入的内容
+</p>
+<pre class="example">
+\begin{${1:enumerate}}
+    $0
+\end{$1}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4-2" class="outline-4">
+<h4 id="sec-1-4-2">
+<span class="section-number-4">1.4.2</span> Mirrors with transformations</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<p>
+如下例中， 第二个$2 会将 ${2:foo} 的内容首字母大写
+</p>
+<pre class="example">
+- (${1:id})${2:foo}
+{
+    return $2;
+}
+
+- (void)set${2:$(capitalize text)}:($1)aValue
+{
+    [$2 autorelease];
+    $2 = [aValue retain];
+}
+$0
+</pre>
+
+<p>
+另一个例子
+输入tittle, 上下两行会自动输入同长的 "="串
+</p>
+<pre class="example">
+${1:$(make-string (string-width text) ?\=)}
+${1:Title}
+${1:$(make-string (string-width text) ?\=)}
+
+$0
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">
+<span class="section-number-3">1.5</span> Fields with transformations</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+上文中讲了 mirror 中的变形, 类似的在 field 中也可以变形
+如下例中自动大写mydefine
+</p>
+<pre class="example">
+#define "${1:mydefine$(upcase yas/text)}"
+#define "${1:$$(upcase yas/text)}" //不想加默认文字的话可用$占位
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">
+<span class="section-number-3">1.6</span> 限定选择</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+如下例所示，$2位置只能选三个中的一个
+</p>
+<pre class="example">
+&lt;div align="${2:$$(yas/choose-value '("right" "center" "left"))}"&gt;
+  $0
+&lt;/div&gt;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">
+<span class="section-number-3">1.7</span> tricks</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+下例中使用 yas/modified-p 根据不同的输入行为采取不同的动作
+</p>
+<pre class="example">
+\section{${1:"Titel der Tour"}}%
+\index{$1}%
+\label{{2:"waiting for reftex-label call..."$(unless yas/modified-p (reftex-label nil 'dont-
+insert))}}%
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">
+<span class="section-number-3">1.8</span> 字段内嵌</h3>
+<div class="outline-text-3" id="text-1-8">
+<pre class="example">
+&lt;div${1: id="${2:some_id}"}&gt;$0&lt;/div&gt;
+</pre>
+<p>
+对于内嵌字段，当需要某一字段时，C-d (yas/skip-and-clear-or-delete-char) 可消除该字段
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">
+<span class="section-number-3">1.9</span> Customizable variables</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li>yas/trigger-key "TAB"
+</li>
+<li>yas/next-field-key "TAB"
+</li>
+<li>yas/prev-field-key  ("&lt;backtab&gt;" "&lt;S-tab&gt;)".
+</li>
+<li>yas/skip-and-clear-key "C-d".
+</li>
+<li>yas/good-grace
+If non-nil, don't raise errors in inline Emacs-lisp evaluation inside snippet definitions. An error string "[yas] error" is returned instead.
+</li>
+<li>yas/indent-line
+</li>
+<li>yas/wrap-around-region
+</li>
+<li>yas/triggers-in-field
+</li>
+<li>yas/snippet-revival
+</li>
+<li>yas/after-exit-snippet-hook and yas/before-expand-snippet-hook
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">
+<span class="section-number-3">1.10</span> 常用于编写 snippet 的变量</h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li>yas-text
+</li>
+<li>yas-modified-p
+</li>
+<li>yas-selected-text
+</li>
+<li>yas-moving-away-p
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef">
+<sup><a id="fn.1" name="fn.1" class="footnum" href="yasnippet.html#fnr.1">1</a></sup> <p class="footpara">
+<a href="http://capitaomorte.github.io/yasnippet/snippet-development.html">http://capitaomorte.github.io/yasnippet/snippet-development.html</a>
+</p>
+</div>
+
+
+</div>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+        <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/emacs.html" rel="tag">emacs</a></li>
+           <li><a class="tag p-category" href="../categories/yasnippet.html" rel="tag">yasnippet</a></li>
+        </ul>
+
+    
+        <ul class="pager">
+            <li class="next">
+                <a href="github-ssh-config.html" rel="next" title="配置 github 的ssh">后一篇</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+        
+        
+
+
+        </section>
+    
+
+</article>
+
+        
+
+
+
+    </div>
+    </div>
+    <!--End of body content-->
+</div>
+<div class="footerbox">
+    Contents © 2014         <a href="mailto:xor3@outlook.com">Xor3</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/2.5/cn/88x31.png"></a><br>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议</a>进行许可。
+    
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-zh-CN.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
+
+
+</body>
+</html>

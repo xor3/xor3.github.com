@@ -5,31 +5,95 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>/categories/emacs.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/categories/guide.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/categories/how.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/categories/nikola.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/categories/notes.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>/categories/python-uuid.xml</loc>
   <lastmod>2014-10-03</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/categories/python.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/categories/uuid.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/categories/yasnippet.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/en/categories/emacs.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/en/categories/guide.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/en/categories/how.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/en/categories/nikola.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/en/categories/notes.xml</loc>
+  <lastmod>2014-10-04</lastmod>
  </sitemap>
  <sitemap>
   <loc>/en/categories/python-uuid.xml</loc>
   <lastmod>2014-10-03</lastmod>
  </sitemap>
  <sitemap>
+  <loc>/en/categories/python.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/en/categories/uuid.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>/en/categories/yasnippet.xml</loc>
+  <lastmod>2014-10-04</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>/en/galleries/rss.xml</loc>
-  <lastmod>2014-10-03</lastmod>
+  <lastmod>2014-10-04</lastmod>
  </sitemap>
  <sitemap>
   <loc>/en/rss.xml</loc>
-  <lastmod>2014-10-03</lastmod>
+  <lastmod>2014-10-04</lastmod>
  </sitemap>
  <sitemap>
   <loc>/galleries/rss.xml</loc>
-  <lastmod>2014-10-03</lastmod>
+  <lastmod>2014-10-04</lastmod>
  </sitemap>
  <sitemap>
   <loc>/rss.xml</loc>
-  <lastmod>2014-10-03</lastmod>
+  <lastmod>2014-10-04</lastmod>
  </sitemap>
  <sitemap>
   <loc>/sitemap.xml</loc>
-  <lastmod>2014-10-03</lastmod>
+  <lastmod>2014-10-04</lastmod>
  </sitemap>
 </sitemapindex>

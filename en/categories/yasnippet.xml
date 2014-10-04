@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Xor3's World! (yasnippet)</title><link>/</link><description></description><language>en</language><lastBuildDate>Sat, 04 Oct 2014 16:31:54 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Yasnippet</title><link>/en/posts/yasnippet.html</link><dc:creator>Xor3</dc:creator><description>&lt;div&gt;&lt;div id="table-of-contents"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1"&gt;1. Write Snippets  &lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-1"&gt;1.1. Snippet 的关键字&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-2"&gt;1.2. 一般内容 (plain text)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-3"&gt;1.3. 在snippet 中使用 elisp "`…`" (embedded emacs-lisp code)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-4"&gt;1.4. 内容镜象 (mirrors)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-4-1"&gt;1.4.1. 定义&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-4-2"&gt;1.4.2. Mirrors with transformations&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-5"&gt;1.5. Fields with transformations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-6"&gt;1.6. 限定选择&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-7"&gt;1.7. tricks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-8"&gt;1.8. 字段内嵌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-9"&gt;1.9. Customizable variables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/en/posts/yasnippet.html#sec-1-10"&gt;1.10. 常用于编写 snippet 的变量&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-sec-1" class="outline-2"&gt;
+&lt;h2 id="sec-1"&gt;&lt;span class="section-number-2"&gt;1&lt;/span&gt; Write Snippets  &lt;sup&gt;&lt;a id="fnr.1" name="fnr.1" class="footref" href="/en/posts/yasnippet.html#fn.1"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;&lt;div id="outline-container-sec-1-1" class="outline-3"&gt;
+&lt;h3 id="sec-1-1"&gt;&lt;span class="section-number-3"&gt;1.1&lt;/span&gt; Snippet 的关键字&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-sec-1-2" class="outline-3"&gt;
+&lt;h3 id="sec-1-2"&gt;&lt;span class="section-number-3"&gt;1.2&lt;/span&gt; 一般内容 (plain text)&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;p&gt;
+一般字符都可使用，其中 "\", "$", "`" 三个字符需要用 "\" 转义.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="/en/posts/yasnippet.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>/en/posts/yasnippet.html</guid><pubDate>Mon, 03 Mar 2014 02:02:38 GMT</pubDate></item></channel></rss>

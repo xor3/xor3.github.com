@@ -9,8 +9,7 @@
 .. type: text
 #+END_COMMENT
 #+OPTIONS: ^:nil
-* [[http://getnikola.com/handbook.html][DOC online]]
-* nikola 安装 
+* nikola 安装 [fn:1]
 #+BEGIN_SRC sh
   pip install nikola
 
@@ -61,3 +60,8 @@ nikola build
    不会显示，但会部署
 ** post type
    text, micro
+
+* Footnotes
+
+[fn:1] http://getnikola.com/handbook.html
+

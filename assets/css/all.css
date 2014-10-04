@@ -109,11 +109,13 @@ div.line-block div.line-block {
   margin-bottom: 0 ;
   margin-left: 1.5em }
 
+
 html[dir="rtl"] div.line-block div.line-block {
   margin-top: 0 ;
   margin-bottom: 0 ;
   margin-right: 1.5em  ;
-  margin-left: 0 }
+  margin-left: 0  ;
+}
 
 div.sidebar {
   margin: 0 0 0.5em 1em ;
@@ -317,6 +319,10 @@ h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
 ul.auto-toc {
   list-style-type: none }
 
+a.footnote-reference {
+     line-height: 0px;
+}
+
 /*
     Colorbox Core Style:
     The following CSS is consistent between example themes and should not be altered.
@@ -364,12 +370,16 @@ ul.auto-toc {
         #cboxClose:hover{background-position:bottom center;}
 
 body {
-    margin-top: 60px;
+  padding-top: 60px;
 }
-
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
 #container {
     width: 960px;
-    margin: 0 auto;
+    margin: 50 auto;
 }
 
 #contentcolumn {
@@ -388,11 +398,7 @@ img {
     margin-bottom: 12px;
 }
 
-.titlebox {
-    text-align: right;
-}
-
-#addthisbox {margin-bottom: 12px;}
+.footerbox {padding: 15px; text-align: center; margin-bottom: 15px;}
 
 td.label {
     /* Issue #290 */
@@ -404,7 +410,6 @@ td.label {
     vertical-align: super;
     font-size: xx-small;
 }
-
 
 .caption {
     /* Issue 292 */
@@ -442,8 +447,8 @@ ul.bricks > li {
     margin: 3px;
 }
 
-.at300b, .stMainServices, .stButton, .stButton_gradient {
-    box-sizing: content-box;
+ul.breadcrumb > li:before {
+    content: " / ";
 }
 
 pre, pre code {
@@ -530,19 +535,32 @@ h4, h5, h6 {
     margin-top: 1em;
 }
 
-.navbar-brand {
-    padding: 0 15px;
+.navbar .brand {
+    padding: 0 20px;
 }
 
-.navbar-brand #blog-title {
-    padding: 15px 0;
+.navbar .brand #blog-title {
+    padding: 10px 0;
     display: inline-block;
 }
 
-.navbar-brand #logo {
-    max-width: 100%;
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
-.row {
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
     margin: 0;
+    overflow: visible;
+    clip: auto;
 }

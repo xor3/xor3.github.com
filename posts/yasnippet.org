@@ -1,0 +1,129 @@
+#+BEGIN_COMMENT
+.. title: Yasnippet
+.. slug: yasnippet
+.. date: 2014-3-03 10:02:38 +0800
+.. tags: emacs, yasnippet
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+#+TITLE: Writing Snippets
+#+AUTHOR: xor3
+#+HTML_HEAD:   <link href="org-manual.css" rel="stylesheet" type="text/css">
+#+OPTIONS: ^:nil
+* Write Snippets  [fn:ref]
+** Snippet 的关键字
+# key: snippet abbrev
+# name: snippet name
+# condition: snippet condition
+# expand-env: expand environment
+# binding: direct keybinding
+
+** 一般内容 (plain text)
+一般字符都可使用，其中 "\", "$", "`" 三个字符需要用 "\" 转义.
+
+#+HTML: <!-- TEASER_END -->
+
+** 在snippet 中使用 elisp "`...`" (embedded emacs-lisp code)
+#+begin_example
+#ifndef ${1:_`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_H_}
+#define $1
+$0
+#endif /* $1 */
+
+for ($1;$2;$3) {
+  `yas/selected-text`$0
+}
+#+end_example
+** 内容镜象 (mirrors)
+*** 定义
+指某片段可以引用其他内容, 例如下例中end后的$1引用的是第一个中输入的内容
+#+begin_example
+\begin{${1:enumerate}}
+    $0
+\end{$1}
+#+end_example
+
+*** Mirrors with transformations
+如下例中， 第二个$2 会将 ${2:foo} 的内容首字母大写
+#+begin_example
+- (${1:id})${2:foo}
+{
+    return $2;
+}
+
+- (void)set${2:$(capitalize text)}:($1)aValue
+{
+    [$2 autorelease];
+    $2 = [aValue retain];
+}
+$0
+#+end_example
+
+另一个例子
+输入tittle, 上下两行会自动输入同长的 "="串
+#+begin_example
+${1:$(make-string (string-width text) ?\=)}
+${1:Title}
+${1:$(make-string (string-width text) ?\=)}
+
+$0
+#+end_example
+
+** Fields with transformations
+上文中讲了 mirror 中的变形, 类似的在 field 中也可以变形
+如下例中自动大写mydefine
+#+begin_example
+#define "${1:mydefine$(upcase yas/text)}"
+#define "${1:$$(upcase yas/text)}" //不想加默认文字的话可用$占位
+#+end_example
+
+** 限定选择
+如下例所示，$2位置只能选三个中的一个
+#+begin_example
+<div align="${2:$$(yas/choose-value '("right" "center" "left"))}">
+  $0
+</div>
+#+end_example
+
+** tricks
+下例中使用 yas/modified-p 根据不同的输入行为采取不同的动作
+#+begin_example
+\section{${1:"Titel der Tour"}}%
+\index{$1}%
+\label{{2:"waiting for reftex-label call..."$(unless yas/modified-p (reftex-label nil 'dont-
+insert))}}%
+#+end_example
+
+** 字段内嵌
+#+begin_example
+<div${1: id="${2:some_id}"}>$0</div>
+#+end_example
+对于内嵌字段，当需要某一字段时，C-d (yas/skip-and-clear-or-delete-char) 可消除该字段
+
+** Customizable variables
++ yas/trigger-key "TAB"
++ yas/next-field-key "TAB"
++ yas/prev-field-key  ("<backtab>" "<S-tab>)".
++ yas/skip-and-clear-key "C-d".
++ yas/good-grace
+ If non-nil, don't raise errors in inline Emacs-lisp evaluation inside snippet definitions. An error string "[yas] error" is returned instead.
++ yas/indent-line
++ yas/wrap-around-region
++ yas/triggers-in-field
++ yas/snippet-revival
++ yas/after-exit-snippet-hook and yas/before-expand-snippet-hook
+
+** 常用于编写 snippet 的变量
++ yas-text
++ yas-modified-p
++ yas-selected-text
++ yas-moving-away-p
+
+
+* Footnotes
+
+[fn:ref] http://capitaomorte.github.io/yasnippet/snippet-development.html
+
+

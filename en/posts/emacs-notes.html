@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Emacs 笔记 | Xor3's World!</title>
+
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+                <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../rss.xml">
+                <link rel="alternate" type="application/rss+xml" title="RSS (zh_cn)" href="../../rss.xml">
+
+      <link rel="canonical" href="#">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]-->
+
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F538e6e8c6738436ffa4aaba2c4afdda4' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+
+    
+
+    <meta name="author" content="Xor3">
+        <link rel="prev" href="../.././en/posts/eshell.html" title="eshell" type="text/html">
+    
+    <meta name="og:title" content="Emacs 笔记">
+    <meta name="og:url" content="/en/posts/emacs-notes.html">
+    <meta name="og:description" content="Table of Contents
+
+
+1. Display
+
+1.1. Horizontal Scrolling
+1.2. Follow Mode
+1.3. Faces
+1.4. Standard Faces
+
+
+2. Hyperlinking
+
+2.1. Browse-URL
+2.2. Goto Address mode
+2.3. FFAP  :: Finding files etc. at ">
+    <meta name="og:site_name" content="Xor3's World!">
+    <meta name="og:type" content="article">
+
+    
+
+    
+                <link rel="alternate" hreflang="zh_cn" href="../../posts/emacs-notes.html">
+
+
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<div class="navbar navbar-fixed-top" id="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+
+            <a class="brand" href="../../">
+
+                <span id="blog-title">Xor3's World!</span>
+            </a>
+            <!-- Everything you want hidden at 940px or less, place within here -->
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                <li>
+<a href="../../">Home</a>
+                </li>
+<li>
+<a href="../../archive.html">文章存档</a>
+                </li>
+<li>
+<a href="../../categories/index.html">标签</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                    
+                </li>
+</ul>
+                <ul class="nav pull-right">
+                
+                    <li>
+            </li>
+<li><a href="../../index.html" rel="alternate" hreflang="zh_cn">简体中文</a></li>
+
+                
+                    <li>
+    </li>
+<li>
+    <a href="../.././en/posts/emacs-notes.org" id="sourcelink">Source</a>
+    </li>
+
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Menubar -->
+<div class="container-fluid" id="content">
+    <!--Body content-->
+    <div class="row-fluid">
+    <div class="span2"></div>
+    <div class="span8">
+    
+    
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="../.././en/posts/emacs-notes.html" class="u-url">Emacs 笔记</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Xor3</span></p>
+            <p class="dateline"><a href="../.././en/posts/emacs-notes.html" rel="bookmark"><time class="published dt-published" datetime="2014-10-05T00:38:01+08:00" itemprop="datePublished" title="Publication date">2014-10-05 00:38</time></a></p>
+                <p class="commentline">
+        
+
+
+            
+        </p>
+<p class="sourceline"><a href="../.././en/posts/emacs-notes.org" id="sourcelink">Source</a></p>
+
+        </div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">Also available in:</h3>
+                <p><a href="../../posts/emacs-notes.html" rel="alternate" hreflang="zh_cn">简体中文</a></p>
+        </div>
+
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-1">1. Display</a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-1-1">1.1. Horizontal Scrolling</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-1-2">1.2. Follow Mode</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-1-3">1.3. Faces</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-1-4">1.4. Standard Faces</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-2">2. Hyperlinking</a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-2-1">2.1. Browse-URL</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-2-2">2.2. Goto Address mode</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-2-3">2.3. FFAP  :: Finding files etc. at point</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-3">3. Customization</a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-1">3.1. Minor Modes</a></li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-3-2">3.2. Easy Customization Interface</a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-2-1">3.2.1. Changing a Variable</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-2-2">3.2.2. Face Customization</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-2-3">3.2.3. Specific Customization</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-2-4">3.2.4. Custom Themes</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-3-3">3.3. Variables</a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-3-1">3.3.1. Examing and Setting variables</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-3-2">3.3.2. Hooks</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-3-3">3.3.3. Local Variables</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-3-4">3.3.4. File Variables</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-3-5">3.3.5. Directory Variables</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-3-4">3.4. Key Bindings</a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-1">3.4.1. Events</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-2">3.4.2. Keymaps</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-3">3.4.3. `(elisp) Format of Keymaps'</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-4">3.4.4. create Keymaps</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-5">3.4.5. Prefix Keymaps</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-6">3.4.6. active keymaps</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-7">3.4.7. search keymaps</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-8">3.4.8. Local Keymaps</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-9">3.4.9. Minibuffer Keymaps</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-10">3.4.10. Rebinding</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-11">3.4.11. Init Rebinding</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-12">3.4.12. Modifier keys</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-13">3.4.13. Rebinding Function Keys</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-14">3.4.14. Named ASCII Control Characters</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-15">3.4.15. Rebinding Mouse Buttons</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-4-16">3.4.16. Disabling Commands</a></li>
+</ul>
+</li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-5">3.5. Syntax</a></li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-3-6">3.6. Init File</a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-6-1">3.6.1. Init Syntax</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-6-2">3.6.2. Init Examle</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-6-3">3.6.3. Terminal Init</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-6-4">3.6.4. Find init</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-3-6-5">3.6.5. Init Non-ASCII</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-4">4. Emacs 中的查找<span class="timestamp-wrapper"><span class="timestamp">&lt;2013-08-31 Sat 22:55&gt;</span></span></a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-4-1">4.1. 最基本的东西</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-4-2">4.2. 用 Nonincremental Search 查找</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-4-3">4.3. 在多个文件中查找</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-4-4">4.4. 替换</a></li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-4-5">4.5. Emacs 的其他编辑技巧</a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-4-5-1">4.5.1. 数字增减和循环改变文字</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-4-5-2">4.5.2. 智能标记</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-4-5-3">4.5.3. align-regexp</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-4-5-4">4.5.4. <b>C-w</b> 的绑定</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-5">5. MISC</a>
+<ul>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-5-1">5.1. Major Modes</a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-5-1-1">5.1.1. 有三种类型 text-mode, prog-mode, special-mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-6">6. 显示图像</a></li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-7">7. Emacs</a>
+<ul>
+<li><a href="../.././en/posts/emacs-notes.html#sec-7-1">7.1. smartparens</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-7-2">7.2. misc</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-7-3">7.3. face</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-7-4">7.4. key bindings</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-7-5">7.5. process</a></li>
+<li><a href="../.././en/posts/emacs-notes.html#sec-7-6">7.6. refs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- TEASER_END -->
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">
+<span class="section-number-2">1</span> Display</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">
+<span class="section-number-3">1.1</span> Horizontal Scrolling</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+`auto-hscroll-mode' `hscroll-margin' `hscroll-step'
+</p>
+<ul class="org-ul">
+<li>`C-x &lt;' `scroll-letf'
+</li>
+<li>`C-x &gt;' `scroll-right'
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">
+<span class="section-number-3">1.2</span> Follow Mode</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>`M-x follow-mode'
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">
+<span class="section-number-3">1.3</span> Faces</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>
+<i>Font Lock</i>
+</li>
+<li>`ps-print-buffer-with-faces' <i>PostScript</i>
+</li>
+<li>
+<i>Format Faces</i>
+</li>
+<li>
+<a href="../.././en/posts/emacs-notes.html#sec-3-2-2">3.2.2</a>
+</li>
+<li>
+<i>X Resources</i>
+</li>
+<li>
+<i>Frame Parameters</i>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">
+<span class="section-number-3">1.4</span> Standard Faces</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+`M-x list-faces-display' :: see what faces are currently defind and what they look like
+</p>
+<ul class="org-ul">
+<li>standard faces for specifying text appearance
+</li>
+</ul>
+<p>
+`default' `bold' `italic' `bold-italic' `underline' `fixed-pitch' `variable-pitch' `shadow'
+</p>
+<ul class="org-ul">
+<li>faces used to highlight
+</li>
+</ul>
+<p>
+`highlight' `isearch'<i>Incremental Search</i> `query-replace'<i>Replace</i> `lazy-highlight' `region' `secondary-selection'<i>Secondary Selection</i> `trailing-whitespace'<i>useless Whitespace</i> `nobreak-space' `escapse-glyph'
+</p>
+<ul class="org-ul">
+<li>faces used to control the appearance of parts of the Emacs frame
+</li>
+</ul>
+<p>
+`mode-line' `mode-line-inactive' `mode-line-highlight' `header-line' `vertical-border' `minibuffer-prompt' `fringe'<i>Fringes</i> `scroll-bar'<i>Scroll Bars</i> `border' `cursor' `mouse' `tool-bar'<i>Tool Bars</i> `tooltip'<i>Tooltips</i> `menu'
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">
+<span class="section-number-2">2</span> Hyperlinking</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">
+<span class="section-number-3">2.1</span> Browse-URL</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>`M-x browse-url &lt;RET&gt; URL &lt;RET&gt;'
+</li>
+<li>`M-x browse-url-at-point'
+</li>
+<li>`M-x browse-url-at-mouse'
+</li>
+<li>`C-h p'
+</li>
+<li>`browse-url-browser-function'
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">
+<span class="section-number-3">2.2</span> Goto Address mode</h3>
+<div class="outline-text-3" id="text-2-2">
+<dl class="org-dl">
+<dt> `M-x goto-address-mode' </dt>
+<dd>将buffer中的urls显示为按钮
+</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">
+<span class="section-number-3">2.3</span> FFAP  :: Finding files etc. at point</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+FFAP mode replaces certain key bindings for finding files, including `C-x C-f', with commands that provide more sensitive defaults.
+`ffap-bindings' 可启动FFAP minor mode
+</p>
+<ul class="org-ul">
+<li>`C-x C-f FILENAME &lt;RET&gt;' `find-file-at-point'
+</li>
+<li>`C-x C-f' `ffap-read-only', analogous to `find-read-only'
+</li>
+<li>`C-x C-v' ffap-alternate-file', analogous to `find-alternate-file'
+</li>
+<li>`C-x d DIRECTORY &lt;RET&gt;' `dired-at-point'
+</li>
+<li>`C-x C-d' `ffap-list-directory'
+</li>
+<li>`C-x 4 f' `ffap-other-window'
+</li>
+<li>`C-x 4 r' `ffap-read-only-other-window'
+</li>
+<li>`C-x 4 d' `ffap-dired-other-window'
+</li>
+<li>`C-x 5 f' `ffap-other-frame'
+</li>
+<li>`C-x 5 d' `ffap-dired-other-window'
+</li>
+<li>`S-Mouse-3' `ffap-at-mouse'
+</li>
+<li>`C-S-Mouse-3' `ffap-menu'
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">
+<span class="section-number-2">3</span> Customization</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">
+<span class="section-number-3">3.1</span> Minor Modes</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>每个 minor mode 有一个 mode command 启动或关闭该模式。<sub>mode</sub> command_ 由模式名加 -mode 组成。 mode command 前加正参数总是开启，复参数关闭模式
+</li>
+<li>每个 minor mode 有一个 mode variable ,与 mode command 名字一样，启动时为 non `nil', 未启动时为 `nil', mode command 即通过设置 mode variable  来决定模式是否开启
+</li>
+<li>建议用 mode command 而不是 mode variable  来更改模式
+</li>
+<li>buffer-local minor modes:
+<ul class="org-ul">
+<li>Abbrev mode
+</li>
+<li>Auto Fill mode
+</li>
+<li>Auto Save mode
+</li>
+<li>Enriched mode
+</li>
+<li>Flyspell mode 
+</li>
+<li>Font-Lock mode
+</li>
+<li>Linum mode 
+</li>
+<li>Outline minor mode
+</li>
+<li>Overwrite mode 
+</li>
+<li>Binary Overwrite mode
+</li>
+<li>Visual Line mode
+</li>
+</ul>
+</li>
+<li>global minor modes
+<ul class="org-ul">
+<li>Transient Mark mode
+</li>
+<li>Line Number mode
+</li>
+<li>Column Number mode
+</li>
+<li>Delete Selection mode
+</li>
+<li>Icomplete mode 
+</li>
+<li>Menu Bar mode
+</li>
+<li>Scroll Bar mode 
+</li>
+<li>Tool Bar mode
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">
+<span class="section-number-3">3.2</span> Easy Customization Interface</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+`M-x customize' -&gt; "customization buffer "
+</p>
+</div>
+<div id="outline-container-sec-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1">
+<span class="section-number-4">3.2.1</span> Changing a Variable</h4>
+</div>
+<div id="outline-container-sec-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2">
+<span class="section-number-4">3.2.2</span> Face Customization</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+`M-x list-colors-display' 显示颜色列表 #RRGGBB
+`M-x modify-face'
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3">
+<span class="section-number-4">3.2.3</span> Specific Customization</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<ul class="org-ul">
+<li>`M-x customize-option &lt;RET&gt; OPTION &lt;RET&gt;'
+</li>
+<li>`M-x customize-face &lt;RET&gt; FACE &lt;RET&gt;'
+</li>
+<li>`M-x customize-group &lt;RET&gt; GROUP &lt;RET&gt;'
+</li>
+<li>`M-x customize-aproos &lt;RET&gt; REGEXP &lt;RET&gt;'
+</li>
+<li>`M-x customize-changed &lt;RET&gt; VERSION &lt;RET&gt;'
+</li>
+<li>`M-x customize-saved'
+</li>
+<li>`M-x customize-unsaved'
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-2-4" class="outline-4">
+<h4 id="sec-3-2-4">
+<span class="section-number-4">3.2.4</span> Custom Themes</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<ul class="org-ul">
+<li>`M-x customize-create-theme'
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3">
+<span class="section-number-3">3.3</span> Variables</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+`C-h v' (`describe-variable')
+</p>
+</div>
+<div id="outline-container-sec-3-3-1" class="outline-4">
+<h4 id="sec-3-3-1">
+<span class="section-number-4">3.3.1</span> Examing and Setting variables</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<ul class="org-ul">
+<li>`C-h v VAR &lt;RET&gt;' (`describe-variable')
+</li>
+<li>`M-x set-variable &lt;RET&gt; VAR &lt;RET&gt; VALUE &lt;RET&gt;'
+</li>
+<li>(setq fill-column 75)
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-3-2" class="outline-4">
+<h4 id="sec-3-3-2">
+<span class="section-number-4">3.3.2</span> Hooks</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<ol class="org-ol">
+<li>hook 是一个钩子函数列表
+</li>
+<li>normal hook 以 `-hook'结尾
+</li>
+<li>abnormal hook 以 `-hooks' or `-functions' 结尾
+</li>
+<li>添加hook (add-hook 'text-mode-hook 'turn-on-auto-fill)
+</li>
+<li>另一个例子
+</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq my-c-style
+  '((c-comment-only-line-offset . 4)
+    (c-cleanup-list . (scope-operator
+                       empty-defun-braces
+                       defun-close-semi))
+    (c-offsets-alist . ((arglist-close . c-lineup-arglist)
+                        (substatement-open . 0)))))
+
+(add-hook 'c-mode-common-hook
+  '(<span class="org-keyword">lambda</span> ()
+     (c-add-style <span class="org-string">"my-style"</span> my-c-style t)))
+</pre>
+</div>
+<ol class="org-ol">
+<li>一个钩子函数可能有不同的版本， `remove-hook' or `(setq HOOK-VARIABLE nil)' 能删除hook函数
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3-3-3" class="outline-4">
+<h4 id="sec-3-3-3">
+<span class="section-number-4">3.3.3</span> Local Variables</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<ul class="org-ul">
+<li>`M-x make-local-variable &lt;RET&gt; VAR &lt;RET&gt;'
+</li>
+<li>`M-x kill-local-variable &lt;RET&gt; VAR &lt;RET&gt;'
+</li>
+<li>`M-x make-variable-buffer-local &lt;RET&gt; VAR &lt;RET&gt;'
+</li>
+<li>(set-default fill-column 75) 将一个buffer-local变量设定全局值
+</li>
+<li>(default-value 'fill-column) 获得fill-column的默认值
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-3-4" class="outline-4">
+<h4 id="sec-3-3-4">
+<span class="section-number-4">3.3.4</span> File Variables</h4>
+<div class="outline-text-4" id="text-3-3-4">
+</div>
+<ol class="org-ol">
+<li>Specifying File variables<br><div class="outline-text-5" id="text-3-3-4-1">
+<ul class="org-ul">
+<li>在文件第一行 -*- mode: MODENAME; VAR: VALUE; … -*-
+</li>
+</ul>
+<pre class="example">
+;; -*- mode: lisp; fill-column: 75; comment-column: 50; -*-
+</pre>
+<ul class="org-ul">
+<li>`add-file-local-variable-prop-line'
+`delete-file-local-variable-prop-line'
+`copy-dir-locals-to-file-locals-prop-line'
+</li>
+<li>在文件最后添加"local variables list"
+</li>
+</ul>
+<pre class="example">
+/* Local Variables: */
+/* mode:c           */
+/* comment-column:0 */
+/* End:             */
+</pre>
+<ul class="org-ul">
+<li>`add-file-local-variable'
+`delete-file-local-variable'
+`copy-dir-locals-to-file-locals'
+</li>
+<li>几个特殊的变量
+<ul class="org-ul">
+<li>`mode' 启动某个模式
+</li>
+<li>`eval' 对某些表达式求值
+</li>
+<li>`coding' 
+</li>
+<li>`unibyte' 如果该值为 t ,则以二进制方式访问该文件
+</li>
+</ul>
+<p>
+:: 实际这四个变量不是真的变量，在其他环境中设置它们无任何意义
+`normal-mode'可以根据当前文件的名字和内容更改mode变量
+</p>
+</li>
+</ul>
+</div>
+</li>
+<li>Safe File Variables<br>
+</li>
+</ol>
+</div>
+<div id="outline-container-sec-3-3-5" class="outline-4">
+<h4 id="sec-3-3-5">
+<span class="section-number-4">3.3.5</span> Directory Variables</h4>
+<div class="outline-text-4" id="text-3-3-5">
+<ul class="org-ul">
+<li>`.dir-locals.el' file.
+</li>
+<li>`add-dir-local-variable'
+</li>
+<li>`delete-dir-local-variable'
+</li>
+<li>`copy-file-locals-to-dir-locals'
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4">
+<span class="section-number-3">3.4</span> Key Bindings</h3>
+<div class="outline-text-3" id="text-3-4">
+</div>
+<div id="outline-container-sec-3-4-1" class="outline-4">
+<h4 id="sec-3-4-1">
+<span class="section-number-4">3.4.1</span> Events</h4>
+<div class="outline-text-4" id="text-3-4-1">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">    this-command-keys
+    this-command-keys-vector
+read-key-sequence
+read-key-sequence-vector
+listify-key-sequence
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-2" class="outline-4">
+<h4 id="sec-3-4-2">
+<span class="section-number-4">3.4.2</span> Keymaps</h4>
+<div class="outline-text-4" id="text-3-4-2">
+<ul class="org-ul">
+<li>keymap, global keymap
+</li>
+<li>`self-insert-command'
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-4-3" class="outline-4">
+<h4 id="sec-3-4-3">
+<span class="section-number-4">3.4.3</span> `(elisp) Format of Keymaps'</h4>
+<div class="outline-text-4" id="text-3-4-3">
+<p>
+:: what a keymap looks like.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-4-4" class="outline-4">
+<h4 id="sec-3-4-4">
+<span class="section-number-4">3.4.4</span> create Keymaps</h4>
+<div class="outline-text-4" id="text-3-4-4">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(make-sparse-keymap <span class="org-type">&amp;optional</span> promt)
+(make-keymap <span class="org-type">&amp;optional</span> promt) <span class="org-comment-delimiter">;; </span><span class="org-comment">with char-table all binds to nil</span>
+(copy-keymap keymap)
+(keymap-parent keymap)
+(set-keymap-parent keymap)
+(make-composed-keymap maps <span class="org-type">&amp;optional</span> parent)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-5" class="outline-4">
+<h4 id="sec-3-4-5">
+<span class="section-number-4">3.4.5</span> Prefix Keymaps</h4>
+<div class="outline-text-4" id="text-3-4-5">
+<p>
+the binding of `C-x' is the symbol `Control-X-preifx'
+</p>
+<ul class="org-ul">
+<li>`ctl-x-map' `C-x'
+</li>
+<li>`help-map' `C-h'
+</li>
+<li>`esc-map' `&lt;ESC&gt;'
+</li>
+<li>`ctl-x-4-map' `C-x 4'
+</li>
+<li>`mode-specific-map' `C-c'
+</li>
+</ul>
+<p>
+`define-prefix-command'
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-4-6" class="outline-4">
+<h4 id="sec-3-4-6">
+<span class="section-number-4">3.4.6</span> active keymaps</h4>
+<div class="outline-text-4" id="text-3-4-6">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">set-temporary-overlay-map
+overriding-terminal-local-map
+overriding-local-map
+(current-active-maps <span class="org-type">&amp;optional</span> olp position)
+(key-binding key <span class="org-type">&amp;optional</span> accept-defaults no-remap position)
+<span class="org-comment-delimiter">;; </span><span class="org-comment">`(elisp) Controlling Active Maps'</span>
+(current-global-map)
+(current-local-map)
+(current-minor-mode-maps)
+(use-global-map keymap)
+(use-local-map keymap)
+global-map
+minor-mode-map-alist
+minor-mode-overriding-map-alist
+
+<span class="org-comment-delimiter">;; </span><span class="org-comment">TODO</span>
+special-event-map
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3-4-7" class="outline-4">
+<h4 id="sec-3-4-7">
+<span class="section-number-4">3.4.7</span> search keymaps</h4>
+<div class="outline-text-4" id="text-3-4-7">
+<p>
+伪码
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(or (<span class="org-keyword">cond</span>
+     (overriding-terminal-local-map
+      (FIND-IN overriding-terminal-local-map))
+     (overriding-local-map
+      (FIND-IN overriding-local-map))
+     ((or (FIND-IN (get-char-property (point) 'keymap))
+          (FIND-IN TEMP-MAP)
+          (FIND-IN-ANY emulation-mode-map-alists)
+          (FIND-IN-ANY minor-mode-overriding-map-alist)
+          (FIND-IN-ANY minor-mode-map-alist)
+          (<span class="org-keyword">if</span> (get-text-property (point) 'local-map)
+              (FIND-IN (get-char-property (point) 'local-map))
+            (FIND-IN (current-local-map))))))
+    (FIND-IN (current-global-map)))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-8" class="outline-4">
+<h4 id="sec-3-4-8">
+<span class="section-number-4">3.4.8</span> Local Keymaps</h4>
+</div>
+<div id="outline-container-sec-3-4-9" class="outline-4">
+<h4 id="sec-3-4-9">
+<span class="section-number-4">3.4.9</span> Minibuffer Keymaps</h4>
+<div class="outline-text-4" id="text-3-4-9">
+<ul class="org-ul">
+<li>`minibuffer-local-map':: for ordinary input (no completion)
+</li>
+<li id="`minibuffer-local-ns-map'">similar,except that &lt;SPC&gt; exits like &lt;RET&gt;
+</li>
+<li id="`minibuffer-local-completion-map'">for permissive completion
+</li>
+<li id="`minibuffer-local-must-match-map'">for strict completion and for cautious completion
+</li>
+<li>`minibuffer-local-filename-completion-map'
+</li>
+<li>`minibuffer-local-must-match-filename-map'
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-4-10" class="outline-4">
+<h4 id="sec-3-4-10">
+<span class="section-number-4">3.4.10</span> Rebinding</h4>
+<div class="outline-text-4" id="text-3-4-10">
+<ul class="org-ul">
+<li>`M-x global-set-key &lt;RET&gt; KEY CMD &lt;RET&gt;'
+</li>
+<li>`M-x local-set-key &lt;RET&gt; KEY CMD &lt;RET&gt;'
+</li>
+<li>`M-x global-unset-key &lt;RET&gt; KEY CMD &lt;RET&gt;'
+</li>
+<li>`M-x local-unset-key &lt;RET&gt; KEY CMD &lt;RET&gt;'
+</li>
+<li>substitute-key-definition
+</li>
+<li>suppress-keymap 
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-11" class="outline-4">
+<h4 id="sec-3-4-11">
+<span class="section-number-4">3.4.11</span> Init Rebinding</h4>
+<div class="outline-text-4" id="text-3-4-11">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">the use of `</span><span class="org-comment"><span class="org-constant">kbd</span></span><span class="org-comment">' macro</span>
+(global-set-key (kbd <span class="org-string">"C-z"</span>) 'shell)
+(global-set-key (kbd <span class="org-string">"C-c y"</span>) 'clipboard-yank)
+(global-set-key (kbd <span class="org-string">"C-M-q"</span>) 'query-replace)
+(global-set-key (kbd <span class="org-string">"C-&lt;f5&gt;"</span>) 'linum-mode)
+(global-set-key (kbd <span class="org-string">"C-&lt;right&gt;"</span>) 'forward-sentence)
+(global-set-key (kbd <span class="org-string">"&lt;mouse-2&gt;"</span>) 'mouse-save-then-kill)
+(global-set-key (kbd <span class="org-string">"C-&lt;down-mouse-3&gt;"</span>) 'mouse-yank-at-click)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">use lisp string or vector to secify the key sequence</span>
+(global-set-key <span class="org-string">"\C-x\M-l"</span> 'make-symbolic-link)
+(global-set-key <span class="org-string">"\C-x\t"</span> 'indent-rigidly)
+(global-set-key [?\C-=] 'make-symbolic-link)
+(global-set-key [?\M-\C-=] 'make-symbolic-link)
+(global-set-key [?\H-a] 'make-symbolic-link)
+(global-set-key [f7] 'make-symbolic-link)
+(global-set-key [C-mouse-1] 'make-symbolic-link)
+(global-set-key [?\C-z ?\M-l] 'make-symbolic-link)
+
+(add-hook 'texinfo-mode-hook
+               '(<span class="org-keyword">lambda</span> ()
+                  (define-key texinfo-mode-map <span class="org-string">"\C-cp"</span> 'backward-paragraph)
+                  (define-key texinfo-mode-map <span class="org-string">"\C-cn"</span> 'forward-paragraph)))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-12" class="outline-4">
+<h4 id="sec-3-4-12">
+<span class="section-number-4">3.4.12</span> Modifier keys</h4>
+</div>
+<div id="outline-container-sec-3-4-13" class="outline-4">
+<h4 id="sec-3-4-13">
+<span class="section-number-4">3.4.13</span> Rebinding Function Keys</h4>
+<div class="outline-text-4" id="text-3-4-13">
+<p>
+功能键拥有自己的lisp name 详见手册
+举例：`left', `right', `up', `down', `f1', `home', `kp-add', `kp-0' 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-14" class="outline-4">
+<h4 id="sec-3-4-14">
+<span class="section-number-4">3.4.14</span> Named ASCII Control Characters</h4>
+<div class="outline-text-4" id="text-3-4-14">
+<p>
+&lt;TAB&gt;与 `C-i'
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-4-15" class="outline-4">
+<h4 id="sec-3-4-15">
+<span class="section-number-4">3.4.15</span> Rebinding Mouse Buttons</h4>
+</div>
+<div id="outline-container-sec-3-4-16" class="outline-4">
+<h4 id="sec-3-4-16">
+<span class="section-number-4">3.4.16</span> Disabling Commands</h4>
+<div class="outline-text-4" id="text-3-4-16">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(put 'delete-region 'disabled t)
+(put 'delete-region 'disabled
+         <span class="org-string">"it's better to use `</span><span class="org-string"><span class="org-constant">kill-region</span></span><span class="org-string">' instead.'n"</span>)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">`M-x enable-command'</span>
+<span class="org-comment-delimiter">;;</span><span class="org-comment">`M-x disable-command'</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3-5" class="outline-3">
+<h3 id="sec-3-5">
+<span class="section-number-3">3.5</span> Syntax</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Syntax table
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-6" class="outline-3">
+<h3 id="sec-3-6">
+<span class="section-number-3">3.6</span> Init File</h3>
+<div class="outline-text-3" id="text-3-6">
+</div>
+<div id="outline-container-sec-3-6-1" class="outline-4">
+<h4 id="sec-3-6-1">
+<span class="section-number-4">3.6.1</span> Init Syntax</h4>
+<div class="outline-text-4" id="text-3-6-1">
+<ul class="org-ul">
+<li>`setq'
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-6-2" class="outline-4">
+<h4 id="sec-3-6-2">
+<span class="section-number-4">3.6.2</span> Init Examle</h4>
+<div class="outline-text-4" id="text-3-6-2">
+<div class="org-src-container">
+
+<pre class="src src-lisp"><span class="linenr"> 1: </span>(add-to-list 'load-path <span class="org-string">"/path/to/lisp/libraries"</span>)
+<span class="linenr"> 2: </span>(setq c-tab-always-indent nil)
+<span class="linenr"> 3: </span>(setq-default case-fold-search nil)
+<span class="linenr"> 4: </span>(setq user-mail-address <span class="org-string">"eude.xj@gmail.com"</span>)
+<span class="linenr"> 5: </span>(set-default major-mode 'text-mode)
+<span class="linenr"> 6: </span>(set-language-environment <span class="org-string">"Latin-1"</span>)
+<span class="linenr"> 7: </span>(line-number-mode 0)
+<span class="linenr"> 8: </span>(add-hook 'text-mode-hook 
+<span class="linenr"> 9: </span>  '(<span class="org-keyword">lambda</span> () (auto-fill-mode 1)))
+<span class="linenr">10: </span>(add-hook 'text-mode-hook 'turn-on-auto-fill)
+<span class="linenr">11: </span><span class="org-comment-delimiter">;; </span><span class="org-comment">`</span><span class="org-comment"><span class="org-constant">foo.elc</span></span><span class="org-comment">' or `</span><span class="org-comment"><span class="org-constant">foo.el</span></span><span class="org-comment">'</span>
+<span class="linenr">12: </span>(load <span class="org-string">"foo"</span>)
+<span class="linenr">13: </span>(autoload 'myfunction' <span class="org-string">"mypackage"</span> <span class="org-doc">"Do what I say."</span> t)
+<span class="linenr">14: </span>(global-set-key <span class="org-string">"\C-xl"</span> 'make-symbolic-link)
+<span class="linenr">15: </span>(define-key global-map <span class="org-string">"\C-xl"</span> 'make-symbolic-link)
+<span class="linenr">16: </span>(substitute-key-definition 'next-line 'forward-line global-map)
+<span class="linenr">17: </span>(global-unset-key <span class="org-string">"\C-x\C-v"</span>)
+<span class="linenr">18: </span>(modify-syntax-entry ?\$ <span class="org-string">"."</span> text-mode-syntax-table)
+<span class="linenr">19: </span>(put 'narrow-to-region 'disabled nil)
+<span class="linenr">20: </span>(<span class="org-keyword">if</span> (fboundp 'blink-cursor-mode)
+<span class="linenr">21: </span>    (blink-cursor-mode 0))
+<span class="linenr">22: </span>(<span class="org-keyword">if</span> (boundp 'coding-category-utf-8)
+<span class="linenr">23: </span>    (set-coding-priority '(coding-catergory-utf-8)))
+<span class="linenr">24: </span>(condition case ()
+<span class="linenr">25: </span>    (set-face-background 'region <span class="org-string">"grey75"</span>)
+<span class="linenr">26: </span>  (<span class="org-warning">error</span> nil))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3-6-3" class="outline-4">
+<h4 id="sec-3-6-3">
+<span class="section-number-4">3.6.3</span> Terminal Init</h4>
+</div>
+<div id="outline-container-sec-3-6-4" class="outline-4">
+<h4 id="sec-3-6-4">
+<span class="section-number-4">3.6.4</span> Find init</h4>
+</div>
+<div id="outline-container-sec-3-6-5" class="outline-4">
+<h4 id="sec-3-6-5">
+<span class="section-number-4">3.6.5</span> Init Non-ASCII</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">
+<span class="section-number-2">4</span> Emacs 中的查找<sup><a id="fnr.1" name="fnr.1" class="footref" href="../.././en/posts/emacs-notes.html#fn.1">1</a></sup><span class="timestamp-wrapper"><span class="timestamp">&lt;2013-08-31 Sat 22:55&gt;</span></span>
+</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">
+<span class="section-number-3">4.1</span> 最基本的东西</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+<b>C-s</b> 开始正向查找
+<b>C-r</b> 开始方向查找
+这两个命令进入了查找模式，在 Emacs 中的术语叫做 Incremental Search ， 也就是在你输入要 查找的字符的时候，同时高亮显示找到的部分。
+下面的操作都是先按 <b>C-s</b> 或者 <b>C-r</b> 后， 进入 Incremental Search Mode 之后的操作。
+</p>
+<ul class="org-ul">
+<li>
+<b>C-r</b> , <b>C-s</b> ， 分别是向前查找和向后查找当前输入的内容。
+如果当前内容是空的，也就是说你连续两次输入 <b>C-s</b> ，那么就是 “查找下一个 (Find next)”的 操作。第一次是C-s 把你带入了 Incremental Search Mode ， 第二次的 <b>C-s</b> 表示查找上一次查 过的东西。 <b>C-r</b> 类似，只不过方向相反。
+</li>
+<li>
+<b>C-w</b> 查找光标除所在的单词
+例如， 你可以输入 <b>C-r</b> 然后马上输入 <b>C-w</b> ， 光标所在位置的单词就自动变成了要查找的内容。
+多次输入 <b>C-w</b> 后面的单词就会一个一个 的变成了查找内容一部分。
+<b>C-w</b> 还可以和上面介绍的 <b>C-s</b> <b>C-r</b> 配合使用。*C-s* 进入 Incremental Search Mode. 然后输入 void f 然后光标会停留在一个 void f 的单词上，也许是 void far ，然后用 <b>C-s</b> 或者 <b>C-r</b> 找 到某个 void f 的地方，然后 <b>C-w</b> 就可以把 f 后面的单词补全了。
+</li>
+<li>
+<b>C-y</b> 把光标所在位置到行尾的部分作为查找内容
+和 <b>C-w</b> 类似，只不过输入的不是一个单词， 而是整整一行。
+</li>
+<li>
+<b>M-y</b> 把 kill ring 中的东西输入为当前要查找的内容
+</li>
+<li>
+<b>M-c</b> 切换大小写敏感。
+</li>
+<li>
+<b>M-r</b> 切换是普通查找还是正则表达式查找。
+</li>
+<li>
+<b>M-e</b> 编辑要查找的内容
+Incremental Search 会随着用户的输入不断的改变光标的位置，有的时候很讨厌，那么就可以 <b>M-e</b> 编辑要查找的内容，然后按 Enter 回到 Incremetal Search 。
+</li>
+<li>
+<b>M-n</b> <b>M-p</b> 浏览查找历史纪录
+可以查找以前 查找过的内容。
+</li>
+<li>
+<b>C-q</b> <b>C-j</b> 查找多行文字。
+如果你要的查找的内容是多行文字，也就是说，查找内容中含有换行字符 <b>C-j</b> 但是， Enter 键又 作为结束查找的操作，一按 Enter 就退出了查找模式了。那么 <b>C-q</b> <b>C-j</b> 可以解决这个问题。 可 以查看 如何输入特殊的控制字符 。
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">
+<span class="section-number-3">4.2</span> 用 Nonincremental Search 查找</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+如果不习惯 Incremetal Search 的方式，那么可以 <b>C-s</b> &lt;RET&gt; ，也就是按了 <b>C-s</b> 之后，马上按 一个回车，就用 Nonincremental Search 的方式查找，这种查找方式和普通的编辑器几乎一样。
+使用 moccur 在所有打开的文件内查找
+本来 M-x occur 可以在一个 buffer 的查找某一个正则表达式。 moccur 提供更加强大 的功能。安装了 moccur 之后 ，如果进入 incremetal 查找功能，除了上面介绍的一些 功能，有多了两个新的功能。下面的操作都是先按 <b>C-s</b> 或者 <b>C-r</b> 后 进入 Incremental Search Mode 之后的操作。
+<b>M-o</b>, 小写的 o , 列出来当前 buffer 内的所有查找内容
+<b>M-O</b>, 大写的 O , 列出来所有打开的 buffer 中出现的查找内容。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3">
+<span class="section-number-3">4.3</span> 在多个文件中查找</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>find-dired
+</li>
+</ul>
+
+<p>
+运行外部命令 find , 产生文件列表，然后进入 dired 模式。
+</p>
+<ul class="org-ul">
+<li>find-grep-dired
+</li>
+</ul>
+
+<p>
+运行外部命令 find，用 grep 过滤文件， ls 产生目录列表，然后进入 dired 模式，这样 列出所有包含某些字符的文件列表。可以使用 dired-do-query-replace-regexp 在文件列 表中查找并替换。可以递归所有子目录。可以用各种条件过滤文件，详细可以查看 find 命 令的帮助。
+grep
+</p>
+
+<ul class="org-ul">
+<li>在当前目录中查找指定的 regexp 。
+</li>
+</ul>
+<p>
+grep-find
+</p>
+
+<p>
+运行 find , grep ，然后产生类似于 compile 的结果，可以查看哪些文件在什么地方包含 了匹配了指定的 regexp 。用 <b>C-x</b> ` 浏览结果。可以递归所有子目录。，详细可以查看 find 命令的帮助。
+dired-do-query-replace-regexp
+</p>
+
+<p>
+在任何 dired 模式下，对于所有带有标记的文件进行查找替换。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4">
+<span class="section-number-3">4.4</span> 替换</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+在 transient mode 下，如果 region 是激活状态下，那么就调用 query-replace-selection , 这个函数和 query-replace 几乎完全一样，不同的是， query-replace-selection 用当前选择的 region 作为被替换的部分，而不是等用户输入。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">query-replace-selection</span> (to-string <span class="org-type">&amp;optional</span> delimited start end)
+  <span class="org-doc">"query reqlace the current selection in transient mark mode."</span>
+  (interactive (list
+                (read-from-minibuffer (format <span class="org-string">"Query replace %s with: "</span>
+                                              (buffer-substring (point) (mark)))
+                                      nil nil nil
+                                      query-replace-to-history-variable
+                                      (buffer-substring (point) (mark))
+                                      t)
+                nil nil nil
+                ))
+  (perform-replace (buffer-substring (point) (mark)) to-string t nil delimited nil nil start end))
+(wcy-define-2bind-transient-mode
+ wcy-query-replace-or-query-replace-selection
+ 'query-replace-selection
+ 'query-replace)
+(global-set-key (kbd <span class="org-string">"M-%"</span>) 'wcy-query-replace-or-query-replace-selection)
+</pre>
+</div>
+
+<p>
+wcy-define-2bind-transient-mode 的定义参见 其他编辑技巧 中的 <b>C-w</b> 部分。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">在 C-s 进入 incremental search 的时候， 按 M-i ， 替换当前查找内容</span>
+(define-key isearch-mode-map (kbd <span class="org-string">"M-i"</span>) 'isearch-query-replace-current)
+(<span class="org-keyword">defun</span> <span class="org-function-name">isearch-query-replace-current</span> ()
+  <span class="org-doc">"replace current searching string."</span>
+  (interactive)
+  (<span class="org-keyword">let</span> ((case-fold-search isearch-case-fold-search)
+        (from-string isearch-string))
+    (<span class="org-keyword">if</span> (not isearch-success)
+        (message <span class="org-string">"search string not found"</span>)
+      (<span class="org-keyword">progn</span>
+       (isearch-exit)
+       (goto-char (min (point) isearch-other-end)))
+      <span class="org-comment-delimiter">;;</span><span class="org-comment">(isearch-abort)</span>
+      (perform-replace
+       from-string
+       (read-from-minibuffer (format <span class="org-string">"Query replace %s with: "</span>
+                                     from-string)
+                             from-string nil nil
+                             query-replace-to-history-variable
+                             from-string
+                             t)
+       t <span class="org-comment-delimiter">; </span><span class="org-comment">query flag</span>
+       isearch-regexp
+
+       nil))))
+
+<span class="org-comment-delimiter">;; </span><span class="org-comment">进入 incremental search mode 之后，有些命令可以根据光标所在位置补全要查找内容，</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">例如 C-w 可以补全一个词。但是如果按多了 C-w 就不能回退了，而且不能精确定位，</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">下面的键绑定重新定义了一些常用的光标移动命令，根据光标移动，自动补齐查找内容，</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">例如 C-f 自动补齐光标处的一个字符。</span>
+(define-key isearch-mode-map (kbd <span class="org-string">"C-e"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"C-a"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"M-e"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"M-a"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"C-M-e"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"C-M-a"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"C-f"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"C-b"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"M-f"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"M-b"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"C-M-f"</span>) 'isearch-move-point)
+(define-key isearch-mode-map (kbd <span class="org-string">"C-M-b"</span>) 'isearch-move-point)
+(<span class="org-keyword">defun</span> <span class="org-function-name">isearch-move-point</span> ()
+  (interactive)
+  (<span class="org-keyword">when</span> isearch-success
+    (<span class="org-keyword">save-excursion</span>
+      (<span class="org-keyword">let</span> ((overriding-terminal-local-map nil)
+            (old-point (or isearch-other-end (point))))
+        (call-interactively (key-binding (this-command-keys)))
+        (setq isearch-string (buffer-substring-no-properties  old-point
+                                                              (point))
+              isearch-message
+              (mapconcat 'isearch-text-char-description
+                         isearch-string <span class="org-string">""</span>)
+              <span class="org-comment-delimiter">;; </span><span class="org-comment">Don't move cursor in reverse search.</span>
+              isearch-forward (<span class="org-keyword">cond</span>
+                               ((&lt; old-point (point)) t)
+                               ((&gt; old-point (point)) nil)
+                               ((= old-point (point)) isearch-forward))
+              )))
+    (isearch-search-and-update)))
+</pre>
+</div>
+<ul class="org-ul">
+<li>query-replay 中可以用在 <span class="underline">replacement</span> 中用 *"\&amp;'"* 替代完全匹配的字符串
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5">
+<span class="section-number-3">4.5</span> Emacs 的其他编辑技巧</h3>
+<div class="outline-text-3" id="text-4-5">
+</div>
+<div id="outline-container-sec-4-5-1" class="outline-4">
+<h4 id="sec-4-5-1">
+<span class="section-number-4">4.5.1</span> 数字增减和循环改变文字</h4>
+<div class="outline-text-4" id="text-4-5-1">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">下面的几个函数可以实现自动增加数字，和循环改变文本的功能。定义方法是</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">1. 一个 (regexp . (lambda () ....) 的方式。 下面的第一个定义就提供了自动增加</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">和减少数字的功能。</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">2. 一个含有字符串的 list ， 那么就会在这些字符串中循环选择。</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">M-x wcy-rotate-text 可以接受 C-u 的参数，负数表示减少数字或者反向循环。</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">参数的大小可以指定增加或者减少多少，或者循环的步长。</span>
+
+(<span class="org-keyword">defvar</span> <span class="org-variable-name">wcy-rotate-text-definations</span>
+  '((<span class="org-string">"-?[0-9]+"</span> . (<span class="org-keyword">lambda</span> ()
+                    (format <span class="org-string">"%d"</span> (+ rotate-arg (string-to-number (match-string 0))))))
+    (<span class="org-string">"zero"</span> <span class="org-string">"one"</span> <span class="org-string">"two"</span> <span class="org-string">"three"</span> <span class="org-string">"four"</span> <span class="org-string">"five"</span> <span class="org-string">"six"</span> <span class="org-string">"seven"</span> <span class="org-string">"eight"</span> <span class="org-string">"nine"</span>)
+    (<span class="org-string">"Sunday"</span>  <span class="org-string">"Monday"</span>   <span class="org-string">"Tuesday"</span>   <span class="org-string">"Wednesday"</span>   <span class="org-string">"Thursday"</span>   <span class="org-string">"Friday"</span>
+     <span class="org-string">"Saturday"</span>)
+    )
+  <span class="org-doc">"</span>
+<span class="org-doc">a list of ROT text defination. each element is a defination.</span>
+<span class="org-doc">element can be a list of string.</span>
+<span class="org-doc">element can be a cons. (REGEXP . func)</span>
+<span class="org-doc">if REGEXP matched, func is called with no args, return value is the next value.</span>
+<span class="org-doc">"</span>)
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">wcy-rotate-text-aux</span> ()
+  (<span class="org-keyword">catch</span> '<span class="org-constant">break</span>
+    (mapc
+     #'(<span class="org-keyword">lambda</span> (def)
+         (<span class="org-keyword">let</span> ((regexp (<span class="org-keyword">if</span> (functionp (cdr def))
+                           (car def)
+                         (mapconcat 'regexp-quote def <span class="org-string">"</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">|</span></span><span class="org-string">"</span>)))
+               (func (<span class="org-keyword">if</span> (functionp (cdr def))
+                         (cdr def)
+                       #'(<span class="org-keyword">lambda</span> ()
+                           (<span class="org-keyword">let*</span> ((l (length def))
+                                  (r (length (member (match-string 0) def)))
+                                  (i (% (+ rotate-arg (- l r)) l)))
+                             (format <span class="org-string">"%s"</span> (nth i def)))))))
+           (<span class="org-keyword">if</span> (re-search-forward regexp (line-end-position) t nil)
+               (<span class="org-keyword">throw</span> '<span class="org-constant">break</span> (funcall func)))))
+     wcy-rotate-text-definations)
+    nil))
+(<span class="org-keyword">defun</span> <span class="org-function-name">wcy-rotate-text</span>(rotate-arg)
+  (interactive <span class="org-string">"p"</span>)
+  (<span class="org-keyword">let</span> ((x (wcy-rotate-text-aux)))
+    (<span class="org-keyword">when</span> x
+      (replace-match x)
+      (goto-char (match-beginning 0)))))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4-5-2" class="outline-4">
+<h4 id="sec-4-5-2">
+<span class="section-number-4">4.5.2</span> 智能标记</h4>
+<div class="outline-text-4" id="text-4-5-2">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"><span class="org-comment-delimiter">;;</span><span class="org-comment">这个功能绑定在 C-3 上。这个功能就是根据光标的所在位置，智能的选择一块区域，也就</span>
+<span class="org-comment-delimiter">;;</span><span class="org-comment">是设置成为当前的 point 和 mark。这样就可以方便的拷贝或者剪切，或者交换他们的位</span>
+<span class="org-comment-delimiter">;;</span><span class="org-comment">置。</span>
+
+<span class="org-comment-delimiter">;;</span><span class="org-comment">如果当前光标在一个单词上，那么区域就是这个单词的开始和结尾分别。</span>
+<span class="org-comment-delimiter">;;</span><span class="org-comment">如果当前光标在一个连字符上，那么就选择包含连字符的一个标识符。</span>
+
+<span class="org-comment-delimiter">;;</span><span class="org-comment">这个两个的是有区别的，而且根据不同的 mode 的语法定义，连字符和单词的定义也不一样。</span>
+<span class="org-comment-delimiter">;;</span><span class="org-comment">例如 C mode 下， abc_def_xxx , 如果光标停在 abc 上，那么就会选择 abc 这个单词。 如果</span>
+<span class="org-comment-delimiter">;;</span><span class="org-comment">停在下划线上，那么就会选择 abc_def_xxx 。</span>
+
+<span class="org-comment-delimiter">;;</span><span class="org-comment">如果当前光标在一个双引号,单引号，一个花括号，方括号，圆括号，小于号，或者大于号，</span>
+<span class="org-comment-delimiter">;;</span><span class="org-comment">等等，那么就会选择他们对应的另一个括号之间的区域。 引号中的 escape 字符也是可以</span>
+<span class="org-comment-delimiter">;;</span><span class="org-comment">自动识别的。嵌套关系也是可以识别的。这一点可以和 VIM 中的 % 的功能类比。</span>
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">wcy-mark-some-thing-at-point</span>()
+  (interactive)
+  (<span class="org-keyword">let*</span> ((from (point))
+         (a (mouse-start-end from from 1))
+         (start (car a))
+         (end (cadr a))
+         (goto-point (<span class="org-keyword">if</span> (= from start )
+                            end
+                       start)))
+    (<span class="org-keyword">if</span> (eq last-command 'wcy-mark-some-thing-at-point)
+        (<span class="org-keyword">progn</span>
+          <span class="org-comment-delimiter">;; </span><span class="org-comment">exchange mark and point</span>
+          (goto-char (mark-marker))
+          (set-marker (mark-marker) from))
+      (push-mark (<span class="org-keyword">if</span> (= goto-point start) end start) nil t)
+      (<span class="org-keyword">when</span> (and (interactive-p) (null transient-mark-mode))
+        (goto-char (mark-marker))
+        (sit-for 0 500 nil))
+      (goto-char goto-point))))
+(define-key global-map (kbd <span class="org-string">"C-3"</span>) 'wcy-mark-some-thing-at-point)
+(define-key global-map (kbd <span class="org-string">"M-C-SPC"</span>) 'wcy-mark-some-thing-at-point)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4-5-3" class="outline-4">
+<h4 id="sec-4-5-3">
+<span class="section-number-4">4.5.3</span> align-regexp</h4>
+<div class="outline-text-4" id="text-4-5-3">
+<p>
+M-x align-regexp 可以方便的对齐一些文字。 例如
+</p>
+
+<p>
+Fred (123) 456-7890
+Alice (123) 456-7890
+Mary-Anne (123) 456-7890
+Joe (123) 456-7890
+</p>
+
+<p>
+选择这段文字之后， M-x align-regexp ，然后根据提示输入， ``('' 这样就可以得到下 面的结果:
+</p>
+
+<p>
+Fred      (123) 456-7890
+Alice     (123) 456-7890
+Mary-Anne (123) 456-7890
+Joe       (123) 456-7890
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-5-4" class="outline-4">
+<h4 id="sec-4-5-4">
+<span class="section-number-4">4.5.4</span> <b>C-w</b> 的绑定</h4>
+<div class="outline-text-4" id="text-4-5-4">
+<p>
+我把 <b>C-w</b> 绑定 backward-kill-word， 这样就和 bash 的 input-line 是一致的了。我试 了试，还挺好用。但是原来的 <b>C-w</b> 是和 kill-region 绑定的。改变习惯还是很难的。以前 我不喜欢 transient-mark-mode ，但是现在发现她可以派上用场了。可以在激活选择区域 的时候，*C-w* 和 kill-region 绑定，否则和 backward-kill-word 绑定，感觉不错。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span class="org-keyword">defmacro</span> <span class="org-function-name">wcy-define-2bind-transient-mode</span> (funname cmd-mark-active
+                                                   cmd-mark-no-active)
+  `(<span class="org-keyword">defun</span> ,funname ()
+     (interactive)
+     (<span class="org-keyword">if</span> mark-active
+         (call-interactively ,cmd-mark-active)
+       (call-interactively ,cmd-mark-no-active))))
+<span class="org-comment-delimiter">;; </span><span class="org-comment">和 bash 中的类似的快键，不用再按 backspace 了。</span>
+(global-set-key <span class="org-string">"\C-w"</span>     'wcy-backward-kill-word-or-kill-region)
+(wcy-define-2bind-transient-mode
+ wcy-backward-kill-word-or-kill-region
+ 'kill-region
+ 'backward-kill-word)
+</pre>
+</div>
+<p>
+我定义了一个 macro ， 可以方便的定义这种双重绑定，也就是，在 mark-active 时运行 一个函数，否则运行另一个函数。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">
+<span class="section-number-2">5</span> MISC</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">
+<span class="section-number-3">5.1</span> Major Modes</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-sec-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1">
+<span class="section-number-4">5.1.1</span> 有三种类型 text-mode, prog-mode, special-mode</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+基本hook `text-mode-hook' `prog-mode-hook'
+hook 一般可用于启动 minor mode
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">
+<span class="section-number-2">6</span> 显示图像</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(image-type-available-p 'gif)
+
+(image-type-available-p 'png)
+
+(image-type-available-p 'jpeg)
+
+(image-type-available-p 'tiff)
+
+(image-type-available-p 'xbm)
+
+(image-type-available-p 'xpm)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">
+<span class="section-number-2">7</span> Emacs</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1">
+<span class="section-number-3">7.1</span> smartparens</h3>
+<div class="outline-text-3" id="text-7-1">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">sp--populate-keymap</span> (bindings)
+  <span class="org-doc">"Populates the `</span><span class="org-doc"><span class="org-constant">sp-keymap</span></span><span class="org-doc">' from the BINDINGS alist."</span>
+  (--each bindings
+    (define-key sp-keymap (read-kbd-macro (car it)) (cdr it))))
+
+(setq sp-override-key-bindings 
+        '(
+          (<span class="org-string">"C-M-f"</span> . sp-forward-sexp)
+          (<span class="org-string">"C-M-b"</span> . sp-backward-sexp)
+          (<span class="org-string">"C-M-d"</span> . sp-down-sexp)
+          (<span class="org-string">"C-M-a"</span> . sp-backward-down-sexp)
+          (<span class="org-string">"C-S-d"</span> . sp-beginning-of-sexp)
+          (<span class="org-string">"C-S-a"</span> . sp-end-of-sexp)
+          (<span class="org-string">"C-M-e"</span> . sp-up-sexp)
+          (<span class="org-string">"C-M-u"</span> . sp-backward-up-sexp)
+          (<span class="org-string">"C-M-n"</span> . sp-next-sexp)
+          (<span class="org-string">"C-M-p"</span> . sp-previous-sexp)
+          (<span class="org-string">"C-M-k"</span> . sp-kill-sexp)
+          (<span class="org-string">"C-M-w"</span> . sp-copy-sexp)
+          (<span class="org-string">"M-&lt;delete&gt;"</span> . sp-unwrap-sexp)
+          (<span class="org-string">"M-&lt;backspace&gt;"</span> . sp-backward-unwrap-sexp)
+          (<span class="org-string">"C-&lt;right&gt;"</span> . sp-forward-slurp-sexp)
+          (<span class="org-string">"C-&lt;left&gt;"</span> . sp-forward-barf-sexp)
+          (<span class="org-string">"C-M-&lt;left&gt;"</span> . sp-backward-slurp-sexp)
+          (<span class="org-string">"C-M-&lt;right&gt;"</span> . sp-backward-barf-sexp)
+          (<span class="org-string">"M-D"</span> . sp-splice-sexp)
+          (<span class="org-string">"C-M-&lt;delete&gt;"</span> . sp-splice-sexp-killing-forward)
+          (<span class="org-string">"C-M-&lt;backspace&gt;"</span> . sp-splice-sexp-killing-backward)
+          (<span class="org-string">"C-S-&lt;backspace&gt;"</span> . sp-splice-sexp-killing-around)
+          (<span class="org-string">"C-]"</span> . sp-select-next-thing-exchange)
+          (<span class="org-string">"C-M-]"</span> . sp-select-next-thing)
+          (<span class="org-string">"M-F"</span> . sp-forward-symbol)
+          (<span class="org-string">"M-B"</span> . sp-backward-symbol)
+          ))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-2" class="outline-3">
+<h3 id="sec-7-2">
+<span class="section-number-3">7.2</span> misc</h3>
+<div class="outline-text-3" id="text-7-2">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-3" class="outline-3">
+<h3 id="sec-7-3">
+<span class="section-number-3">7.3</span> face</h3>
+</div>
+<div id="outline-container-sec-7-4" class="outline-3">
+<h3 id="sec-7-4">
+<span class="section-number-3">7.4</span> key bindings</h3>
+<div class="outline-text-3" id="text-7-4">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(local-set-key (kbd <span class="org-string">"C-c '"</span>) 'org-edit-special)
+(define-key (current-local-map) (kbd <span class="org-string">"C-c '"</span>) 'org-edit-special)
+(lookup-key (current-local-map) (kbd <span class="org-string">"C-c '"</span>))  
+(substitute-command-keys <span class="org-string">"\\{lisp-interaction-mode-map}"</span>)
+(key-binding <span class="org-string">"C-c '"</span>)
+(local-key-binding <span class="org-string">"C-c '"</span>)
+(global-key-binding <span class="org-string">"C-c '"</span>)
+(minor-mode-key-binding <span class="org-string">"C-c '"</span>)
+<span class="org-comment-delimiter">;; </span><span class="org-comment">show current mode maps</span>
+(mapcar (<span class="org-keyword">lambda</span>(x)(car (rassq x minor-mode-map-alist)))(current-minor-mode-maps))
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">local-set-minor-mode-key</span> (mode key def)
+  <span class="org-doc">"Overrides a minor mode keybinding for the local</span>
+<span class="org-doc">   buffer, by creating or altering keymaps stored in buffer-local</span>
+<span class="org-doc">   `</span><span class="org-doc"><span class="org-constant">minor-mode-overriding-map-alist</span></span><span class="org-doc">'."</span>
+  (make-local-variable 'minor-mode-overriding-map-alist)
+  (<span class="org-keyword">let*</span> ((oldmap (cdr (assoc mode minor-mode-map-alist)))
+         (newmap (or (cdr (assoc mode minor-mode-overriding-map-alist))
+                     (<span class="org-keyword">let</span> ((map (make-sparse-keymap)))
+                       (set-keymap-parent map oldmap)
+                       (push `(,mode . ,map) minor-mode-overriding-map-alist) 
+                       map))))
+    (define-key newmap key def)))
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span class="org-keyword">defvar</span> <span class="org-variable-name">hs-minor-mode-map</span>
+  (<span class="org-keyword">let</span> ((map (make-sparse-keymap)))
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">These bindings roughly imitate those used by Outline mode.</span>
+    (define-key map <span class="org-string">"\C-c@\C-h"</span>       'hs-hide-block)
+    (define-key map <span class="org-string">"\C-c@\C-s"</span>       'hs-show-block)
+    (define-key map <span class="org-string">"\C-c@\C-\M-h"</span>    'hs-hide-all)
+    (define-key map <span class="org-string">"\C-c@\C-\M-s"</span>    'hs-show-all)
+    (define-key map <span class="org-string">"\C-c@\C-l"</span>       'hs-hide-level)
+    (define-key map <span class="org-string">"\C-c@\C-c"</span>       'hs-toggle-hiding)
+    (define-key map [(shift mouse-2)] 'hs-mouse-toggle-hiding)
+    map)
+  <span class="org-doc">"Keymap for hideshow minor mode."</span>)
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq hs-minor-mode-prefix <span class="org-string">"\C-c@"</span>)
+(setq hs-minor-mode-prefix-map
+      (<span class="org-keyword">let</span> ((map (make-sparse-keymap)))
+        <span class="org-comment-delimiter">;; </span><span class="org-comment">These bindings roughly imitate those used by Outline mode.</span>
+        <span class="org-comment-delimiter">;; </span><span class="org-comment">(define-key map "\C-h"            'hs-hide-block)</span>
+        (define-key map <span class="org-string">"\C-s"</span>            'hs-show-block)
+        (define-key map <span class="org-string">"\C-\M-h"</span>    'hs-hide-all)
+        (define-key map <span class="org-string">"\C-\M-s"</span>    'hs-show-all)
+        (define-key map <span class="org-string">"\C-l"</span>            'hs-hide-level)
+        (define-key map <span class="org-string">"\C-c"</span>            'hs-toggle-hiding)
+        (define-key map [(shift mouse-2)] 'hs-mouse-toggle-hiding)
+        map))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7-5" class="outline-3">
+<h3 id="sec-7-5">
+<span class="section-number-3">7.5</span> process</h3>
+<div class="outline-text-3" id="text-7-5">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">python-shell-prompt-pdb-regexp
+python-shell-prompt-regexp
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7-6" class="outline-3">
+<h3 id="sec-7-6">
+<span class="section-number-3">7.6</span> refs</h3>
+<div class="outline-text-3" id="text-7-6">
+<p>
+<a href="https://github.com/magnars/.emacs.d">emacs rocks @github</a>
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef">
+<sup><a id="fn.1" name="fn.1" class="footnum" href="../.././en/posts/emacs-notes.html#fnr.1">1</a></sup> <p class="footpara">
+<a href="http://emacser.com/ann77/Emacs/EmacsSearch.html">emacs 中的查找</a>
+</p>
+</div>
+
+
+</div>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+        <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/emacs.html" rel="tag">emacs</a></li>
+           <li><a class="tag p-category" href="../categories/notes.html" rel="tag">notes</a></li>
+        </ul>
+
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../.././en/posts/eshell.html" rel="prev" title="eshell">Previous post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+        
+        
+
+
+        </section>
+    
+
+</article>
+
+        
+
+
+
+    </div>
+    </div>
+    <!--End of body content-->
+</div>
+<div class="footerbox">
+    Contents © 2014         <a href="mailto:xor3@outlook.com">Xor3</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/2.5/cn/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">Creative Commons Attribution-NonCommercial-ShareAlike 2.5 China Mainland License</a>.
+    
+</div>
+
+            <script src="../../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
+
+
+</body>
+</html>

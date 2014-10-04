@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Xor3's World! (eshell)</title><link>/</link><description></description><language>zh_cn</language><lastBuildDate>Sun, 05 Oct 2014 00:47:12 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>eshell</title><link>/posts/eshell.html</link><dc:creator>Xor3</dc:creator><description>&lt;div&gt;&lt;div id="table-of-contents"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-1"&gt;1. Subshells&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-2"&gt;2. 一些很有用的命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-3"&gt;3. 内置命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-4"&gt;4. 被拦截的命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-5"&gt;5. alias&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-6"&gt;6. visual Commands&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-7"&gt;7. 历史命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-8"&gt;8. 一些有用的键绑定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-9"&gt;9. Argument Predicates &amp;amp; modifier&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-9-1"&gt;9.1. Adding New Modifiers and Predicates&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-10"&gt;10. SMART SHELL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-11"&gt;11. Redirection&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-11-1"&gt;11.1. 重定向到伪设备&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-11-2"&gt;11.2. To custom virtual targets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-12"&gt;12. Startup Scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-13"&gt;13. EshellForLoop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/eshell.html#sec-14"&gt;14. 参考&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="/posts/eshell.html"&gt;更多…&lt;/a&gt; (5 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>emacs</category><category>eshell</category><guid>/posts/eshell.html</guid><pubDate>Sat, 04 Oct 2014 16:33:07 GMT</pubDate></item></channel></rss>

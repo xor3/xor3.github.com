@@ -96,6 +96,198 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/emacs-notes.html" class="u-url">Emacs 笔记</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Xor3</span></p>
+            <p class="dateline"><a href="posts/emacs-notes.html" rel="bookmark"><time class="published dt-published" datetime="2014-10-05T00:38:01+08:00" itemprop="datePublished" title="Publication date">2014-10-05 00:38</time></a></p>
+                <p class="commentline">
+        
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li>
+<a href="posts/emacs-notes.html#sec-1">1. Display</a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-1-1">1.1. Horizontal Scrolling</a></li>
+<li><a href="posts/emacs-notes.html#sec-1-2">1.2. Follow Mode</a></li>
+<li><a href="posts/emacs-notes.html#sec-1-3">1.3. Faces</a></li>
+<li><a href="posts/emacs-notes.html#sec-1-4">1.4. Standard Faces</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/emacs-notes.html#sec-2">2. Hyperlinking</a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-2-1">2.1. Browse-URL</a></li>
+<li><a href="posts/emacs-notes.html#sec-2-2">2.2. Goto Address mode</a></li>
+<li><a href="posts/emacs-notes.html#sec-2-3">2.3. FFAP  :: Finding files etc. at point</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/emacs-notes.html#sec-3">3. Customization</a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-3-1">3.1. Minor Modes</a></li>
+<li>
+<a href="posts/emacs-notes.html#sec-3-2">3.2. Easy Customization Interface</a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-3-2-1">3.2.1. Changing a Variable</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-2-2">3.2.2. Face Customization</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-2-3">3.2.3. Specific Customization</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-2-4">3.2.4. Custom Themes</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/emacs-notes.html#sec-3-3">3.3. Variables</a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-3-3-1">3.3.1. Examing and Setting variables</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-3-2">3.3.2. Hooks</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-3-3">3.3.3. Local Variables</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-3-4">3.3.4. File Variables</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-3-5">3.3.5. Directory Variables</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/emacs-notes.html#sec-3-4">3.4. Key Bindings</a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-3-4-1">3.4.1. Events</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-2">3.4.2. Keymaps</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-3">3.4.3. `(elisp) Format of Keymaps'</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-4">3.4.4. create Keymaps</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-5">3.4.5. Prefix Keymaps</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-6">3.4.6. active keymaps</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-7">3.4.7. search keymaps</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-8">3.4.8. Local Keymaps</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-9">3.4.9. Minibuffer Keymaps</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-10">3.4.10. Rebinding</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-11">3.4.11. Init Rebinding</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-12">3.4.12. Modifier keys</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-13">3.4.13. Rebinding Function Keys</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-14">3.4.14. Named ASCII Control Characters</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-15">3.4.15. Rebinding Mouse Buttons</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-4-16">3.4.16. Disabling Commands</a></li>
+</ul>
+</li>
+<li><a href="posts/emacs-notes.html#sec-3-5">3.5. Syntax</a></li>
+<li>
+<a href="posts/emacs-notes.html#sec-3-6">3.6. Init File</a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-3-6-1">3.6.1. Init Syntax</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-6-2">3.6.2. Init Examle</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-6-3">3.6.3. Terminal Init</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-6-4">3.6.4. Find init</a></li>
+<li><a href="posts/emacs-notes.html#sec-3-6-5">3.6.5. Init Non-ASCII</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="posts/emacs-notes.html#sec-4">4. Emacs 中的查找<span class="timestamp-wrapper"><span class="timestamp">&lt;2013-08-31 Sat 22:55&gt;</span></span></a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-4-1">4.1. 最基本的东西</a></li>
+<li><a href="posts/emacs-notes.html#sec-4-2">4.2. 用 Nonincremental Search 查找</a></li>
+<li><a href="posts/emacs-notes.html#sec-4-3">4.3. 在多个文件中查找</a></li>
+<li><a href="posts/emacs-notes.html#sec-4-4">4.4. 替换</a></li>
+<li>
+<a href="posts/emacs-notes.html#sec-4-5">4.5. Emacs 的其他编辑技巧</a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-4-5-1">4.5.1. 数字增减和循环改变文字</a></li>
+<li><a href="posts/emacs-notes.html#sec-4-5-2">4.5.2. 智能标记</a></li>
+<li><a href="posts/emacs-notes.html#sec-4-5-3">4.5.3. align-regexp</a></li>
+<li><a href="posts/emacs-notes.html#sec-4-5-4">4.5.4. <b>C-w</b> 的绑定</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="posts/emacs-notes.html#sec-5">5. MISC</a>
+<ul>
+<li>
+<a href="posts/emacs-notes.html#sec-5-1">5.1. Major Modes</a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-5-1-1">5.1.1. 有三种类型 text-mode, prog-mode, special-mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="posts/emacs-notes.html#sec-6">6. 显示图像</a></li>
+<li>
+<a href="posts/emacs-notes.html#sec-7">7. Emacs</a>
+<ul>
+<li><a href="posts/emacs-notes.html#sec-7-1">7.1. smartparens</a></li>
+<li><a href="posts/emacs-notes.html#sec-7-2">7.2. misc</a></li>
+<li><a href="posts/emacs-notes.html#sec-7-3">7.3. face</a></li>
+<li><a href="posts/emacs-notes.html#sec-7-4">7.4. key bindings</a></li>
+<li><a href="posts/emacs-notes.html#sec-7-5">7.5. process</a></li>
+<li><a href="posts/emacs-notes.html#sec-7-6">7.6. refs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p class="more"><a href="posts/emacs-notes.html">更多…</a></p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/eshell.html" class="u-url">eshell</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Xor3</span></p>
+            <p class="dateline"><a href="posts/eshell.html" rel="bookmark"><time class="published dt-published" datetime="2014-10-05T00:33:07+08:00" itemprop="datePublished" title="Publication date">2014-10-05 00:33</time></a></p>
+                <p class="commentline">
+        
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="posts/eshell.html#sec-1">1. Subshells</a></li>
+<li><a href="posts/eshell.html#sec-2">2. 一些很有用的命令</a></li>
+<li><a href="posts/eshell.html#sec-3">3. 内置命令</a></li>
+<li><a href="posts/eshell.html#sec-4">4. 被拦截的命令</a></li>
+<li><a href="posts/eshell.html#sec-5">5. alias</a></li>
+<li><a href="posts/eshell.html#sec-6">6. visual Commands</a></li>
+<li><a href="posts/eshell.html#sec-7">7. 历史命令</a></li>
+<li><a href="posts/eshell.html#sec-8">8. 一些有用的键绑定</a></li>
+<li>
+<a href="posts/eshell.html#sec-9">9. Argument Predicates &amp; modifier</a>
+<ul>
+<li><a href="posts/eshell.html#sec-9-1">9.1. Adding New Modifiers and Predicates</a></li>
+</ul>
+</li>
+<li><a href="posts/eshell.html#sec-10">10. SMART SHELL</a></li>
+<li>
+<a href="posts/eshell.html#sec-11">11. Redirection</a>
+<ul>
+<li><a href="posts/eshell.html#sec-11-1">11.1. 重定向到伪设备</a></li>
+<li><a href="posts/eshell.html#sec-11-2">11.2. To custom virtual targets</a></li>
+</ul>
+</li>
+<li><a href="posts/eshell.html#sec-12">12. Startup Scripts</a></li>
+<li><a href="posts/eshell.html#sec-13">13. EshellForLoop</a></li>
+<li><a href="posts/eshell.html#sec-14">14. 参考</a></li>
+</ul>
+</div>
+</div>
+<p class="more"><a href="posts/eshell.html">更多…</a></p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/nikola-guide.html" class="u-url">nikola guide</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Xor3</span></p>
@@ -124,6 +316,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <li><a href="posts/nikola-guide.html#sec-3-4">3.4. post type</a></li>
 </ul>
 </li>
+<li><a href="posts/nikola-guide.html#sec-4">4. 参考</a></li>
 </ul>
 </div>
 </div>
@@ -314,7 +507,258 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </article>
     <article class="h-entry post-text">
     <header>
-        <h1 class="p-name entry-title"><a href="posts/influence.html" class="u-url">Influence</a></h1>
+        <h1 class="p-name entry-title"><a href="posts/elisp-notes.html" class="u-url">Elsip 笔记</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Xor3</span></p>
+            <p class="dateline"><a href="posts/elisp-notes.html" rel="bookmark"><time class="published dt-published" datetime="2014-01-05T00:36:49+08:00" itemprop="datePublished" title="Publication date">2014-01-05 00:36</time></a></p>
+                <p class="commentline">
+        
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li>
+<a href="posts/elisp-notes.html#sec-1">1. Display</a>
+<ul>
+<li>
+<a href="posts/elisp-notes.html#sec-1-1">1.1. Faces</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-1-1-1">1.1.1. Defining Faces</a></li>
+<li><a href="posts/elisp-notes.html#sec-1-1-2">1.1.2. Face Attributes</a></li>
+<li><a href="posts/elisp-notes.html#sec-1-1-3">1.1.3. Attribute Functions</a></li>
+<li><a href="posts/elisp-notes.html#sec-1-1-4">1.1.4. Displaying Faces</a></li>
+<li><a href="posts/elisp-notes.html#sec-1-1-5">1.1.5. Face Remapping</a></li>
+<li><a href="posts/elisp-notes.html#sec-1-1-6">1.1.6. Face Functions</a></li>
+<li><a href="posts/elisp-notes.html#sec-1-1-7">1.1.7. Auto Faces</a></li>
+<li><a href="posts/elisp-notes.html#sec-1-1-8">1.1.8. Font Lookup</a></li>
+<li><a href="posts/elisp-notes.html#sec-1-1-9">1.1.9. Fontsets</a></li>
+<li><a href="posts/elisp-notes.html#sec-1-1-10">1.1.10. Low-level Font</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-2">2. elispinfo  叶文彬</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-2-1">2.1. 基础知识</a></li>
+<li>
+<a href="posts/elisp-notes.html#sec-2-2">2.2. 基本数据类型之一– 数字</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-2-2-1">2.2.1. 函数列表</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-2-2">2.2.2. 变量列表</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-2-3">2.2.3. 测试函数</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-2-4">2.2.4. 数的比较</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-2-5">2.2.5. 数的转换</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-2-6">2.2.6. 数的运算</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-2-3">2.3. 基本数据类型之二– 字符和字符串</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-2-3-1">2.3.1. 函数列表</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-3-2">2.3.2. 字符表示法</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-3-3">2.3.3. 测试函数</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-3-4">2.3.4. 构造函数</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-3-5">2.3.5. 字符串比较</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-3-6">2.3.6. 字符串转换</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-3-7">2.3.7. 格式化字符串</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-3-8">2.3.8. 查找和替换</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-2-4">2.4. 基本数据类型之三– cons cell 和 列表</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-2-4-1">2.4.1. 函数列表</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-2-5">2.5. 基本数据类型之四– 序列和数组</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-2-5-1">2.5.1. 函数列表</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-2-6">2.6. 基本数据类型之五–符号</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-2-6-1">2.6.1. 创建符号</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-6-2">2.6.2. 符号的组成</a></li>
+<li><a href="posts/elisp-notes.html#sec-2-6-3">2.6.3. 函数列表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-3">3. cl.el</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-3-1">3.1. MACROs</a></li>
+<li><a href="posts/elisp-notes.html#sec-3-2">3.2. FUNCTIONs</a></li>
+<li><a href="posts/elisp-notes.html#sec-3-3">3.3. Control Structures.</a></li>
+<li><a href="posts/elisp-notes.html#sec-3-4">3.4. Multiple values</a></li>
+<li><a href="posts/elisp-notes.html#sec-3-5">3.5. Declarations.</a></li>
+<li><a href="posts/elisp-notes.html#sec-3-6">3.6. Symbols.</a></li>
+<li><a href="posts/elisp-notes.html#sec-3-7">3.7. Numbers.</a></li>
+<li><a href="posts/elisp-notes.html#sec-3-8">3.8. Sequence function</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-4">4. Lisp Data Types</a>
+<ul>
+<li>
+<a href="posts/elisp-notes.html#sec-4-1">4.1. Programming Types</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-4-1-1">4.1.1. Integer Type</a></li>
+<li><a href="posts/elisp-notes.html#sec-4-1-2">4.1.2. Floating Point Type</a></li>
+<li><a href="posts/elisp-notes.html#sec-4-1-3">4.1.3. Character Type</a></li>
+<li><a href="posts/elisp-notes.html#sec-4-1-4">4.1.4. Symbol Type</a></li>
+<li><a href="posts/elisp-notes.html#sec-4-1-5">4.1.5. Sequence type</a></li>
+<li><a href="posts/elisp-notes.html#sec-4-1-6">4.1.6. Cons Cell Type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-5">5. elispintro</a>
+<ul>
+<li>
+<a href="posts/elisp-notes.html#sec-5-1">5.1. 数据类型之 - 数字</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-5-1-1">5.1.1. 语法</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-1-2">5.1.2. 测试函数</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-1-3">5.1.3. 比较</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-1-4">5.1.4. 其他</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-5-2">5.2. 数据类型之 - 字符和字符串</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-5-2-1">5.2.1. 测试函数</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-2-2">5.2.2. 生成函数</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-2-3">5.2.3. 比较</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-2-4">5.2.4. 字符（串）转换</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-2-5">5.2.5. 字符串查找替换</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-5-3">5.3. 数据类型之 - cons cell 和 列表</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-5-3-1">5.3.1. 语法</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-3-2">5.3.2. 测试函数</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-3-3">5.3.3. 构造函数</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-3-4">5.3.4. 列表操作</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-3-5">5.3.5. 关联表*</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-3-6">5.3.6. 遍历列表</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-3-7">5.3.7. 其他</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-5-4">5.4. 数据类型之 - 符号</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-5-4-1">5.4.1. 创建 symbol</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-4-2">5.4.2. 操作  symbol</a></li>
+</ul>
+</li>
+<li><a href="posts/elisp-notes.html#sec-5-5">5.5. 变量</a></li>
+<li>
+<a href="posts/elisp-notes.html#sec-5-6">5.6. 函数和命令</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-5-6-1">5.6.1. 测试命令 functionp</a></li>
+<li><a href="posts/elisp-notes.html#sec-5-6-2">5.6.2. 函数调用</a></li>
+</ul>
+</li>
+<li><a href="posts/elisp-notes.html#sec-5-7">5.7. 正则表达式</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-6">6. Emacs Lisp ::`(elisp) Top'</a>
+<ul>
+<li>
+<a href="posts/elisp-notes.html#sec-6-1">6.1. Files</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-6-1-1">6.1.1. Visiting Files</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-2">6.1.2. Saving Buffers</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-3">6.1.3. Reading from Files</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-4">6.1.4. Writing to Files</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-5">6.1.5. File Locks</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-6">6.1.6. Information about Files</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-7">6.1.7. Changing Files</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-8">6.1.8. File Names</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-9">6.1.9. Contents of Directories</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-10">6.1.10. Create/Delete Dirs</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-11">6.1.11. Magic File Names</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-1-12">6.1.12. Format Conversion</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-6-2">6.2. Buffers</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-6-2-1">6.2.1. Buffer Basics</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-2">6.2.2. Current Buffer</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-3">6.2.3. Buffer Names</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-4">6.2.4. Buffer File Names</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-5">6.2.5. Buffer Modification</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-6">6.2.6. Modification Time</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-7">6.2.7. Read Only Buffers</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-8">6.2.8. The Buffer List</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-9">6.2.9. Creating Buffers</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-10">6.2.10. Killing Buffers</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-11">6.2.11. Indirect Buffers</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-12">6.2.12. Swapping Text</a></li>
+<li><a href="posts/elisp-notes.html#sec-6-2-13">6.2.13. Buffer Gap</a></li>
+</ul>
+</li>
+<li><a href="posts/elisp-notes.html#sec-6-3">6.3. Completion</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-7">7. Usual Functions</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-7-1">7.1. Visiting Files</a></li>
+<li><a href="posts/elisp-notes.html#sec-7-2">7.2. Saving Buffers</a></li>
+<li><a href="posts/elisp-notes.html#sec-7-3">7.3. File</a></li>
+</ul>
+</li>
+<li>
+<a href="posts/elisp-notes.html#sec-8">8. Debug</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-8-1">8.1. </a></li>
+</ul>
+</li>
+<li><a href="posts/elisp-notes.html#sec-9">9. emergency elisp</a></li>
+<li>
+<a href="posts/elisp-notes.html#sec-10">10. URI ()</a>
+<ul>
+<li>
+<a href="posts/elisp-notes.html#sec-10-1">10.1. URI Parsing()</a>
+<ul>
+<li><a href="posts/elisp-notes.html#sec-10-1-1">10.1.1. Parsed URI structures</a></li>
+</ul>
+</li>
+<li><a href="posts/elisp-notes.html#sec-10-2">10.2. URI Encoding</a></li>
+<li><a href="posts/elisp-notes.html#sec-10-3">10.3. Retrieving URLs</a></li>
+<li><a href="posts/elisp-notes.html#sec-10-4">10.4. Command and Function Index</a></li>
+<li><a href="posts/elisp-notes.html#sec-10-5">10.5. Variable Index</a></li>
+<li><a href="posts/elisp-notes.html#sec-10-6">10.6. EXAMPLE</a></li>
+</ul>
+</li>
+<li><a href="posts/elisp-notes.html#sec-11">11. 翻译</a></li>
+<li><a href="posts/elisp-notes.html#sec-12">12. 代码</a></li>
+</ul>
+</div>
+</div>
+<p class="more"><a href="posts/elisp-notes.html">更多…</a></p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/influence.html" class="u-url">Influence 影响力</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Xor3</span></p>
             <p class="dateline"><a href="posts/influence.html" rel="bookmark"><time class="published dt-published" datetime="2013-01-01T22:00:22+08:00" itemprop="datePublished" title="Publication date">2013-01-01 22:00</time></a></p>

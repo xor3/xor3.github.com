@@ -1,5 +1,5 @@
 #+BEGIN_COMMENT
-.. title: Influence
+.. title: Influence 影响力
 .. slug: influence
 .. date: 2013-1-01 22:00:22 +0800
 .. tags: 

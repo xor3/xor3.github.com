@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>eshell | Xor3's World!</title>
+
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+                <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../rss.xml">
+                <link rel="alternate" type="application/rss+xml" title="RSS (zh_cn)" href="../../rss.xml">
+
+      <link rel="canonical" href="#">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]-->
+
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F538e6e8c6738436ffa4aaba2c4afdda4' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+
+    
+
+    <meta name="author" content="Xor3">
+        <link rel="prev" href="../.././en/posts/nikola-guide.html" title="nikola guide" type="text/html">
+        <link rel="next" href="../.././en/posts/emacs-notes.html" title="Emacs 笔记" type="text/html">
+    
+    <meta name="og:title" content="eshell">
+    <meta name="og:url" content="/en/posts/eshell.html">
+    <meta name="og:description" content="Table of Contents
+
+
+1. Subshells
+2. 一些很有用的命令
+3. 内置命令
+4. 被拦截的命令
+5. alias
+6. visual Commands
+7. 历史命令
+8. 一些有用的键绑定
+9. Argument Predicates &amp; modifier
+
+9.1. Adding New Modifiers and Predicates
+
+
+10. SMART S">
+    <meta name="og:site_name" content="Xor3's World!">
+    <meta name="og:type" content="article">
+
+    
+
+    
+                <link rel="alternate" hreflang="zh_cn" href="../../posts/eshell.html">
+
+
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<div class="navbar navbar-fixed-top" id="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+
+            <a class="brand" href="../../">
+
+                <span id="blog-title">Xor3's World!</span>
+            </a>
+            <!-- Everything you want hidden at 940px or less, place within here -->
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                <li>
+<a href="../../">Home</a>
+                </li>
+<li>
+<a href="../../archive.html">文章存档</a>
+                </li>
+<li>
+<a href="../../categories/index.html">标签</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                    
+                </li>
+</ul>
+                <ul class="nav pull-right">
+                
+                    <li>
+            </li>
+<li><a href="../../index.html" rel="alternate" hreflang="zh_cn">简体中文</a></li>
+
+                
+                    <li>
+    </li>
+<li>
+    <a href="../.././en/posts/eshell.org" id="sourcelink">Source</a>
+    </li>
+
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Menubar -->
+<div class="container-fluid" id="content">
+    <!--Body content-->
+    <div class="row-fluid">
+    <div class="span2"></div>
+    <div class="span8">
+    
+    
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="../.././en/posts/eshell.html" class="u-url">eshell</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Xor3</span></p>
+            <p class="dateline"><a href="../.././en/posts/eshell.html" rel="bookmark"><time class="published dt-published" datetime="2014-10-05T00:33:07+08:00" itemprop="datePublished" title="Publication date">2014-10-05 00:33</time></a></p>
+                <p class="commentline">
+        
+
+
+            
+        </p>
+<p class="sourceline"><a href="../.././en/posts/eshell.org" id="sourcelink">Source</a></p>
+
+        </div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">Also available in:</h3>
+                <p><a href="../../posts/eshell.html" rel="alternate" hreflang="zh_cn">简体中文</a></p>
+        </div>
+
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="../.././en/posts/eshell.html#sec-1">1. Subshells</a></li>
+<li><a href="../.././en/posts/eshell.html#sec-2">2. 一些很有用的命令</a></li>
+<li><a href="../.././en/posts/eshell.html#sec-3">3. 内置命令</a></li>
+<li><a href="../.././en/posts/eshell.html#sec-4">4. 被拦截的命令</a></li>
+<li><a href="../.././en/posts/eshell.html#sec-5">5. alias</a></li>
+<li><a href="../.././en/posts/eshell.html#sec-6">6. visual Commands</a></li>
+<li><a href="../.././en/posts/eshell.html#sec-7">7. 历史命令</a></li>
+<li><a href="../.././en/posts/eshell.html#sec-8">8. 一些有用的键绑定</a></li>
+<li>
+<a href="../.././en/posts/eshell.html#sec-9">9. Argument Predicates &amp; modifier</a>
+<ul>
+<li><a href="../.././en/posts/eshell.html#sec-9-1">9.1. Adding New Modifiers and Predicates</a></li>
+</ul>
+</li>
+<li><a href="../.././en/posts/eshell.html#sec-10">10. SMART SHELL</a></li>
+<li>
+<a href="../.././en/posts/eshell.html#sec-11">11. Redirection</a>
+<ul>
+<li><a href="../.././en/posts/eshell.html#sec-11-1">11.1. 重定向到伪设备</a></li>
+<li><a href="../.././en/posts/eshell.html#sec-11-2">11.2. To custom virtual targets</a></li>
+</ul>
+</li>
+<li><a href="../.././en/posts/eshell.html#sec-12">12. Startup Scripts</a></li>
+<li><a href="../.././en/posts/eshell.html#sec-13">13. EshellForLoop</a></li>
+<li><a href="../.././en/posts/eshell.html#sec-14">14. 参考</a></li>
+</ul>
+</div>
+</div>
+<!-- TEASER_END -->
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">
+<span class="section-number-2">1</span> Subshells</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+You can use $() to in-line elisp calls and use their output as arguments, in much the same way as you would in bash. The only caveat here is you cannot use the backquote (backtick) to spawn a subshell, but that syntax was never universally supported anyway. It’s also possible (though I would not recommend it, for there are cases where it does not work) to use a standard elisp form like this: (form …) — so the same as the subshell syntax I explained before, but without the $.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">
+<span class="section-number-2">2</span> 一些很有用的命令</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Eshell comes with a selection of helper functions that make your day-to-day life just . That, combined with the power to invoke almost any elisp function, means you have incredible flexibility and control over your shell. Some of the commands I’ve listed in the table below were written for Eshell specifically, and the rest are elisp commands I find useful.
+</p>
+
+<p>
+I’ve compiled a table of elisp functions (some are made for Eshell; others are not.)
+</p>
+
+<pre class="example">
+Command 	Description
+listify ARGS 	Parses an argument string into elisp list notation and prints it to the screen. It’s clever enough to handle both MS-DOS/Windows and POSIX-style argument syntax.
+addpath PATH 	Adds the argument, which must be a path, to the $PATH environment variable. If no argument is specified the existing paths are pretty-printed to the screen.
+unset ENV-VAR 	Unsets an existing environment variable
+find-file FILE 	Finds the file FILE and opens it in Emacs. This function is TRAMP aware and will therefore work remotely.
+dired DIRECTORY 	Opens a dired buffer in DIRECTORY.
+calc-eval EXPR 	Runs EXPR through the Emacs calculator.
+upcase STR/downcase STR 	Converts STR to upper- or lowercase.
+vc-dir DIRECTORY 	Reports the status of a version controlled directory (equivalent to the status command in most VCS)
+ediff-files FILE1 FILE2 	Diffs FILE1 and FILE2 using ediff, Emacs’ diff engine.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">
+<span class="section-number-2">3</span> 内置命令</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example">
+cat, cp, ls, cd, export, dirs, du, echo, env, kill, ln, mkdir, mv, alias, popd, pushd, pwd, rm, rmdir, time, umask.
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">
+<span class="section-number-2">4</span> 被拦截的命令</h2>
+<div class="outline-text-2" id="text-4">
+<pre class="example">
+agrep, diff, egrep, fgrep, glimpse, grep, info, jobs, locate, man, occur, su, sudo, whoami.
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">
+<span class="section-number-2">5</span> alias</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+– variable `eshell-aliases-file'
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-shell">alias ff 'find-file $*'
+alias d 'dired $1'
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">
+<span class="section-number-2">6</span> visual Commands</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+– variable `eshell-visual-commands'
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">
+<span class="section-number-2">7</span> 历史命令</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Like bash and other shells, Eshell has support for history modification and interaction. It’s probably easier to refer you to the bash info manual for detailed information on how the history interaction works. I’ve included a small table below that describes most of the history syntax Eshell supports.
+Syntax         Description
+</p>
+<pre class="example">
+!! 	Repeats the last command
+!ls 	Repeats the last command beginning with ls
+!?ls 	Repeats the last command containing ls
+!ls:n 	Extract the nth argument from the last command beginning with ls
+!ls 	Using pcomplete, show completion results matches ls
+^old^new 	Quick substitution. Using the last command, replaceold with new and run it again. Appears to be buggy.
+$_ 	Returns the last parameter in the last executed command.
+</pre>
+
+<p>
+Eshell also has some support for bash history modifiers (like <b>!!:s/old/new/</b> ) and the bash reference on history interaction would be a good place to brush up on that.
+<a href="http://www.gnu.org/software/bash/manual/bash.html#History-Interaction">bash history interaction</a>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">
+<span class="section-number-2">8</span> 一些有用的键绑定</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Eshell comes equipped with a couple of quality-of-life improvements that make interacting with Emacs and Eshell a lot easier.
+Keybind         Description
+C-c M-b         Inserts the printed buffer name at point
+C-c M-i         Inserts the printed process name at point
+C-c M-v         Inserts an environment variable name at point
+C-c M-d         Toggles between direct input and delayed input (send on RET).
+</p>
+
+<p>
+Useful for some programs that don’t work correctly with buffered input.
+</p>
+
+
+<p>
+Keybind         Description
+M-r / M-s         Search backwards or forwards for a command by regexp
+M-p / M-n         Goes backwards or forwards in the command history list
+C-p / C-n         Jump to the previous or next command position in Eshell
+C-c M-r / C-c M-s         Jumps to the previous or next command that shares the command currently used as input. So it jumps to other instances of the command foo if that is the current input.
+</p>
+
+<p>
+Unfortunately, the new-and-improved comint-history-isearch-backward-regexp (bound to M-r in comint) doesn’t work in Eshell because it not inherit from comint (and therefore misses out on upgrades.).
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">
+<span class="section-number-2">9</span> Argument Predicates &amp; modifier</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+变量 eshell-modifier-alist eshell-predicate-alist
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-shell">$ echo *(:U)
+("BAR" "BIN/" "DEV/" "ETC/" "FOO" "HOME/" "LIB/" "TMP/" "USR/" "VAR/")
+</pre>
+</div>
+
+<p>
+Another example, but this time I filter directories using a predicate:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-shell"> $ echo *(^/)
+("bar" "foo")
+ $ echo **/*.c
+</pre>
+</div>
+<p>
+The circumflex, ^, in this case, like in regular expressions, is negation. The / means “directories” only.
+</p>
+
+<p>
+But I don’t have to use globs to apply modifiers or predicates to lists:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-shell">$ echo ("foo" "bar" "baz" "foo")(:gs/foo/blarg/)
+("blarg" "bar" "baz" "blarg")
+</pre>
+</div>
+
+<p>
+This time I replaced all occurrences of foo with blarg. Observe that the syntax is identical, except instead of using globs to get a list of files, I used a list of my own choosing.
+</p>
+</div>
+
+<div id="outline-container-sec-9-1" class="outline-3">
+<h3 id="sec-9-1">
+<span class="section-number-3">9.1</span> Adding New Modifiers and Predicates</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+参考变量 ( eshell-predicate-alist ) ( eshell-modifier-alist ):
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(add-to-list 'eshell-modifier-alist '(?X . '(<span class="org-keyword">lambda</span> (lst) (mapcar 'rot13 lst))))
+</pre>
+</div>
+
+<p>
+Here I’ve bound X to rot13, the substitution cipher:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-shell"> $ echo ("foo" "bar" "baz")(:X)
+("sbb" "one" "onm")
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">
+<span class="section-number-2">10</span> SMART SHELL</h2>
+<div class="outline-text-2" id="text-10">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span class="org-keyword">require</span> '<span class="org-constant">eshell</span>)
+(<span class="org-keyword">require</span> '<span class="org-constant">em-smart</span>)
+(setq eshell-where-to-jump 'begin)
+(setq eshell-review-quick-commands nil)
+(setq eshell-smart-space-goes-to-end t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11">
+<span class="section-number-2">11</span> Redirection</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+eshell 支持 输出重定向(&gt;, &gt;&gt;, &gt;&gt;&gt;)，不支持输入重定向（可用 管道 )
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell"> $ cat mylog.log &gt;&gt; #&lt;buffer *scratch*&gt;
+
+# C-c M-b eshell-insert-buffer-name
+
+# You can also output straight to an elisp symbol (but be careful you don’t fry the wrong settings):
+
+$ echo foo bar baz &gt; #'myvar
+ $ echo $(cadr myvar)
+bar
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-11-1" class="outline-3">
+<h3 id="sec-11-1">
+<span class="section-number-3">11.1</span> 重定向到伪设备</h3>
+<div class="outline-text-3" id="text-11-1">
+<p>
+Eshell reimplements the following pseudo-devices:
+Device         Description
+</p>
+<pre class="example">
+/dev/eshell 	Prints the output interactively to Eshell.
+/dev/null 	Sends the output to the NULL device.
+/dev/clip 	Sends the output to the clipboard.
+/dev/kill 	Sends the output to the kill ring.
+</pre>
+
+<p>
+The usual redirection rules like overwrite (&gt;) and append (&gt;&gt;) apply here.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-11-2" class="outline-3">
+<h3 id="sec-11-2">
+<span class="section-number-3">11.2</span> To custom virtual targets</h3>
+<div class="outline-text-3" id="text-11-2">
+<p>
+参看变量 <b>eshell-virtual-targets</b>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12">
+<span class="section-number-2">12</span> Startup Scripts</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+Like most shells, Eshell supports both login and profile/rc shell scripts. The full filepaths for both are stored in the variables eshell-login-script and eshell-rc-script, but by default the files login and profile are stored in ~/.eshell/.
+</p>
+
+<p>
+It bears mention that the comment syntax is #.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13">
+<span class="section-number-2">13</span> EshellForLoop</h2>
+<div class="outline-text-2" id="text-13">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">  for i in *.pm { rm $i<span class="org-comment-delimiter">; </span><span class="org-comment">cvs remove $i }</span>
+  for f in *.xpm {convert $f (file-name-sans-extension $f)}
+  for f in *.xpm(<span class="org-builtin">:r</span>) {convert $f.xpm $f.png} #the (<span class="org-builtin">:r</span>) removes the extension
+
+  echo test &gt; original.txt
+  for i in (<span class="org-keyword">let</span> (lst) (<span class="org-keyword">dotimes</span> (i 1000) (setq lst (append lst (list i)))) lst) {cp original.txt $i.txt}
+  for i in (number-sequence 1 1000) {cp original.txt $i.txt}
+
+
+  for f in web1 web2 { scp info.php $f:/var/www/html/oscmax/catalog }
+# 注意两个花括号间要用空格
+  for f in {ls -1d *} {echo $f<span class="org-comment-delimiter">; </span><span class="org-comment">svn up $f}</span>
+  for f in {find . -name '*.java'} {mv $f (replace-regexp-in-string <span class="org-string">"\\.java$"</span> <span class="org-string">".scala"</span> f)}
+  # Those parens may also be curly braces. Paren for lisp, curly for subshell.
+  # See how $f is used in curly brace but f is used in parens
+  for f in db1 db2 {mysqldump -d -uuser -ppwd (concat <span class="org-string">"prefix_"</span> f <span class="org-string">"_suffix"</span>) &gt;(concat <span class="org-string">"/tmp/backup_"</span> f <span class="org-string">".sql"</span>)}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14">
+<span class="section-number-2">14</span> 参考</h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li>
+<a href="http://www.masteringemacs.org/articles/2010/12/13/complete-guide-mastering-eshell/">http://www.masteringemacs.org/articles/2010/12/13/complete-guide-mastering-eshell/</a> <sup><a id="fnr.1" name="fnr.1" class="footref" href="../.././en/posts/eshell.html#fn.1">1</a></sup>
+</li>
+</ul>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef">
+<sup><a id="fn.1" name="fn.1" class="footnum" href="../.././en/posts/eshell.html#fnr.1">1</a></sup> <p class="footpara">
+<a href="http://www.masteringemacs.org/articles/2010/12/13/complete-guide-mastering-eshell/">http://www.masteringemacs.org/articles/2010/12/13/complete-guide-mastering-eshell/</a>
+</p>
+</div>
+
+
+</div>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+        <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/emacs.html" rel="tag">emacs</a></li>
+           <li><a class="tag p-category" href="../categories/eshell.html" rel="tag">eshell</a></li>
+        </ul>
+
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../.././en/posts/nikola-guide.html" rel="prev" title="nikola guide">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../.././en/posts/emacs-notes.html" rel="next" title="Emacs 笔记">Next post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+        
+        
+
+
+        </section>
+    
+
+</article>
+
+        
+
+
+
+    </div>
+    </div>
+    <!--End of body content-->
+</div>
+<div class="footerbox">
+    Contents © 2014         <a href="mailto:xor3@outlook.com">Xor3</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/2.5/cn/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">Creative Commons Attribution-NonCommercial-ShareAlike 2.5 China Mainland License</a>.
+    
+</div>
+
+            <script src="../../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
+
+
+</body>
+</html>

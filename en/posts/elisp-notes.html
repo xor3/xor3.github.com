@@ -1,0 +1,3884 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Elsip 笔记 | Xor3's World!</title>
+
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+                <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../rss.xml">
+                <link rel="alternate" type="application/rss+xml" title="RSS (zh_cn)" href="../../rss.xml">
+
+      <link rel="canonical" href="#">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]-->
+
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F538e6e8c6738436ffa4aaba2c4afdda4' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+
+    
+
+    <meta name="author" content="Xor3">
+        <link rel="prev" href="../.././en/posts/influence.html" title="Influence 影响力" type="text/html">
+        <link rel="next" href="../.././en/posts/yasnippet.html" title="Yasnippet" type="text/html">
+    
+    <meta name="og:title" content="Elsip 笔记">
+    <meta name="og:url" content="/en/posts/elisp-notes.html">
+    <meta name="og:description" content="Table of Contents
+
+
+1. Display
+
+1.1. Faces
+
+1.1.1. Defining Faces
+1.1.2. Face Attributes
+1.1.3. Attribute Functions
+1.1.4. Displaying Faces
+1.1.5. Face Remapping
+1.1.6. Face Functions
+1.1.7. Auto Face">
+    <meta name="og:site_name" content="Xor3's World!">
+    <meta name="og:type" content="article">
+
+    
+
+    
+                <link rel="alternate" hreflang="zh_cn" href="../../posts/elisp-notes.html">
+
+
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<div class="navbar navbar-fixed-top" id="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+
+            <a class="brand" href="../../">
+
+                <span id="blog-title">Xor3's World!</span>
+            </a>
+            <!-- Everything you want hidden at 940px or less, place within here -->
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                <li>
+<a href="../../">Home</a>
+                </li>
+<li>
+<a href="../../archive.html">文章存档</a>
+                </li>
+<li>
+<a href="../../categories/index.html">标签</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                    
+                </li>
+</ul>
+                <ul class="nav pull-right">
+                
+                    <li>
+            </li>
+<li><a href="../../index.html" rel="alternate" hreflang="zh_cn">简体中文</a></li>
+
+                
+                    <li>
+    </li>
+<li>
+    <a href="../.././en/posts/elisp-notes.org" id="sourcelink">Source</a>
+    </li>
+
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Menubar -->
+<div class="container-fluid" id="content">
+    <!--Body content-->
+    <div class="row-fluid">
+    <div class="span2"></div>
+    <div class="span8">
+    
+    
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="../.././en/posts/elisp-notes.html" class="u-url">Elsip 笔记</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Xor3</span></p>
+            <p class="dateline"><a href="../.././en/posts/elisp-notes.html" rel="bookmark"><time class="published dt-published" datetime="2014-01-05T00:36:49+08:00" itemprop="datePublished" title="Publication date">2014-01-05 00:36</time></a></p>
+                <p class="commentline">
+        
+
+
+            
+        </p>
+<p class="sourceline"><a href="../.././en/posts/elisp-notes.org" id="sourcelink">Source</a></p>
+
+        </div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">Also available in:</h3>
+                <p><a href="../../posts/elisp-notes.html" rel="alternate" hreflang="zh_cn">简体中文</a></p>
+        </div>
+
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-1">1. Display</a>
+<ul>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-1-1">1.1. Faces</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-1-1-1">1.1.1. Defining Faces</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-1-1-2">1.1.2. Face Attributes</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-1-1-3">1.1.3. Attribute Functions</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-1-1-4">1.1.4. Displaying Faces</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-1-1-5">1.1.5. Face Remapping</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-1-1-6">1.1.6. Face Functions</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-1-1-7">1.1.7. Auto Faces</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-1-1-8">1.1.8. Font Lookup</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-1-1-9">1.1.9. Fontsets</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-1-1-10">1.1.10. Low-level Font</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-2">2. elispinfo  叶文彬</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-1">2.1. 基础知识</a></li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-2-2">2.2. 基本数据类型之一– 数字</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-2-1">2.2.1. 函数列表</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-2-2">2.2.2. 变量列表</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-2-3">2.2.3. 测试函数</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-2-4">2.2.4. 数的比较</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-2-5">2.2.5. 数的转换</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-2-6">2.2.6. 数的运算</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-2-3">2.3. 基本数据类型之二– 字符和字符串</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-3-1">2.3.1. 函数列表</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-3-2">2.3.2. 字符表示法</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-3-3">2.3.3. 测试函数</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-3-4">2.3.4. 构造函数</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-3-5">2.3.5. 字符串比较</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-3-6">2.3.6. 字符串转换</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-3-7">2.3.7. 格式化字符串</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-3-8">2.3.8. 查找和替换</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-2-4">2.4. 基本数据类型之三– cons cell 和 列表</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-4-1">2.4.1. 函数列表</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-2-5">2.5. 基本数据类型之四– 序列和数组</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-5-1">2.5.1. 函数列表</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-2-6">2.6. 基本数据类型之五–符号</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-6-1">2.6.1. 创建符号</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-6-2">2.6.2. 符号的组成</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-2-6-3">2.6.3. 函数列表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-3">3. cl.el</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-3-1">3.1. MACROs</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-3-2">3.2. FUNCTIONs</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-3-3">3.3. Control Structures.</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-3-4">3.4. Multiple values</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-3-5">3.5. Declarations.</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-3-6">3.6. Symbols.</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-3-7">3.7. Numbers.</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-3-8">3.8. Sequence function</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-4">4. Lisp Data Types</a>
+<ul>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-4-1">4.1. Programming Types</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-4-1-1">4.1.1. Integer Type</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-4-1-2">4.1.2. Floating Point Type</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-4-1-3">4.1.3. Character Type</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-4-1-4">4.1.4. Symbol Type</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-4-1-5">4.1.5. Sequence type</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-4-1-6">4.1.6. Cons Cell Type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-5">5. elispintro</a>
+<ul>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-5-1">5.1. 数据类型之 - 数字</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-1-1">5.1.1. 语法</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-1-2">5.1.2. 测试函数</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-1-3">5.1.3. 比较</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-1-4">5.1.4. 其他</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-5-2">5.2. 数据类型之 - 字符和字符串</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-2-1">5.2.1. 测试函数</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-2-2">5.2.2. 生成函数</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-2-3">5.2.3. 比较</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-2-4">5.2.4. 字符（串）转换</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-2-5">5.2.5. 字符串查找替换</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-5-3">5.3. 数据类型之 - cons cell 和 列表</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-3-1">5.3.1. 语法</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-3-2">5.3.2. 测试函数</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-3-3">5.3.3. 构造函数</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-3-4">5.3.4. 列表操作</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-3-5">5.3.5. 关联表*</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-3-6">5.3.6. 遍历列表</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-3-7">5.3.7. 其他</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-5-4">5.4. 数据类型之 - 符号</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-4-1">5.4.1. 创建 symbol</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-4-2">5.4.2. 操作  symbol</a></li>
+</ul>
+</li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-5">5.5. 变量</a></li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-5-6">5.6. 函数和命令</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-6-1">5.6.1. 测试命令 functionp</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-6-2">5.6.2. 函数调用</a></li>
+</ul>
+</li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-5-7">5.7. 正则表达式</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-6">6. Emacs Lisp ::`(elisp) Top'</a>
+<ul>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-6-1">6.1. Files</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-1">6.1.1. Visiting Files</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-2">6.1.2. Saving Buffers</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-3">6.1.3. Reading from Files</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-4">6.1.4. Writing to Files</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-5">6.1.5. File Locks</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-6">6.1.6. Information about Files</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-7">6.1.7. Changing Files</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-8">6.1.8. File Names</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-9">6.1.9. Contents of Directories</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-10">6.1.10. Create/Delete Dirs</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-11">6.1.11. Magic File Names</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-1-12">6.1.12. Format Conversion</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-6-2">6.2. Buffers</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-1">6.2.1. Buffer Basics</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-2">6.2.2. Current Buffer</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-3">6.2.3. Buffer Names</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-4">6.2.4. Buffer File Names</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-5">6.2.5. Buffer Modification</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-6">6.2.6. Modification Time</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-7">6.2.7. Read Only Buffers</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-8">6.2.8. The Buffer List</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-9">6.2.9. Creating Buffers</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-10">6.2.10. Killing Buffers</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-11">6.2.11. Indirect Buffers</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-12">6.2.12. Swapping Text</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-2-13">6.2.13. Buffer Gap</a></li>
+</ul>
+</li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-6-3">6.3. Completion</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-7">7. Usual Functions</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-7-1">7.1. Visiting Files</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-7-2">7.2. Saving Buffers</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-7-3">7.3. File</a></li>
+</ul>
+</li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-8">8. Debug</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-8-1">8.1. </a></li>
+</ul>
+</li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-9">9. emergency elisp</a></li>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-10">10. URI ()</a>
+<ul>
+<li>
+<a href="../.././en/posts/elisp-notes.html#sec-10-1">10.1. URI Parsing()</a>
+<ul>
+<li><a href="../.././en/posts/elisp-notes.html#sec-10-1-1">10.1.1. Parsed URI structures</a></li>
+</ul>
+</li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-10-2">10.2. URI Encoding</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-10-3">10.3. Retrieving URLs</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-10-4">10.4. Command and Function Index</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-10-5">10.5. Variable Index</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-10-6">10.6. EXAMPLE</a></li>
+</ul>
+</li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-11">11. 翻译</a></li>
+<li><a href="../.././en/posts/elisp-notes.html#sec-12">12. 代码</a></li>
+</ul>
+</div>
+</div>
+<!-- TEASER_END -->
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">
+<span class="section-number-2">1</span> Display</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">
+<span class="section-number-3">1.1</span> Faces</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1">
+<span class="section-number-4">1.1.1</span> Defining Faces</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+ – Macro: defface face spec doc [keyword value]
+ SPEC 应该是一个关联表 `(DISPLAY ATTS)'
+ DISPLAY 可能是`default' `t' 形如`(CHARACTERISTIC VALUE…)的列表，ATTS是一系列属性值
+ `(CHARACTERISTIC VALUE…)' CHARACTERISTIC可能值有`type'(graphic,x,pc,w32,tty<i>windows-system</i> `class'(color,grayscale,mono') `background'(light, dark) `mincolors' `surpports'
+下面是face `region'的定义
+</p>
+<div class="org-src-container">
+
+<pre class="src src-lisp"><span class="linenr"> 1: </span>(defface region
+<span class="linenr"> 2: </span>  '((((class color) (min-colors 88) (background dark))
+<span class="linenr"> 3: </span>     <span class="org-builtin">:background</span> <span class="org-string">"blue3"</span>)
+<span class="linenr"> 4: </span>    (((class color) (min-colors 88) (background light))
+<span class="linenr"> 5: </span>     <span class="org-builtin">:background</span> <span class="org-string">"lightgoldenrod2"</span>)
+<span class="linenr"> 6: </span>    (((class color) (min-colors 16) (background dark))
+<span class="linenr"> 7: </span>     <span class="org-builtin">:background</span> <span class="org-string">"blue3"</span>)
+<span class="linenr"> 8: </span>    (((class color) (min-colors 16) (background light))
+<span class="linenr"> 9: </span>     <span class="org-builtin">:background</span> <span class="org-string">"lightgoldenrod2"</span>)
+<span class="linenr">10: </span>    (((class color) (min-colors 8))
+<span class="linenr">11: </span>     <span class="org-builtin">:background</span> <span class="org-string">"blue"</span> <span class="org-builtin">:foreground</span> <span class="org-string">"white"</span>)
+<span class="linenr">12: </span>    (((type tty) (class mono))
+<span class="linenr">13: </span>     <span class="org-builtin">:inverse-video</span> t)
+<span class="linenr">14: </span>    (t <span class="org-builtin">:background</span> <span class="org-string">"gray"</span>))
+<span class="linenr">15: </span>  <span class="org-doc">"Basic face for highlighting the region."</span>
+<span class="linenr">16: </span>  <span class="org-builtin">:group</span> 'basic-faces)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2">
+<span class="section-number-4">1.1.2</span> Face Attributes</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+See <a href="../.././en/posts/elisp-notes.html#sec-1-1-4">1.1.4</a> 
+`:family'<a href="../.././en/posts/elisp-notes.html#sec-1-1-9">1.1.9</a> `:foundry' `:width' `:height' `:weight' `:slant'
+`:forground' `:background' `:underline' `:overline'
+`:strike-through' `:box'(nil, t, COLOR) `:inverse-video'
+`:stipple' `:font' `:inherit'
+</p>
+<ul class="org-ul">
+<li>Function: font-family-list &amp;optional frame
+</li>
+<li>User Option: underline-minimum-offset
+</li>
+<li>User Option: x-bitmap-file-path
+</li>
+<li>Function: bitmap-spec-p object 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3">
+<span class="section-number-4">1.1.3</span> Attribute Functions</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li>Function: set-face-attribute face frame &amp;rest arguments
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(set-face-attribute 'foo nil
+                    <span class="org-builtin">:width</span> 'extended
+                    <span class="org-builtin">:weight</span> 'bold
+                    <span class="org-builtin">:underline</span> <span class="org-string">"red"</span>)
+<span class="org-comment-delimiter">;;  </span><span class="org-comment">FRAME 为 t 的话，则新建的frame 应用该属性</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Function: face-attribute face attribute &amp;optional frame inherit ::返回ATTRIBUTE的值
+</li>
+<li>Function: set-face-foreground face color &amp;optional frame 
+</li>
+<li>Function: set-face-background face color &amp;optional frame
+</li>
+<li>Function: set-face-stipple
+</li>
+<li>Function: set-face-font
+</li>
+<li>Function: set-face-underline-p face underline &amp;optional frame
+</li>
+<li>…
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4">
+<span class="section-number-4">1.1.4</span> Displaying Faces</h4>
+</div>
+<div id="outline-container-sec-1-1-5" class="outline-4">
+<h4 id="sec-1-1-5">
+<span class="section-number-4">1.1.5</span> Face Remapping</h4>
+</div>
+<div id="outline-container-sec-1-1-6" class="outline-4">
+<h4 id="sec-1-1-6">
+<span class="section-number-4">1.1.6</span> Face Functions</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<ul class="org-ul">
+<li>Function: make-face name
+</li>
+<li id="Function: face-list">返回已定义的face 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-1-7" class="outline-4">
+<h4 id="sec-1-1-7">
+<span class="section-number-4">1.1.7</span> Auto Faces</h4>
+</div>
+<div id="outline-container-sec-1-1-8" class="outline-4">
+<h4 id="sec-1-1-8">
+<span class="section-number-4">1.1.8</span> Font Lookup</h4>
+</div>
+<div id="outline-container-sec-1-1-9" class="outline-4">
+<h4 id="sec-1-1-9">
+<span class="section-number-4">1.1.9</span> Fontsets</h4>
+</div>
+<div id="outline-container-sec-1-1-10" class="outline-4">
+<h4 id="sec-1-1-10">
+<span class="section-number-4">1.1.10</span> Low-level Font</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">
+<span class="section-number-2">2</span> elispinfo  叶文彬</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">
+<span class="section-number-3">2.1</span> 基础知识</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>setq 可以直接给变量赋值
+</li>
+<li>defvar 如果变量在声明之前有值的话，不会改变已有值
+</li>
+<li>let 和 let* 可以进行局部变量的绑定，区别是 let* 声明中就能使用前面声明的变量
+</li>
+<li>lambda 表达式
+</li>
+<li>控制结构
+<ul class="org-ul">
+<li>顺序执行
+<ul class="org-ul">
+<li>progn
+</li>
+</ul>
+</li>
+<li>条件判断
+<ul class="org-ul">
+<li>if
+</li>
+<li>cond
+</li>
+</ul>
+</li>
+<li>循环
+<ul class="org-ul">
+<li>while
+</li>
+</ul>
+</li>
+<li>逻辑运算
+<ul class="org-ul">
+<li>and 常用于参数检查
+</li>
+<li>or 常用于设置参数缺省值
+</li>
+<li>not
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>函数列表
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-elisp">(deffun NAME ARGLIST [DOCSTRING] BODY ...)
+(<span class="org-keyword">defvar</span> <span class="org-variable-name">SYMBOL</span> <span class="org-type">&amp;optional</span> INITVALUE DOCSTRING)
+(setq SYM VAL SYM VAL ...)
+(<span class="org-keyword">let</span> VARLIST BODY...)
+(<span class="org-keyword">let*</span> VARLIST BODY...)
+(<span class="org-keyword">lambda</span> ARGS [DOCSTRING] [INTERACTIVE] BODY)
+(<span class="org-keyword">progn</span> BODY...)
+(<span class="org-keyword">if</span> COND THEN ELSE ...)
+(<span class="org-keyword">cond</span> CLAUSES...)
+(<span class="org-keyword">when</span> COND BODY...)
+(<span class="org-keyword">unless</span> COND BODY...)
+(or CONDITIONS ...)
+(and CONDITIONS ...)
+(not OBJECT)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">
+<span class="section-number-3">2.2</span> 基本数据类型之一– 数字</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-sec-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1">
+<span class="section-number-4">2.2.1</span> 函数列表</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<div class="org-src-container">
+
+<pre class="src src-elisp">(log ARG <span class="org-type">&amp;optional</span> BASE)
+(log10 ARG)
+(random <span class="org-type">&amp;optional</span> N)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2">
+<span class="section-number-4">2.2.2</span> 变量列表</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+most-positive-fixnum
+most-negative-fixnum
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2-3" class="outline-4">
+<h4 id="sec-2-2-3">
+<span class="section-number-4">2.2.3</span> 测试函数</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<ul class="org-ul">
+<li>integerp
+</li>
+<li>floatp
+</li>
+<li>numberp 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-2-4" class="outline-4">
+<h4 id="sec-2-2-4">
+<span class="section-number-4">2.2.4</span> 数的比较</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<ul class="org-ul">
+<li>&gt;, &lt;, =, &lt;=, &gt;=, /=
+</li>
+<li>eql 不仅测试数值是否相等，还测试类型是否一致
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-2-5" class="outline-4">
+<h4 id="sec-2-2-5">
+<span class="section-number-4">2.2.5</span> 数的转换</h4>
+<div class="outline-text-4" id="text-2-2-5">
+<ul class="org-ul">
+<li>truncate 转换成靠近0的整数
+</li>
+<li>floor
+</li>
+<li>ceiling 
+</li>
+<li>round
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-2-6" class="outline-4">
+<h4 id="sec-2-2-6">
+<span class="section-number-4">2.2.6</span> 数的运算</h4>
+<div class="outline-text-4" id="text-2-2-6">
+<ul class="org-ul">
+<li>四则运算 +, -, *, /, mod, %(要求第一个参数为整数),  1+, 1-
+</li>
+<li>宏 incf, decf (cl.el)
+</li>
+<li>abs, sin, cos, tan, asin, atan, sqrt, exp, log, random
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">
+<span class="section-number-3">2.3</span> 基本数据类型之二– 字符和字符串</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-sec-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1">
+<span class="section-number-4">2.3.1</span> 函数列表</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<div class="org-src-container">
+
+<pre class="src src-elisp">(format STRING <span class="org-type">&amp;rest</span> OBJECT)
+(string-match REGEXP STRING <span class="org-type">&amp;optional</span> START)
+(replace-match NEWTEXT <span class="org-type">&amp;optional</span> FIXEDCASE LITERAL STRING SUBEXP)
+(replace-regexp-in-string REGEXP REP STRING <span class="org-type">&amp;optional</span> FIXEDCASE LITERAL SUBEXP START)
+(subst-char-in-string FROMCHAR TOCHAR STRING <span class="org-type">&amp;optional</span> INPLACE)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2">
+<span class="section-number-4">2.3.2</span> 字符表示法</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<ul class="org-ul">
+<li>?A 表示 字符 A
+</li>
+<li>标点同样加问题，但最好加上 转义字符\, 如?+ 和 ?\+ 表示都是加号
+</li>
+<li>?\<sup>I</sup>, ?\<sup>i</sup>, ?\C-I, ?\C-i 都表示数字 9，是控制字符&lt;tab&gt; ?\t
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-3-3" class="outline-4">
+<h4 id="sec-2-3-3">
+<span class="section-number-4">2.3.3</span> 测试函数</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<ul class="org-ul">
+<li>stringp 
+</li>
+<li>string-or-null-p
+</li>
+<li>char-or-string-p
+</li>
+<li>无charp
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-3-4" class="outline-4">
+<h4 id="sec-2-3-4">
+<span class="section-number-4">2.3.4</span> 构造函数</h4>
+<div class="outline-text-4" id="text-2-3-4">
+<ul class="org-ul">
+<li>(make-string 5 ?x) =&gt; "xxxxx"
+</li>
+<li>(string ?a ?b ?c)  =&gt; "abc"
+</li>
+<li>(substring "01234567890" 3)
+</li>
+<li>(substring "01234567890" 3 5)
+</li>
+<li>(substring "01234567890" -3 -1)
+</li>
+<li>concat 
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3-5" class="outline-4">
+<h4 id="sec-2-3-5">
+<span class="section-number-4">2.3.5</span> 字符串比较</h4>
+<div class="outline-text-4" id="text-2-3-5">
+<ul class="org-ul">
+<li>char-equal 区分大小写的字符比较，受变量case-fold-search影响
+</li>
+<li>string=, string-equal
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3-6" class="outline-4">
+<h4 id="sec-2-3-6">
+<span class="section-number-4">2.3.6</span> 字符串转换</h4>
+<div class="outline-text-4" id="text-2-3-6">
+<ul class="org-ul">
+<li>(string-to-number "256") ;=&gt; 256
+</li>
+<li>(number-to-string 256") ;=&gt; "256"
+</li>
+<li>(format "%#o" 256) ;=&gt; "0400"
+</li>
+<li>(format "%#x" 256) ;=&gt; "0x100"
+</li>
+<li>(vconcat "abc") ;=&gt; [a b c]
+</li>
+<li>(append "abc" nil) ;=&gt;(97 98 99)
+</li>
+<li>(downcase "HELLO WORLD")
+</li>
+<li>(upcase "hello world")
+</li>
+<li>(capitalize "tHE cAT in hHE hAT")
+</li>
+<li>(upcase-initials "The CAT in the hAt")
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3-7" class="outline-4">
+<h4 id="sec-2-3-7">
+<span class="section-number-4">2.3.7</span> 格式化字符串</h4>
+<div class="outline-text-4" id="text-2-3-7">
+<ul class="org-ul">
+<li>format
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3-8" class="outline-4">
+<h4 id="sec-2-3-8">
+<span class="section-number-4">2.3.8</span> 查找和替换</h4>
+<div class="outline-text-4" id="text-2-3-8">
+<ul class="org-ul">
+<li>(string-match "34" "01234567890") ;=&gt; 3
+</li>
+<li>(string-match "34" "0123456789012345" 10) ;=&gt; 13
+</li>
+<li>(string-match "2*" "232*3=696") ;=&gt; 0
+</li>
+<li>(string-match (regexp-quote "2*") "232*3=696") ;=&gt; 2
+</li>
+<li>(match-data)
+</li>
+<li>match-beginning, match-end
+</li>
+<li>replace-match
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">
+<span class="section-number-3">2.4</span> 基本数据类型之三– cons cell 和 列表</h3>
+<div class="outline-text-3" id="text-2-4">
+</div>
+<div id="outline-container-sec-2-4-1" class="outline-4">
+<h4 id="sec-2-4-1">
+<span class="section-number-4">2.4.1</span> 函数列表</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"><span class="org-comment-delimiter">;;</span><span class="org-comment">列表测试</span>
+(consp OBJECT)
+(listp OBJECT)
+(null OBJECT)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">列表构造</span>
+(cons CAR CDR)
+(list <span class="org-type">&amp;rest</span> SEQUENCES)
+(append <span class="org-type">&amp;rest</span> SEQUENCES)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">访问列表</span>
+(car LIST)
+(cdr LIST)
+(cadr X)
+(caar X)
+(cddr X)
+(cdar X)
+(nth N LIST)
+(nthcdr N LIST)
+(last LIST <span class="org-type">&amp;optional</span> N)
+(butlast LIST <span class="org-type">&amp;optional</span> N)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">修改cons cell</span>
+(setcar CELL NEWCAR)
+(setcdr CELL NEWCDR)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">列表操作</span>
+(push NEWELT LIST)
+(pop LIST)
+(reverse LIST)
+(nreverse LIST) <span class="org-comment-delimiter">;;</span><span class="org-comment">破坏性</span>
+(sort LIST PREDICATE) <span class="org-comment-delimiter">;;</span><span class="org-comment">破坏性，要保持原来列表又要排序，可借助 copy-sequence</span>
+(copy-sequence ARG)
+(nconc <span class="org-type">&amp;rest</span> LISTS)
+(nbutlast LIST <span class="org-type">&amp;optional</span> N)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">集合函数</span>
+(delete-dups LIST)
+(memq ELT LIST)  <span class="org-comment-delimiter">;;</span><span class="org-comment">memq 与 member 的区别如同 eq 与 equal 的区别</span>
+(member ELT LIST)
+(delq ELT LIST)
+(delete ELT SEQ)
+(remq ELT LIST)
+(remove ELT SEQ)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">关联表</span>
+(assoc KEY LIST)
+(assq KEY LIST)
+(assoc-default KEY ALIST <span class="org-type">&amp;optional</span> TEST DEFAULT)
+(rassoc KEY LIST) <span class="org-comment-delimiter">;;</span><span class="org-comment">根据值返回关联表</span>
+(rassq KEY LIST)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">遍历函数</span>
+(mapc FUNCTIOIN SEQUENCE) <span class="org-comment-delimiter">;;</span><span class="org-comment">返回输入的参数列表</span>
+(mapcar FUNCTION SEQUENCE) <span class="org-comment-delimiter">;;</span><span class="org-comment">返回函数返回值构成的列表</span>
+(<span class="org-keyword">dolist</span> (var LIST [RESULT] BODY...)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">其他 </span>
+(number-sequence FROM <span class="org-type">&amp;optional</span> TO INC)
+(split-string STRING <span class="org-type">&amp;optional</span> SEPARATORS OMIT-NULLS)
+(mapconcat FUNCTION SEQUENCE SEPARATOR)
+(identity ARG)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">
+<span class="section-number-3">2.5</span> 基本数据类型之四– 序列和数组</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-sec-2-5-1" class="outline-4">
+<h4 id="sec-2-5-1">
+<span class="section-number-4">2.5.1</span> 函数列表</h4>
+<div class="outline-text-4" id="text-2-5-1">
+<div class="org-src-container">
+
+<pre class="src src-elisp">(sequencep OBJECT)
+(arrayp OBJECT)
+(vectorp OBJECT)
+(char-table-p OBJECT)
+(bool-vector-p OBJECT)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">序列函数</span>
+(length SEQUENCE)
+(safe-length LIST)
+(elt SEQUENCE)
+(copy-sequence ARG)
+(copy-tree TREE <span class="org-type">&amp;optional</span> VECP)
+<span class="org-comment-delimiter">;;</span><span class="org-comment">数组函数</span>
+(vector <span class="org-type">&amp;rest</span> OBJECT)
+(make-vector LENGTH INIT)
+(aref ARRAY IDX)
+(aset ARRAY IDX NEWELT)
+(vconcat <span class="org-type">&amp;rest</span> SEQUENCE)
+(append <span class="org-type">&amp;rest</span> SEQUENCE)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">
+<span class="section-number-3">2.6</span> 基本数据类型之五–符号</h3>
+<div class="outline-text-3" id="text-2-6">
+</div>
+<div id="outline-container-sec-2-6-1" class="outline-4">
+<h4 id="sec-2-6-1">
+<span class="section-number-4">2.6.1</span> 创建符号</h4>
+<div class="outline-text-4" id="text-2-6-1">
+<ul class="org-ul">
+<li>intern 在obarray里插入符号
+</li>
+<li>intern-soft 若 obarray 里不存在，则返回 nil
+</li>
+<li>unintern
+</li>
+<li>mapatoms 提供了遍历 obarray 的方法
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-6-2" class="outline-4">
+<h4 id="sec-2-6-2">
+<span class="section-number-4">2.6.2</span> 符号的组成</h4>
+<div class="outline-text-4" id="text-2-6-2">
+<ul class="org-ul">
+<li>symbol-name 符号名
+</li>
+<li>symbol-value 符号值 (setq 来设置，但setq 只应用于 obarray,set可用于任意场合)
+</li>
+<li>symbol-function : fset 来设置，fboundp来测试
+</li>
+<li>symbol-plist : put, get, plist-put, plist-get 
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-2-6-3" class="outline-4">
+<h4 id="sec-2-6-3">
+<span class="section-number-4">2.6.3</span> 函数列表</h4>
+<div class="outline-text-4" id="text-2-6-3">
+<div class="org-src-container">
+
+<pre class="src src-elisp">(symbolp OBJECT)
+(intern-soft NAME <span class="org-type">&amp;optional</span> OBARRAY)
+(intern STRING <span class="org-type">&amp;optional</span> OBARRAY)
+(unintern NAME <span class="org-type">&amp;optional</span> OBARRAY)
+(mapatoms FUNCTIO <span class="org-type">&amp;optional</span> OBARRAY)
+(symbol-name SYMBOL)
+(symbol-value SYMBOL)
+(boundp SYMBOL)
+(set SYMBOL NEWVAL)
+(setq SYM VAL SYM VAl ...)
+(symbol-function SYMBOL)
+(fset SYMBOL DEFINITION)
+(fboundp SYMBOL)
+(symbol-plist SYMBOL)
+(get SYMBOL PROPNAME)
+(put SYMBOL PROPNAME VALUE)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">
+<span class="section-number-2">3</span> cl.el</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">
+<span class="section-number-3">3.1</span> MACROs</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>(incf place &amp;optional x)
+</li>
+<li>(decf place &amp;optional x)
+</li>
+<li>(pop place)
+</li>
+<li>(push x place)
+</li>
+<li>(pushnew x place &amp;rest keys)
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">
+<span class="section-number-3">3.2</span> FUNCTIONs</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>(cl-set-elt seq n val)
+</li>
+<li>(cl-set-nthcdr n list x)
+</li>
+<li>(cl-set-buffer-substring start end val)
+</li>
+<li>(cl-set-substring str start end val)
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3">
+<span class="section-number-3">3.3</span> Control Structures.</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>(cl-map-extents &amp;rest cl-args)
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4">
+<span class="section-number-3">3.4</span> Multiple values</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>(values &amp;rest values)
+</li>
+<li>(values-list list)
+</li>
+<li>(multiple-value-list expression)
+</li>
+<li>(multiple-value-apply function expression)
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-5" class="outline-3">
+<h3 id="sec-3-5">
+<span class="section-number-3">3.5</span> Declarations.</h3>
+<div class="outline-text-3" id="text-3-5">
+<ul class="org-ul">
+<li>(cl-compiling-file)
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-6" class="outline-3">
+<h3 id="sec-3-6">
+<span class="section-number-3">3.6</span> Symbols.</h3>
+<div class="outline-text-3" id="text-3-6">
+<ul class="org-ul">
+<li>(cl-random-time)
+</li>
+<li>
+<b>gensym-counter</b>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-7" class="outline-3">
+<h3 id="sec-3-7">
+<span class="section-number-3">3.7</span> Numbers.</h3>
+<div class="outline-text-3" id="text-3-7">
+<ul class="org-ul">
+<li>(floatp-safe object)
+</li>
+<li>(plusp number)
+</li>
+<li>(minusp number)
+</li>
+<li>(oddp integer)
+</li>
+<li>(evenp integer)
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-8" class="outline-3">
+<h3 id="sec-3-8">
+<span class="section-number-3">3.8</span> Sequence function</h3>
+<div class="outline-text-3" id="text-3-8">
+<ul class="org-ul">
+<li>(copy-sequence)
+</li>
+<li>(mapcar* cl-func cl-x &amp;rest cl-rest)
+</li>
+<li>(third x)
+</li>
+<li>(fifth x)
+</li>
+<li>(caddr x)
+</li>
+<li>(list* arg &amp;rest rest)
+</li>
+<li>(copy-list list)
+</li>
+<li>(adjoin cl-item cl-list &amp;rest cl-keys)
+</li>
+<li>(subst cl-new cl-old cl-tree &amp;rest cl-keys)
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">
+<span class="section-number-2">4</span> Lisp Data Types</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">
+<span class="section-number-3">4.1</span> Programming Types</h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-sec-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1">
+<span class="section-number-4">4.1.1</span> Integer Type</h4>
+</div>
+<div id="outline-container-sec-4-1-2" class="outline-4">
+<h4 id="sec-4-1-2">
+<span class="section-number-4">4.1.2</span> Floating Point Type</h4>
+</div>
+<div id="outline-container-sec-4-1-3" class="outline-4">
+<h4 id="sec-4-1-3">
+<span class="section-number-4">4.1.3</span> Character Type</h4>
+</div>
+<div id="outline-container-sec-4-1-4" class="outline-4">
+<h4 id="sec-4-1-4">
+<span class="section-number-4">4.1.4</span> Symbol Type</h4>
+</div>
+<div id="outline-container-sec-4-1-5" class="outline-4">
+<h4 id="sec-4-1-5">
+<span class="section-number-4">4.1.5</span> Sequence type</h4>
+</div>
+<div id="outline-container-sec-4-1-6" class="outline-4">
+<h4 id="sec-4-1-6">
+<span class="section-number-4">4.1.6</span> Cons Cell Type</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">
+<span class="section-number-2">5</span> elispintro</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">
+<span class="section-number-3">5.1</span> 数据类型之 - 数字</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-sec-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1">
+<span class="section-number-4">5.1.1</span> 语法</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<dl class="org-dl">
+<dt> #b101100 =&gt; 44 </dt>
+<dd>二进制
+</dd>
+<dt> #o54 =&gt; 44  </dt>
+<dd>八进制
+</dd>
+<dt> #x2c =&gt; 44  </dt>
+<dd>16进制
+</dd>
+<dt> #24r1k =&gt; 44 </dt>
+<dd>24进制
+</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-sec-5-1-2" class="outline-4">
+<h4 id="sec-5-1-2">
+<span class="section-number-4">5.1.2</span> 测试函数</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+integerp
+floatp
+numberp
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-1-3" class="outline-4">
+<h4 id="sec-5-1-3">
+<span class="section-number-4">5.1.3</span> 比较</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<p>
+&gt;, &lt;, &gt;=, &lt;=, /=(不等于), eql（同时比较数值和数字类型是否一致)
+eg: (= 1.0 1) =&gt; t
+    (eql 1.0 1) =&gt; nil
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-1-4" class="outline-4">
+<h4 id="sec-5-1-4">
+<span class="section-number-4">5.1.4</span> 其他</h4>
+<div class="outline-text-4" id="text-5-1-4">
+<p>
+most-positive-fixnum
+most-negative-fixnum
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2">
+<span class="section-number-3">5.2</span> 数据类型之 - 字符和字符串</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+普通字符以 ? 开始
+标点符号最好以 ?\  开始
+控制字符以 ?\C- or ?\^ 开始, eg: ?\<sup>i</sup>, ?\<sup>I</sup>, ?\C-i, ?\C-I
+Meta 字符 ?\M- 开始, eg: ?\M-A
+</p>
+</div>
+<div id="outline-container-sec-5-2-1" class="outline-4">
+<h4 id="sec-5-2-1">
+<span class="section-number-4">5.2.1</span> 测试函数</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<ul class="org-ul">
+<li>stringp
+</li>
+<li>string-or-null-p
+</li>
+<li>char-or-string-p
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-5-2-2" class="outline-4">
+<h4 id="sec-5-2-2">
+<span class="section-number-4">5.2.2</span> 生成函数</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<ul class="org-ul">
+<li>(make-string 5 ?x) =&gt; "xxxxx"
+</li>
+<li>(string ?a ?b ?c) =&gt; "abc"
+</li>
+<li>(substring  "abc" 1 3) =&gt; "bc"
+</li>
+<li>(concat "hello" "world") =&gt; "hello world"
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-5-2-3" class="outline-4">
+<h4 id="sec-5-2-3">
+<span class="section-number-4">5.2.3</span> 比较</h4>
+<div class="outline-text-4" id="text-5-2-3">
+<dl class="org-dl">
+<dt> (char-equal ?a ?a) =&gt; t </dt>
+<dd>当 case-fold-search 为 t 时比较忽略大小写
+</dd>
+<dt> (no term) </dt>
+<dd>(string= "a" "a")
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-5-2-4" class="outline-4">
+<h4 id="sec-5-2-4">
+<span class="section-number-4">5.2.4</span> 字符（串）转换</h4>
+<div class="outline-text-4" id="text-5-2-4">
+<ul class="org-ul">
+<li>(string-to-number "256") =&gt; 256
+</li>
+<li>(string-to-number "256" 10) =&gt; 256
+</li>
+<li>(number-to-string 256) =&gt; "256
+</li>
+<li>(format "%#o" 256) =&gt; "0400"
+</li>
+<li>(format "%#x" 256) =&gt; "0x100"
+</li>
+<li>concat 可将字符 列表 or 向量 转化成字符串
+</li>
+<li>vconcat 可将字符串转化成 字符 向量
+</li>
+<li id="(append " abcde nil b c d e>append 可将字符串转化成列表
+</li>
+<li>(downcase "ABC") =&gt; "abc"
+</li>
+<li>(upcase "abc") =&gt; "ABC"
+</li>
+<li>(capitalize "aBc") =&gt; "Abc"
+</li>
+<li>(upcase-initials "hEllo wOrld") =&gt; "HEllo WOrld"
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-5-2-5" class="outline-4">
+<h4 id="sec-5-2-5">
+<span class="section-number-4">5.2.5</span> 字符串查找替换</h4>
+<div class="outline-text-4" id="text-5-2-5">
+<dl class="org-dl">
+<dt> (string-match REGEXP STRING &amp;optional START) </dt>
+<dd>在 string 中 start 处开始查找正则表达式
+</dd>
+<dt> (regexp-quote "he*'") </dt>
+<dd>返回可严格表示字符串的正则表达式
+</dd>
+<dt> (match-data) </dt>
+<dd>返回正则组的捕获位置组
+</dd>
+<dt> (no term) </dt>
+<dd>(match-beginning idx) &amp; (match-end idx) ::返回正则组的序号
+</dd>
+<dt> (no term) </dt>
+<dd>replace-regexp-in-string
+</dd>
+<dt> (no term) </dt>
+<dd>subst-char-in-string
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3">
+<span class="section-number-3">5.3</span> 数据类型之 - cons cell 和 列表</h3>
+<div class="outline-text-3" id="text-5-3">
+</div>
+<div id="outline-container-sec-5-3-1" class="outline-4">
+<h4 id="sec-5-3-1">
+<span class="section-number-4">5.3.1</span> 语法</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<p>
+(read "(1 2)") =&gt; (1 2)
+(car '(1 2))
+(cdr '(1 2))
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-3-2" class="outline-4">
+<h4 id="sec-5-3-2">
+<span class="section-number-4">5.3.2</span> 测试函数</h4>
+<div class="outline-text-4" id="text-5-3-2">
+<ul class="org-ul">
+<li>consp
+</li>
+<li>listp
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-5-3-3" class="outline-4">
+<h4 id="sec-5-3-3">
+<span class="section-number-4">5.3.3</span> 构造函数</h4>
+<div class="outline-text-4" id="text-5-3-3">
+<ul class="org-ul">
+<li>(cons 'a 'b) =&gt; (a . b)
+</li>
+<li>(list 'a 'b 'c) =&gt; (a b c)
+</li>
+<li>(cons 'x '(a b)) =&gt; (x a b) ::若 (setq foo '(a b)) (push 'x foo)会改变foo值 foo =&gt; (x a b)
+</li>
+<li id="(append '(a b) 'x) =&gt; (a b . x)">append 可用于列表、向量、字符串数组
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-5-3-4" class="outline-4">
+<h4 id="sec-5-3-4">
+<span class="section-number-4">5.3.4</span> 列表操作</h4>
+<div class="outline-text-4" id="text-5-3-4">
+<ul class="org-ul">
+<li>car
+</li>
+<li>cdr
+</li>
+<li id="cadr">访问第二个列表的第二个元素 
+</li>
+<li>nthcdr ::返回第n个后的元素
+</li>
+<li>last ::返回倒换n个元素
+</li>
+<li>butlast ::返回除了倒数n个的其他元素
+</li>
+<li>setcar
+</li>
+<li>setcdr
+</li>
+<li>push
+</li>
+<li>pop
+</li>
+<li>reverse
+</li>
+<li id="nreverse">具破坏性
+</li>
+<li id="sort">具破坏性 
+</li>
+<li>copy-sequence
+</li>
+<li id="nconc">在列表后添加元素，与append不同的是会改变原列表. 注意:nconc或append的第二个参数不是列表，则返回的列表就不再是真列表了
+</li>
+<li id="delete-dups">删除列表中equal的元素 
+</li>
+<li id="memq">判断是否是列表中元素，用eq 测试
+</li>
+<li id="member">用equal测试
+</li>
+<li>remq 
+</li>
+<li>remove
+</li>
+<li>delq
+</li>
+<li id="delete">上述四个都是从列表中删除元素 del*会更改原列表
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-5-3-5" class="outline-4">
+<h4 id="sec-5-3-5">
+<span class="section-number-4">5.3.5</span> 关联表*</h4>
+<div class="outline-text-4" id="text-5-3-5">
+<ul class="org-ul">
+<li>assq ::用KEY查关联表，用eq, 返回cons cell，进而用cdr可得值
+</li>
+<li>assoc ::同上，用equal
+</li>
+<li id="assoc-default">用KEY找出关联表中对应值 
+</li>
+<li>rassq ::用值查关联表，返回cons cell,进而car可得KEY
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-5-3-6" class="outline-4">
+<h4 id="sec-5-3-6">
+<span class="section-number-4">5.3.6</span> 遍历列表</h4>
+<div class="outline-text-4" id="text-5-3-6">
+<ul class="org-ul">
+<li>mapc
+</li>
+<li>mapcar
+</li>
+<li>dolist
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-5-3-7" class="outline-4">
+<h4 id="sec-5-3-7">
+<span class="section-number-4">5.3.7</span> 其他</h4>
+<div class="outline-text-4" id="text-5-3-7">
+<ul class="org-ul">
+<li>remove-if
+</li>
+<li id="number-sequence">产生数列 
+</li>
+<li>split-string
+</li>
+<li id="mapconcat">用分隔符连接字符串
+</li>
+<li>identity
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5-4" class="outline-3">
+<h3 id="sec-5-4">
+<span class="section-number-3">5.4</span> 数据类型之 - 符号</h3>
+<div class="outline-text-3" id="text-5-4">
+</div>
+<div id="outline-container-sec-5-4-1" class="outline-4">
+<h4 id="sec-5-4-1">
+<span class="section-number-4">5.4.1</span> 创建 symbol</h4>
+<div class="outline-text-4" id="text-5-4-1">
+<ul class="org-ul">
+<li>intern ::用符号或符号名查找或添加符号到obarray,当存在时返回符号，不存在时添加
+</li>
+<li>intern-soft ::查找符号，存在时返回符号，不存在时返回nil
+</li>
+<li id="#:">若不想将符号intern到obarray中，可在符号前加`#:'
+</li>
+<li id="unintern">从obarray中去除符号
+</li>
+<li id="mapatoms">遍历obarray
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-5-4-2" class="outline-4">
+<h4 id="sec-5-4-2">
+<span class="section-number-4">5.4.2</span> 操作  symbol</h4>
+<div class="outline-text-4" id="text-5-4-2">
+<ul class="org-ul">
+<li>symbol name
+<ul class="org-ul">
+<li>symbol-name ::查看symbol的名字
+</li>
+</ul>
+</li>
+<li>值
+<ul class="org-ul">
+<li>symbol-value ::返回symbol值 
+</li>
+<li>set ::设置symbol的value
+</li>
+<li>setq ::设置symbol的value，只能设置obarray中符号的值 
+</li>
+<li>boundp ::判断symbol值是否设置
+</li>
+</ul>
+</li>
+<li>function
+<ul class="org-ul">
+<li>symbol-functoin ::返回符号的function
+</li>
+<li>fset ::设置符号的function
+</li>
+<li>fboundp ::判断符号function是否设置
+</li>
+<li>funcall 
+</li>
+</ul>
+</li>
+<li>属性列表
+<ul class="org-ul">
+<li>put
+</li>
+<li>get
+</li>
+<li>symbol-plist
+</li>
+<li>plist-get
+</li>
+<li>plist-put
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5-5" class="outline-3">
+<h3 id="sec-5-5">
+<span class="section-number-3">5.5</span> 变量</h3>
+<div class="outline-text-3" id="text-5-5">
+<ul class="org-ul">
+<li>make-local-variable ::在当前buffer中设置buffer-local变量
+</li>
+<li>make-variable-buffer-local ::在所有buffer中声明buffer-local变量
+</li>
+<li>default-value ::访问buffer-local变量的全局值缺省值 
+</li>
+<li>local-variable-p ::测试是否是buffer-local变量
+</li>
+<li>buffer-local-value ::返回某buffer中的buffer-local变量
+</li>
+<li>kill-local-variable(s) ::(s)消除所有没有permanet-local属性的变量
+</li>
+<li id="boundp">检测变量值是否设置
+</li>
+<li id="default-boundp">检测全局缺省值是否是为空 
+</li>
+<li id="makeunbound">使变量值为空
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-5-6" class="outline-3">
+<h3 id="sec-5-6">
+<span class="section-number-3">5.6</span> 函数和命令</h3>
+<div class="outline-text-3" id="text-5-6">
+</div>
+<div id="outline-container-sec-5-6-1" class="outline-4">
+<h4 id="sec-5-6-1">
+<span class="section-number-4">5.6.1</span> 测试命令 functionp</h4>
+</div>
+<div id="outline-container-sec-5-6-2" class="outline-4">
+<h4 id="sec-5-6-2">
+<span class="section-number-4">5.6.2</span> 函数调用</h4>
+<div class="outline-text-4" id="text-5-6-2">
+<ul class="org-ul">
+<li>eval
+</li>
+<li id="funcall">将参数按原始形式传给函数
+</li>
+<li id="apply">将参数平铺后传给函数，两者都会返参数列表 
+</li>
+</ul>
+<p>
+***　宏
+　　+ macroexpand                
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5-7" class="outline-3">
+<h3 id="sec-5-7">
+<span class="section-number-3">5.7</span> 正则表达式</h3>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">
+<span class="section-number-2">6</span> Emacs Lisp ::`(elisp) Top'</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1">
+<span class="section-number-3">6.1</span> Files</h3>
+<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-sec-6-1-1" class="outline-4">
+<h4 id="sec-6-1-1">
+<span class="section-number-4">6.1.1</span> Visiting Files</h4>
+</div>
+<div id="outline-container-sec-6-1-2" class="outline-4">
+<h4 id="sec-6-1-2">
+<span class="section-number-4">6.1.2</span> Saving Buffers</h4>
+</div>
+<div id="outline-container-sec-6-1-3" class="outline-4">
+<h4 id="sec-6-1-3">
+<span class="section-number-4">6.1.3</span> Reading from Files</h4>
+</div>
+<div id="outline-container-sec-6-1-4" class="outline-4">
+<h4 id="sec-6-1-4">
+<span class="section-number-4">6.1.4</span> Writing to Files</h4>
+</div>
+<div id="outline-container-sec-6-1-5" class="outline-4">
+<h4 id="sec-6-1-5">
+<span class="section-number-4">6.1.5</span> File Locks</h4>
+</div>
+<div id="outline-container-sec-6-1-6" class="outline-4">
+<h4 id="sec-6-1-6">
+<span class="section-number-4">6.1.6</span> Information about Files</h4>
+</div>
+<div id="outline-container-sec-6-1-7" class="outline-4">
+<h4 id="sec-6-1-7">
+<span class="section-number-4">6.1.7</span> Changing Files</h4>
+</div>
+<div id="outline-container-sec-6-1-8" class="outline-4">
+<h4 id="sec-6-1-8">
+<span class="section-number-4">6.1.8</span> File Names</h4>
+</div>
+<div id="outline-container-sec-6-1-9" class="outline-4">
+<h4 id="sec-6-1-9">
+<span class="section-number-4">6.1.9</span> Contents of Directories</h4>
+</div>
+<div id="outline-container-sec-6-1-10" class="outline-4">
+<h4 id="sec-6-1-10">
+<span class="section-number-4">6.1.10</span> Create/Delete Dirs</h4>
+</div>
+<div id="outline-container-sec-6-1-11" class="outline-4">
+<h4 id="sec-6-1-11">
+<span class="section-number-4">6.1.11</span> Magic File Names</h4>
+</div>
+<div id="outline-container-sec-6-1-12" class="outline-4">
+<h4 id="sec-6-1-12">
+<span class="section-number-4">6.1.12</span> Format Conversion</h4>
+</div>
+</div>
+
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2">
+<span class="section-number-3">6.2</span> Buffers</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-sec-6-2-1" class="outline-4">
+<h4 id="sec-6-2-1">
+<span class="section-number-4">6.2.1</span> Buffer Basics</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<p>
+– Function: bufferp object
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-2" class="outline-4">
+<h4 id="sec-6-2-2">
+<span class="section-number-4">6.2.2</span> Current Buffer</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<p>
+ – Function: current-buffer
+ – Function: set-buffer buffer-or-name
+ – Special Form: save-current-buffer body
+ – Macro: with-temp-buffer body
+`save-current-buffer'
+`with-current-buffer'
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-3" class="outline-4">
+<h4 id="sec-6-2-3">
+<span class="section-number-4">6.2.3</span> Buffer Names</h4>
+<div class="outline-text-4" id="text-6-2-3">
+<p>
+– Function: buffer-name &amp;optional buffer
+– Command: rename-buffer newname &amp;optional unique
+– Function: get-buffer buffer-or-name
+– Function: generate-new-buffer-name starting-name &amp;optional ignore
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-4" class="outline-4">
+<h4 id="sec-6-2-4">
+<span class="section-number-4">6.2.4</span> Buffer File Names</h4>
+<div class="outline-text-4" id="text-6-2-4">
+<p>
+– Function: buffer-file-name &amp;optional buffer
+– Variable: buffer-file-name
+– Variable: buffer-file-truename
+– Function: get-file-buffer filename
+– Function: find-buffer-visiting filename &amp;optional predicate
+– Variable: list-buffers-directory
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-5" class="outline-4">
+<h4 id="sec-6-2-5">
+<span class="section-number-4">6.2.5</span> Buffer Modification</h4>
+<div class="outline-text-4" id="text-6-2-5">
+<p>
+– Function: buffer-modified-p &amp;optional buffer
+– Function: set-buffer-modified-p flag
+– Function: restore-buffer-modified-p flag
+– Command: not-modified &amp;optional arg
+– Function: buffer-modified-tick &amp;optional buffer
+– Function: buffer-chars-modified-tick &amp;optional buffer
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-6" class="outline-4">
+<h4 id="sec-6-2-6">
+<span class="section-number-4">6.2.6</span> Modification Time</h4>
+<div class="outline-text-4" id="text-6-2-6">
+<p>
+– Function: verify-visited-file-modtime &amp;optional buffer
+– Function: clear-visited-file-modtime
+– Function: visited-file-modtime
+– Function: set-visited-file-modtime &amp;optional time
+– Function: ask-user-about-supersession-threat filename
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-7" class="outline-4">
+<h4 id="sec-6-2-7">
+<span class="section-number-4">6.2.7</span> Read Only Buffers</h4>
+<div class="outline-text-4" id="text-6-2-7">
+<p>
+– Variable: buffer-read-only
+– Variable: inhibit-read-only
+– Command: toggle-read-only &amp;optional arg
+– Function: barf-if-buffer-read-only
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-8" class="outline-4">
+<h4 id="sec-6-2-8">
+<span class="section-number-4">6.2.8</span> The Buffer List</h4>
+<div class="outline-text-4" id="text-6-2-8">
+<p>
+– Function: buffer-list &amp;optional frame
+– Function: other-buffer &amp;optional buffer visible-ok frame
+– Function: last-buffer &amp;optional buffer visible-ok frame
+– Command: bury-buffer &amp;optional buffer-or-name
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-9" class="outline-4">
+<h4 id="sec-6-2-9">
+<span class="section-number-4">6.2.9</span> Creating Buffers</h4>
+<div class="outline-text-4" id="text-6-2-9">
+<p>
+– Function: get-buffer-create buffer-or-name
+– Function: generate-new-buffer name
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-10" class="outline-4">
+<h4 id="sec-6-2-10">
+<span class="section-number-4">6.2.10</span> Killing Buffers</h4>
+<div class="outline-text-4" id="text-6-2-10">
+<p>
+– Command: kill-buffer &amp;optional buffer-or-name
+– Variable: kill-buffer-query-functions
+– Variable: kill-buffer-hook
+– User Option: buffer-offer-save
+– Variable: buffer-save-without-query
+– Function: buffer-live-p object
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-11" class="outline-4">
+<h4 id="sec-6-2-11">
+<span class="section-number-4">6.2.11</span> Indirect Buffers</h4>
+<div class="outline-text-4" id="text-6-2-11">
+<p>
+– Command: make-indirect-buffer base-buffer name &amp;optional clone
+– Command: clone-indirect-buffer newname display-flag &amp;optional norecord
+– Function: buffer-base-buffer &amp;optional buffer
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-12" class="outline-4">
+<h4 id="sec-6-2-12">
+<span class="section-number-4">6.2.12</span> Swapping Text</h4>
+<div class="outline-text-4" id="text-6-2-12">
+<p>
+– Function: buffer-swap-text buffer
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2-13" class="outline-4">
+<h4 id="sec-6-2-13">
+<span class="section-number-4">6.2.13</span> Buffer Gap</h4>
+<div class="outline-text-4" id="text-6-2-13">
+<p>
+– Function: gap-position
+– Function: gap-size
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6-3" class="outline-3">
+<h3 id="sec-6-3">
+<span class="section-number-3">6.3</span> Completion</h3>
+<div class="outline-text-3" id="text-6-3">
+<dl class="org-dl">
+<dt> Function: try-completion string collection &amp;optional predicate </dt>
+<dd>返回匹配的common部分
+</dd>
+<dt> Function: all-completions string collection &amp;optional predicate </dt>
+<dd>返回所有的匹配
+</dd>
+<dt> (no term) </dt>
+<dd>Function: test-completion string collection &amp;optional predicate 
+</dd>
+<dt> (no term) </dt>
+<dd>Function: completion-boundaries string collection predicate suffix
+</dd>
+<dt> (no term) </dt>
+<dd>Variable: completion-ignore-case
+</dd>
+<dt> (no term) </dt>
+<dd>Variable: completion-regexp-list
+</dd>
+<dt> (no term) </dt>
+<dd>Macro: lazy-completion-table var fun
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">
+<span class="section-number-2">7</span> Usual Functions</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1">
+<span class="section-number-3">7.1</span> Visiting Files</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>– Command: find-file filename &amp;optional wildcards等同于
+</li>
+</ul>
+<p>
+(switch-to-buffer (find-file-noselect filename nil nil wildcards))如果
+有对应的 buffer 则切过去，否则读文件到 buffer 中
+</p>
+<ul class="org-ul">
+<li>– Command: find-file-literally filename按文件的字节序读，不转码，不
+</li>
+</ul>
+<p>
+处理行尾，不处理文件 local variables若文件对应的 buffer 已经存在，则直
+接转到 buffer ， 不重新读文件。若一定要按字节序读，可使用
+insert-file-contents-literally 到临时buffer中
+</p>
+<ul class="org-ul">
+<li>– Function: find-file-noselect filename &amp;optional nowarn rawfile核心
+</li>
+</ul>
+<p>
+函数，参考 manual 该函数执行完成后会调用 `after-find-file', 最后
+`find-file-hook' find-file-noselect 会调 create-file-buffer,
+create-file-buffer 会调 generate-new-buffer
+</p>
+<ul class="org-ul">
+<li>– Function: create-file-buffer filename
+</li>
+<li>– Function: after-find-file &amp;optional error warn noauto
+</li>
+<li>– Command: find-file-other-window filename &amp;optional wildcards
+</li>
+<li>– Command: find-file-read-only filename &amp;optional wildcards
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-7-2" class="outline-3">
+<h3 id="sec-7-2">
+<span class="section-number-3">7.2</span> Saving Buffers</h3>
+</div>
+<div id="outline-container-sec-7-3" class="outline-3">
+<h3 id="sec-7-3">
+<span class="section-number-3">7.3</span> File</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li>expand-file-name
+</li>
+<li>abbreviate-file-name
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">
+<span class="section-number-2">8</span> Debug</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1">
+<span class="section-number-3">8.1</span> </h3>
+</div>
+</div>
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">
+<span class="section-number-2">9</span> emergency elisp</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+<a href="http://steve-yegge.blogspot.com/2008/01/emergency-elisp.html">http://steve-yegge.blogspot.com/2008/01/emergency-elisp.html</a>
+</p>
+
+<p>
+;; 建议查看原文网页版 <sup><a id="fnr.1" name="fnr.1" class="footref" href="../.././en/posts/elisp-notes.html#fn.1">1</a></sup>
+</p>
+
+<p>
+;; 转载过来就乱了排版
+</p>
+
+<p>
+Thursday, January 24, 2008
+</p>
+
+<p>
+Emergency Elisp
+</p>
+
+<p>
+Are you an Emacs user but don't know Lisp? Welcome to my first Emacs Lisp primer! This should hopefully help
+get you over the hurdle so you can have more control over your Emacs sessions.
+</p>
+
+<p>
+There are lots of ways to do things in Lisp, and some are "Lispier" than others. I'm going to focus on how
+to do things you probably already know how to do from C++ or Java.
+</p>
+
+<p>
+I'm mostly focusing on the language itself, since that's arguably the hardest part. There are tons of
+Emacs-specific APIs that you can learn how to use from the documentation.
+</p>
+
+<p>
+Lisp is good at some things (like code that generates code) and not so good at others (like arithmetic
+expressions). I will generally avoid talking about good vs. bad, and just talk about how to do things. Emacs
+Lisp is like any other language – you get used to it eventually.
+</p>
+
+<p>
+Most Lisp introductions try to give you the "Tao of Lisp", complete with incense-burning, chanting, yoga and
+all that stuff. What I really wanted in the beginning was a simple cookbook for doing my "normal" stuff in
+Lisp. So that's what this is. It's an introduction to how to write C, Java or JavaScript code in Emacs Lisp,
+more or less.
+</p>
+
+<p>
+Here goes. Let's see how short I can make it. I'll start with the boring (but hopefully familiar) lexical
+tokens and operators, then move on to how to implement various favorite statements, declarations and other
+programming constructs.
+</p>
+
+<p>
+Quick Start
+</p>
+
+<p>
+Lisp is written as nested parenthesized expressions like (+ 2 3). These expressions are sometimes called  
+forms (in the sense of "shapes".)
+</p>
+
+<p>
+There are also "atoms" (leaf nodes, basically) that are not parenthesized: strings, numbers, symbols (which
+must be quoted with apostrophe for use as symbols, like 'foo), vectors, and other miscellany.
+</p>
+
+<p>
+There are only single-line comments: semicolon to end of line.
+</p>
+
+<p>
+To set a variable named foo to the value "bar":
+</p>
+
+<p>
+(setq foo "bar")  ; setq means "set quoted"
+</p>
+
+<p>
+To call a function named foo-bar with arguments "flim" and "flam":
+</p>
+
+<p>
+(foo-bar "flim" "flam")
+</p>
+
+<p>
+To compute the arithmetic expression (0x15 * (8.2 + (7 &lt;&lt; 3))) % 2:
+</p>
+
+<p>
+(% (* #x15 (+ 8.2 (lsh 7 3))) 2)
+</p>
+
+<p>
+In other words, arithmetic uses prefix notation, just like lisp function calls.
+</p>
+
+<p>
+There's no static type system; you use runtime predicates to figure out the type of a data item. In elisp,
+predicate functions often end with "p". I'll let you figure out what it stands for.
+</p>
+
+<p>
+Important: You can (and should) experiment with Lisp in the <b>scratch</b> buffer. You can evaluate an expression
+and see its result in any of several ways, including:
+</p>
+
+<ol class="org-ol">
+<li>Put your cursor after the last close-paren and type C-j (control + j)
+</li>
+<li>Put your cursor inside the expression and type M-C-x (alt + control + x)
+</li>
+<li>Put your cursor after the last close-paren and type C-x C-e
+</li>
+</ol>
+
+<p>
+The first approach spits the result into the <b>scratch</b> buffer, and the next two echo it into the minibuffer.
+They all also work for atoms – expressions not in parens such as numbers, strings, characters and symbols.
+</p>
+
+<p>
+Lexical Stuff
+</p>
+
+<p>
+Lisp has only a handful of lexical tokens (i.e. atomic program elements).
+</p>
+
+<p>
+Comments:
+</p>
+
+<p>
+Single-line only. They start with a semicolon:
+</p>
+
+<p>
+(blah blah blah)   ;  I am a comment
+</p>
+
+<p>
+Strings:
+</p>
+
+<p>
+Double-quoted only.
+</p>
+
+<p>
+"He's said: \"Emacs Rules\" one time too many."
+</p>
+
+<p>
+You can embed newlines in strings, like so:
+</p>
+
+<p>
+"Oh Argentina!
+Your little tin of pink meat
+Soars o'er the Pampas"
+</p>
+
+<p>
+Characters:
+</p>
+
+<p>
+?x is the syntax for an ASCII character: ? followed by the character.
+e.g.: ?a is ascii 97 ('a'), ? (that is, question-mark space) is ascii 32 (' ').
+Some need to be escaped, such as ?\(, ?\) and ?<br>
+      Emacs 22+ has unicode support. Out of scope for this primer.
+</p>
+
+<p>
+Characters are just int values internally, so you can use arithmetic operations on them (for instance, to
+iterate through ?a to ?z).
+</p>
+
+<p>
+Numbers:
+</p>
+
+<p>
+Integers are 29 bits of precision (not the usual 32). -32, 0, 157, etc.
+Binary: start with #b, e.g. #b10010110
+Octal: #o[0-7]+, e.g. #o377
+Hexadecimal: start with #x, e.g. #xabcd, #xDEADBEE
+Floating-point: the usual. -10.005, 0.0, 3.14159265 (64 bits of precision.)
+Scientific: the usual. 6.02e23, 5e-10
+</p>
+
+<p>
+The variables most-positive-fixnum and most-negative-fixnum are the largest and smallest integers
+representable in Emacs Lisp without bignum support. Emacs 22+ comes with a fancy bignum/math library called
+calc, if you need it. Arithmetic operations overflow and underflow the way you'd expect (in, say, C or
+Java.)
+</p>
+
+<p>
+Booleans
+</p>
+
+<p>
+The symbol t (just a letter 't' by itself) is true.
+</p>
+
+<p>
+The symbol nil is false (and also means null).
+</p>
+
+<p>
+In Emacs Lisp, nil is the only false value; everything else evalutes to true in a boolean context, including
+empty strings, zero, the symbol 'false, and empty vectors. An empty list, '(), is the same thing as nil.
+</p>
+
+<p>
+Arrays
+</p>
+
+<p>
+Elisp has fixed-sized arrays called "vectors". You can use square-brackets to create a pre-initialized
+literal vector, for instance:
+</p>
+
+<p>
+[-2 0 2 4 6 8 10]
+["No" "Sir" "I" "am" "a" "real" "horse"]
+["hi" 22 120 89.6 2748 [3 "a"]]
+</p>
+
+<p>
+Note that you do not (and cannot) use commas to separate the elements; use whitespace.
+</p>
+
+<p>
+Vectors can have mixed-type elements, and can be nested. You usually use the function make-vector to create
+them, since literal vectors are singletons, which can be surprising.
+</p>
+
+<p>
+Lists
+</p>
+
+<p>
+Lisp makes heavy use of linked lists, so there's lexical syntax for them. Anything in parentheses is a list,
+but unless you quote it, it will be evaluated as a function call. There are various ways to quote things in
+Lisp:
+</p>
+
+<p>
+(quote (1 2 3)) ; produces the list (1 2 3) with no list-element evaluation
+</p>
+
+<p>
+'(1 2 3)  ; apostrophe is shorthand for (quote (…))
+           ; note that it goes <span class="underline">outside</span> the left-paren
+</p>
+
+<p>
+(list 1 (+ 1 1) 3) ; also produces (1 2 3), since it evaluates the elements first
+</p>
+
+<p>
+`(1 ,(+ 1 1) 3)  ; another (1 2 3) via a template system called "backquote"
+</p>
+
+<p>
+There's a lot more that could be said about lists, but other people have already said it.
+</p>
+
+<p>
+Pairs
+</p>
+
+<p>
+You can set the head and tail (also known as car and cdr) fields of a lisp link-list node struct (also known
+as a cons cell) directly, using it as a 2-element untyped struct. The syntax is (head-value . tail-value),
+and you have to quote it (see above).
+</p>
+
+<p>
+A common lookup-table data-structure for very small data sets is an associative list (known as an alist).
+It's just a list of dotted pairs, like so:
+</p>
+
+<p>
+'( (apple . "red")
+    (banana . "yellow")
+    (orange . "orange") )
+</p>
+
+<p>
+Emacs Lisp has built-in hashtables, bit-vectors, and miscellaneous other data structures, but there's no
+syntax for them; you create them with function calls.
+</p>
+
+<p>
+Operators
+</p>
+
+<p>
+Some operations that are typically operators in other languages are function calls in elisp.
+</p>
+
+<p>
+Equality
+</p>
+
+<p>
+Numeric equality: (= 2 (+ 1 1)) Single-equal. Yields t or nil. Works for floats too.
+</p>
+
+<p>
+Not-numerically-equal: (/= 2 3) I know, it looks like assign-divide-equal. But it's not.
+</p>
+
+<p>
+Value equality: (eq 'foo 2) Like Java ==. Works for ints, symbols, interned strings, and object references.
+Use eql for floating-point numbers (or just =).
+</p>
+
+<p>
+Deep (structural) equality: use equal, as in:
+</p>
+
+<p>
+(equal '(1 2 (3 4)) (list 1 2 (list 3 (* 2 2))))  ; true
+</p>
+
+<p>
+The equal function is like Java's Object.equals(). Works for lists, vectors, strings, and just about
+anything else.
+</p>
+
+<p>
+String
+</p>
+
+<p>
+Strings don't have any operators, but there are lots of string functions. Some common ones:
+</p>
+
+<p>
+(concat "foo" "bar" "baz")  ; yields "foobarbaz"
+</p>
+
+<p>
+(string= "foo" "baz")  ; yields nil (false).  Can also use equal.
+</p>
+
+<p>
+(substring "foobar" 0 3) ; yields "foo"
+</p>
+
+<p>
+(upcase "foobar")  ; yields "FOOBAR"
+</p>
+
+<p>
+Do M-x apropos RET \bstring\b RET to see a list of functions related to strings.
+</p>
+
+<p>
+Arithmetic
+</p>
+
+<p>
+Easiest to show as a table…
+┌──────────────────┬──────────────────────────────────┬──────────────────┬────────────────────────────┐
+│C/Java/JS Operator│            Emacs Lisp            │     Example      │           Result           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│+                 │+                                 │(+ 1 2 3 4 5)     │15                          │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│-                 │-                                 │(- 6 2 3)         │1                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│*                 │*                                 │(* 2 -1 4.2)      │-8.4                        │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│/                 │/                                 │(/ 10 3)          │3 (use floats for float div)│
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│%                 │%                                 │(% 10 2)          │0                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│&lt;&lt;                │lsh                               │(lsh 1 5)         │32                          │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│&gt;&gt;                │ash (negative amount)             │(ash -32 -4)      │-2                          │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│&gt;&gt;&gt;               │lsh (negative amount)             │(lsh 32 -4)       │2                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│++                │incf (requires 'cl library)       │(incf x 6)        │x+6                         │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│–                │decf (ditto)                      │(decf x 5)        │x-5                         │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│? : (ternary)     │(if test-expr then-expr else-expr)│(if t 3 4)        │3                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│&amp;&amp;                │and                               │(and t t t nil)   │nil                         │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│||                │or                                │(or nil nil nil t)│t                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│! (logical-not)   │not                               │(not 3)           │nil                         │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│~ (bit-not)       │lognot                            │(lognot #b1001)   │-10                         │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│^ (bit-xor)       │logxor                            │(logxor 5 3)      │6                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│&amp; (bit-and)       │logand                            │(logand 1 3)      │1                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│| (bit-or)        │logior                            │(logior 1 3)      │3                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│&lt;                 │&lt;                                 │(&lt; 5 3)           │nil                         │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│&gt;                 │&gt;                                 │(&gt; 5 3)           │t                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│&lt;=                │&lt;=                                │(&lt;= 3 3)          │t                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│&gt;=                │&gt;=                                │(&gt;= 5 3)          │t                           │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│. (field access)  │see setf below                    │n/a               │n/a                         │
+├──────────────────┼──────────────────────────────────┼──────────────────┼────────────────────────────┤
+│[] (array access) │aref/aset                         │(aref [2 4 6] 1)  │4                           │
+└──────────────────┴──────────────────────────────────┴──────────────────┴────────────────────────────┘
+</p>
+
+<p>
+Statements
+</p>
+
+<p>
+This section has some recipes for simple Java-like statements. It's not comprehensive – just some recipes to
+get you going.
+</p>
+
+<p>
+if/else
+</p>
+
+<p>
+Case 1: no else clause: (if test-expr expr)
+</p>
+
+<p>
+Example:
+</p>
+
+<p>
+(if (&gt;= 3 2)
+   (message "hello there"))
+</p>
+
+<p>
+Case 2: else clause: (if test-expr then-expr else-expr)
+</p>
+
+<p>
+(if (today-is-friday)         ; test-expr
+     (message "yay, friday")   ; then-expr
+   (message "boo, other day")) ; else-expr
+</p>
+
+<p>
+If you need multiple expressions (statements) in the then-expr, you wrap them with a call to progn, which is
+like curly-braces in C or Java:
+</p>
+
+<p>
+(if (zerop 0)
+     (progn
+       (do-something)
+       (do-something-else)
+       (etc-etc-etc)))
+</p>
+
+<p>
+You don't need the progn around the else-expr – everything after the then-expr is considered to be part of
+the else-expr. Hence:
+</p>
+
+<p>
+(if (today-is-friday)
+     (message "yay, friday")
+   (message "not friday!")
+   (non-friday-stuff)
+   (more-non-friday-stuff))
+</p>
+
+<p>
+Case 3: else-if clause: Just nest 'em. Or use cond (see below).
+</p>
+
+<p>
+(if 'sunday
+     (message "sunday!")      ; then-expr
+   (if 'saturday              ; else-if
+       (message "saturday!")  ; next then-expr
+     (message ("weekday!")))) ; final else
+</p>
+
+<p>
+Case 4: no else-if, multiple body expressions – use when:
+</p>
+
+<p>
+If you don't have an else-clause, then you can use the when macro, which provides an implicit progn:
+</p>
+
+<p>
+(when (&gt; 5 1)
+   (blah)
+   (blah-blah)
+   (blah blah blah))
+</p>
+
+<p>
+You can also use unless, which is like when but inverts the sense of the test:
+</p>
+
+<p>
+(unless (weekend-p)
+   (message "another day at work")
+   (get-back-to-work))
+</p>
+
+<p>
+switch
+</p>
+
+<p>
+Elisp has two versions of the classic switch statement: cond and case.
+</p>
+
+<p>
+Elisp does not have a table-lookup optimization for switch, so cond and case are just syntax for nested
+if-then-else clauses. However, if you have more than one level of nesting, it looks a lot nicer than if
+expressions. The syntax is:
+</p>
+
+<p>
+(cond
+   (test-1
+     do-stuff-1)
+   (test-2
+     do-stuff-2)
+   …
+   (t
+     do-default-stuff))
+</p>
+
+<p>
+The do-stuff parts can be any number of statements, and don't need to be wrapped with a progn block.
+</p>
+
+<p>
+Unlike classic switch, cond can handle any test expression (it just checks them in order), not just numbers.
+The downside is that it doesn't have any special-casing for numbers, so you have to compare them to
+something. Here's one that does string compares:
+</p>
+
+<p>
+(cond
+  ((equal value "foo")  ; case #1 – notice it's a function call to `equal' so it's in parens
+   (message "got foo")  ; action 1
+   (+ 2 2))             ; return value for case 1
+  ((equal value "bar")  ; case #2 – also a function call (to `+')
+   nil)                 ; return value for case 2
+  (t                    ; default case – not a function call, just literal true
+   'hello))             ; return symbol 'hello
+</p>
+
+<p>
+The final t default clause is optional. The first matching clause is executed, and the result of the entire
+cond expression is the result of the last expression in the matching clause.
+</p>
+
+<p>
+The 'cl (Common Lisp) package bundled with Emacs provides case, which works if you're comparing numbers or
+symbols, so in a sense it works more like standard switch. Example:
+</p>
+
+<p>
+(case 12
+   (5 "five")
+   (1 "one")
+   (12 "twelve")
+   (otherwise
+    "I only know five, one and twelve."))  ; result:  "twelve"
+</p>
+
+<p>
+With case you can use either t or otherwise for the default case, but it must come last.
+</p>
+
+<p>
+It's cleaner to use case when you can get away with it, but cond is more general.
+</p>
+
+<p>
+while
+</p>
+
+<p>
+Elisp has a relatively normal while function: (while test body-forms)
+</p>
+
+<p>
+Example, which you can evaluate in your <b>scratch</b> buffer:
+</p>
+
+<p>
+(setq x 10
+       total 0)
+(while (plusp x)  ; while x is positive
+   (incf total x)  ; add x to total
+   (decf x))       ; subtract 1 from x
+</p>
+
+<p>
+First we set two global variables, x=10 and total=0, then run the loop. Then we can evaluate the expression
+total to see that its value is 55 (the sum of the numbers 1 to 10).
+</p>
+
+<p>
+break/continue
+</p>
+
+<p>
+Lisp has a facility for upward control-flow transfers called catch/throw. It's very similar to Java or C++
+exception handling, albeit possibly somewhat lighter-weight.
+</p>
+
+<p>
+To do a break from inside a loop in elisp, you put a (catch 'break …) outside the loop, and a (throw
+'break value) wherever you want to break inside the loop, like so:
+┌──────────────────────────────────┬────────────────────┐
+│            Emacs Lisp            │        Java        │
+├──────────────────────────────────┼────────────────────┤
+│                                  │ var x = total = 0; │
+│ (setq x 0 total 0)               │ while (true) {     │
+│ (catch 'break                    │   total <del>= x;      │
+│   (while t                       │   if (x+</del> &gt; 10) {  │
+│     (incf total x)               │     break;         │
+│     (if (&gt; (incf x) 10)          │   }                │
+│         (throw 'break total))))  │ }                  │
+└──────────────────────────────────┴────────────────────┘
+</p>
+
+<p>
+The symbol 'break is arbitrary, but is probably a nice choice for your readers. If you have nested loops,
+you might consider 'break-outer and 'break-inner in your catch expressions.
+</p>
+
+<p>
+You can (throw 'break nil) if you don't care about the "return value" for the while-loop.
+</p>
+
+<p>
+To continue a loop, put a catch expression just inside the loop, at the top. For instance, to sum the
+numbers from 1 to 99 that are not evenly divisible by 5 (artificially lame example demonstrating use of
+continue):
+┌─────────────────────────────────┬─────────────────────┐
+│           Emacs Lisp            │        Java         │
+├─────────────────────────────────┼─────────────────────┤
+│ (setq x 0 total 0)              │ var x = total = 0;  │
+│ (while (&lt; x 100)                │ while (x &lt; 100) {   │
+│   (catch 'continue              │   x++;              │
+│     (incf x)                    │   if (x % 5 == 0) { │
+│     (if (zerop (% x 5))         │     continue;       │
+│         (throw 'continue nil))  │   }                 │
+│     (incf total x)))            │   total += x;       │
+│                                 │ }                   │
+└─────────────────────────────────┴─────────────────────┘
+</p>
+
+<p>
+We can combine these examples to show using a break and continue in the same loop:
+┌───────────────────────────────────┬─────────────────────┐
+│            Emacs Lisp             │     JavaScript      │
+├───────────────────────────────────┼─────────────────────┤
+│ (setq x 0 total 0)                │ var x = total = 0;  │
+│ (catch 'break                     │ while (true) {      │
+│   (while t                        │   x++;              │
+│     (catch 'continue              │   if (x &gt;= 100) {   │
+│       (incf x)                    │     break;          │
+│       (if (&gt;= x 100)              │   }                 │
+│           (throw 'break nil))     │   if (x % 5 == 0) { │
+│       (if (zerop (% x 5))         │     continue;       │
+│           (throw 'continue nil))  │   }                 │
+│       (incf total x))))           │   total += x;       │
+│                                   │ }                   │
+└───────────────────────────────────┴─────────────────────┘
+</p>
+
+<p>
+All the loops above compute the value 4000 in the variable total. There are better ways to compute this
+result, but I needed something simple to illustrate break and continue.
+</p>
+
+<p>
+The catch/throw mechanism can be used across function boundaries, just like exceptions. It's not intended
+for true exceptions or error conditions – Emacs has another mechanism for that, discussed in the try/catch
+section below. You should get comfortable using catch/throw for normal jumps and control transfer in your
+Elisp code.
+</p>
+
+<p>
+do/while
+</p>
+
+<p>
+Pretty much all iteration in Emacs Lisp is easiest using the loop macro from the Common Lisp package. Just
+do this to enable loop:
+</p>
+
+<p>
+(require 'cl)  ; get lots of Common Lisp goodies
+</p>
+
+<p>
+The loop macro is a powerful minilanguage with lots of features, and it's worth reading up on. I'll use it
+in this primer to show you how to do basic looping constructs from other languages.
+</p>
+
+<p>
+You can do a do/while like so:
+</p>
+
+<p>
+(loop do
+       (setq x (1+ x))
+       while
+       (&lt; x 10))
+</p>
+
+<p>
+You can have any number of lisp expressions between the do and while keywords.
+</p>
+
+<p>
+for
+</p>
+
+<p>
+The C-style for-loop has four components: variable initialization, the loop body, the test, and the
+increment. You can do all that and more with the loop macro. For instance, this arbitrary JavaScript:
+</p>
+
+<p>
+// JavaScript
+var result = [];
+for (var i = 10, j = 0; j &lt;= 10; i–, j += 2) {
+   result.push(i+j);
+}
+</p>
+
+<p>
+Could be done with loop like so:
+</p>
+
+<p>
+(loop with result = '()         ; one-time initialization
+       for i downfrom 10         ; count i down from 10
+       for j from 0 by 2         ; count j up from 0 by 2
+       while (&lt; j 10)            ; stop when j &gt;= 10
+       do
+       (push (+ i j) result)     ; fast-accumulate i+j
+       finally
+       return (nreverse result)) ; reverse and return result
+</p>
+
+<p>
+It's a bit more verbose, but loop has a lot of options, so you want it to be reasonably transparent.
+</p>
+
+<p>
+Notice that this loop declares the result array and then "returns" it. It could also operate on a variable
+declared outside the loop, in which case we wouldn't need the finally return clause.
+</p>
+
+<p>
+The loop macro is astoundingly flexible. Its full specification is way out of scope for this primer, but if
+you want to make Emacs Lisp your, uh, friend, then you should spend some time reading up on loop.
+</p>
+
+<p>
+for..in
+</p>
+
+<p>
+If you're iterating over a collection, Java provides the "smart" for-loop, and JavaScript has for..in and
+for each..in. There are various ways to do it in Lisp, but you really might as well just learn how to do it
+with the loop macro. It's a one-stop shop for iteration.
+</p>
+
+<p>
+The basic approach is to use loop for var in sequence, and then do something with the individual results.
+You can, for instance, collect them (or a function on them) into a result list like so:
+</p>
+
+<p>
+(loop for i in '(1 2 3 4 5 6)
+       collect (* i i))           ; yields (1 4 9 16 25 36)
+</p>
+
+<p>
+The loop macro lets you iterate over list elements, list cells, vectors, hash-keys, hash-values, buffers,
+windows, frames, symbols, and just about anything else you could want to traverse. See the Info pages or
+your Emacs manual for details.
+</p>
+
+<p>
+functions
+</p>
+
+<p>
+You define a function with defun.
+</p>
+
+<p>
+Syntax: (defun function-name arg-list [optional docstring] body)
+</p>
+
+<p>
+(defun square (x)
+   "Return X squared."
+   (* x x))
+</p>
+
+<p>
+For a no-arg function, you use an empty list:
+</p>
+
+<p>
+(defun hello ()
+   "Print the string `hello' to the minibuffer."
+   (message "hello!"))
+</p>
+
+<p>
+The body can be any number of expressions. The return value of the function is the result of the last
+expression executed. You do not declare the return type, so it's useful to mention it in the documentation
+string. The doc string is available from M-x describe-function after you evaluate your function.
+</p>
+
+<p>
+Emacs Lisp does not have function/method overloading, but it supports optional and "rest" parameters similar
+to what Python and Ruby offer. You can use the full Common Lisp specification for argument lists, including
+support for keyword arguments (see the defstruct section below), if you use the defun* macro instead of
+defun. The defun* version also lets you (return "foo") without having to set up your own catch/throw.
+</p>
+
+<p>
+If you want your function to be available as a M-x command, put (interactive) as the first expression in the
+body after the doc string.
+</p>
+
+<p>
+local variables
+</p>
+
+<p>
+You declare function local variables with the let form. The basic syntax is (let var-decl var-decl)
+</p>
+
+<p>
+(let ((name1 value1)
+       (name2 value2)
+       name3
+       name4
+       (name5 value5)
+       name6
+       …))
+</p>
+
+<p>
+Each var-decl is either a single name, or (name initial-value). You can mix initialized and uninitialized
+values in any order. Uninitialized variables get the initial value nil.
+</p>
+
+<p>
+You can have multiple let clauses in a function. Code written for performance often collects all
+declarations into a single let at the top, since it's a bit faster that way. Typically you should write your
+code for clarity first.
+</p>
+
+<p>
+reference parameters
+</p>
+
+<p>
+C++ has reference parameters, which allow you to modify variables from the caller's stack. Java does not, so
+you have to work around it occasionally by passing in a 1-element array, or using an instance variable, or
+whatever.
+</p>
+
+<p>
+Emacs Lisp does not have true reference parameters, but it has dynamic scope, which means you can modify
+values on your caller's stack anyway. Consider the following pair of functions:
+</p>
+
+<p>
+(defun foo ()
+   (let ((x 6))  ; define a local (i.e., stack) variable x initialized to 6
+     (bar)       ; call bar
+     x))         ; return x
+</p>
+
+<p>
+(defun bar ()
+   (setq x 7))   ; finds and modifies x in the caller's stack frame
+</p>
+
+<p>
+If you invoke (foo) the return value is 7.
+</p>
+
+<p>
+Dynamic scoping is generally considered a bad design bordering on evil, but it can occasionally come in
+handy. If nothing else, it's good to know it's what Emacs does.
+</p>
+
+<p>
+return
+</p>
+
+<p>
+A lisp function by default returns the value of the last expression executed in the function. Sometimes it's
+possible to structure your function so that every possible return value is in a "tail position" (meaning the
+last expression out before the door closes, so to speak.) For instance:
+┌───────────────────────────────────────────┬───────────────────────────────────┐
+│                Emacs Lisp                 │            JavaScript             │
+├───────────────────────────────────────────┼───────────────────────────────────┤
+│ (require 'calendar)                       │ function dayName() {              │
+│                                           │   var date = new Date().getDay(); │
+│ (defun day-name ()                        │   switch (date) {                 │
+│   (let ((date (calendar-day-of-week       │     case 0:                       │
+│                (calendar-current-date)))) │       return "Sunday";            │
+│     (if (= date 0)                        │     case 6:                       │
+│         "Sunday"                          │       return "Saturday";          │
+│       (if (= date 6)                      │     default:                      │
+│           "Saturday"                      │       return "weekday";           │
+│         "weekday"))))                     │   }                               │
+│                                           │ }                                 │
+└───────────────────────────────────────────┴───────────────────────────────────┘
+</p>
+
+<p>
+The return value is just the result of the last expression, so whatever our nested if produces is
+automatically returned, and there's no need here for an explicit return form.
+</p>
+
+<p>
+However, sometimes restructuring the function this way is inconvenient, and you'd prefer to do an "early
+return".
+</p>
+
+<p>
+You can do early returns in Emacs Lisp the same way you do break and continue, using the catch/throw
+facility. Usually simple functions can be structured so you don't need this – it's most often useful for
+larger, deeply-nested functions. So for a contrived example, we'll just rewrite the function above to be
+closer to the JavaScript version:
+</p>
+
+<p>
+(defun day-name ()
+   (let ((date (calendar-day-of-week
+                (calendar-current-date))))  ; 0-6
+     (catch 'return
+       (case date
+         (0
+          (throw 'return "Sunday"))
+         (6
+          (throw 'return "Saturday"))
+         (t
+          (throw 'return "weekday"))))))
+</p>
+
+<p>
+Obviously using catch/throw here is slow and clunky compared to the alternatives, but sometimes it's exactly
+what you need to get out of a deeply nested construct.
+</p>
+
+<p>
+try/catch
+</p>
+
+<p>
+We've already discussed catch/throw, an exception-like facility for normal control flow transfers.
+</p>
+
+<p>
+Emacs has a different facility for real error conditions, called the "conditions" system. Going through the
+full system is out of scope for our primer, but I'll cover how to catch all exceptions and how to ignore
+(squelch) them.
+</p>
+
+<p>
+Here's an example of a universal try/catch using the condition-case construct, with a Java equivalent:
+</p>
+
+<p>
+┌─────────────────────────────┬─────────────────────────┐
+│         Emacs Lisp          │          Java           │
+├─────────────────────────────┼─────────────────────────┤
+│ (condition-case nil         │ try {                   │
+│     (progn                  │   doSomething();        │
+│       (do-something)        │   doSomethingElse();    │
+│       (do-something-else))  │ } catch (Throwable t) { │
+│   (error                    │   print("uh-oh");       │
+│    (message "oh no!")       │   doRecoveryStuff();    │
+│    (do-recovery-stuff)))    │ }                       │
+└─────────────────────────────┴─────────────────────────┘
+</p>
+
+<p>
+If you want an empty catch block (just squelch the error), you can use ignore-errors:
+</p>
+
+<p>
+(ignore-errors
+   (do-something)
+   (do-something-else))
+</p>
+
+<p>
+It's sometimes a good idea to slap an ignore-errors around bits of elisp code in your startup file that may
+not always work, so you can still at least start your Emacs up if the code is failing.
+</p>
+
+<p>
+The condition-case nil means "Don't assign the error to a named variable." Elisp lets you catch different
+kinds of errors and examine the error data. You can read the Emacs manual or Info pages to learn more about
+how to do that.
+</p>
+
+<p>
+The progn is necessary if you have multiple expressions (in C/Java, statements) to evaluate in the
+condition-case body.
+</p>
+
+<p>
+condition-case will not catch values thrown by throw – the two systems are independent.
+</p>
+
+<p>
+try/finally
+</p>
+
+<p>
+Emacs has a "finally"-like facility called unwind-protect.
+</p>
+
+<p>
+┌─────────────────────────────┬────────────────────────┐
+│         Emacs Lisp          │          Java          │
+├─────────────────────────────┼────────────────────────┤
+│ (unwind-protect             │ try {                  │
+│     (progn                  │   doSomething();       │
+│       (do-something)        │   doSomethingElse();   │
+│       (do-something-else))  │ } finally {            │
+│   (first-finally-expr)      │   firstFinallyExpr();  │
+│   (second-finally-expr))    │   secondFinallyExpr(); │
+│                             │ }                      │
+└─────────────────────────────┴────────────────────────┘
+</p>
+
+<p>
+Like condition-case, unwind-protect takes a single body-form followed by one or more cleanup forms, so you
+need to use progn if you have more than one expression in the body.
+</p>
+
+<p>
+try/catch/finally
+</p>
+
+<p>
+If you make the condition-case (which is basically try/catch) the body-form of an unwind-protect (which is
+basically try/finally), you get the effect of try/catch/finally:
+</p>
+
+<p>
+(unwind-protect                 ; finally
+     (condition-case nil         ; try
+         (progn                  ; {
+           (do-something)        ;   body-1
+           (do-something-else))  ;   body-2 }
+       (error                    ; catch
+        (message "oh no!")       ; { catch 1
+        (poop-pants)))           ;   catch 2 }
+   (first-finally-expr)          ; { finally 1
+   (second-finally-expr))        ;   finally 2 }
+</p>
+
+<p>
+Classes
+</p>
+
+<p>
+Emacs Lisp is not object-oriented in the standard sense: it doesn't have classes, inheritance, polymorphism
+and so on. The Common Lisp package includes a useful feature called defstruct that gives you some simple
+OOP-like support. I'll walk through a basic example.
+</p>
+
+<p>
+These two declarations are essentially equivalent:
+┌────────────────────────────────┬────────────────────────────────────────────────────────┐
+│           Emacs Lisp           │                          Java                          │
+├────────────────────────────────┼────────────────────────────────────────────────────────┤
+│                                │ <i>* A Person class *</i>                                   │
+│                                │ class Person {                                         │
+│                                │   String name;                                         │
+│                                │   int age;                                             │
+│                                │   double height;                                       │
+│                                │   public Person() {}                                   │
+│                                │   public Person(String name) {                         │
+│                                │     this(name, 0, 0);                                  │
+│                                │   }                                                    │
+│                                │   public Person(int age) {                             │
+│                                │     this(null, age, 0);                                │
+│ (require 'cl)  ; top of file   │   }                                                    │
+│                                │   public Person(double height) {                       │
+│ (defstruct person              │     this(null, 0, height);                             │
+│   "A person structure."        │   }                                                    │
+│   name                         │   public Person(String name, int age) {                │
+│   (age 0)                      │     this(name, age, 0);                                │
+│   (height 0.0))                │   }                                                    │
+│                                │   public Person(String name, double height) {          │
+│                                │     this(name, 0, height);                             │
+│                                │   }                                                    │
+│                                │   public Person(int age, double height) {              │
+│                                │     this(null, age, height);                           │
+│                                │   }                                                    │
+│                                │   public Person(String name, int age, double height) { │
+│                                │     this.name = name;                                  │
+│                                │     this.age = age;                                    │
+│                                │     this.height = height;                              │
+│                                │   }                                                    │
+│                                │ }                                                      │
+└────────────────────────────────┴────────────────────────────────────────────────────────┘
+</p>
+
+<p>
+Both create a "class" with three named fields, and constructors for initializing any subset of the fields.
+With defstruct you get one constructor with keyword parameters, so these are all valid:
+</p>
+
+<p>
+(make-person)  ; new Person()
+(make-person :age 39)  ; new Person(39)
+(make-person :name "Steve" :height 5.83 :age 39)  ; new Person("Steve", 39, 5.83)
+</p>
+
+<p>
+The defstruct macro supports single-inheritance (to arbitrary depth):
+┌────────────────────────────────┬─────────────────────────────────────────────────────────────────┐
+│           Emacs Lisp           │                              Java                               │
+├────────────────────────────────┼─────────────────────────────────────────────────────────────────┤
+│                                │ <i>* An Employee class *</i>                                         │
+│                                │ class Employee extends Person {                                 │
+│                                │   String company;                                               │
+│                                │   int level = 1;                                                │
+│                                │   String title = "n00b";                                        │
+│                                │   public Employee() {                                           │
+│                                │   }                                                             │
+│                                │   public Employee(String name,                                  │
+│                                │                   String company) {                             │
+│                                │     super(name);                                                │
+│                                │     this.company = company;                                     │
+│                                │   }                                                             │
+│                                │   public Employee(String name,                                  │
+│                                │                   int age,                                      │
+│                                │                   String company) {                             │
+│                                │     super(name, age);                                           │
+│                                │     this.company = company;                                     │
+│                                │   }                                                             │
+│                                │   public Employee(String name,                                  │
+│ (defstruct (employee           │                   int age,                                      │
+│             (:include person)) │                   double height,                                │
+│   "An employee structure."     │                   String company) {                             │
+│   company                      │     super(name, age, height);                                   │
+│   (level 1)                    │     this.company = company;                                     │
+│   (title "n00b"))              │   }                                                             │
+│                                │   public Employee(String name,                                  │
+│                                │                   int age,                                      │
+│                                │                   String company,                               │
+│                                │                   int level) {                                  │
+│                                │     super(name, age);                                           │
+│                                │     this.company = company;                                     │
+│                                │     this.level = level;                                         │
+│                                │   }                                                             │
+│                                │   public Employee(String name,                                  │
+│                                │                   int age,                                      │
+│                                │                   String co,                                    │
+│                                │                   int lvl,                                      │
+│                                │                   String title) {                               │
+│                                │     super(name, age);                                           │
+│                                │     this.company = co;                                          │
+│                                │     this.level = lvl;                                           │
+│                                │     this.title = title;                                         │
+│                                │   }                                                             │
+│                                │   // (remaining 150 overloaded constructors elided for brevity) │
+│                                │ }                                                               │
+└────────────────────────────────┴─────────────────────────────────────────────────────────────────┘
+</p>
+
+<p>
+The defstruct macro provides a flexible default constructor, but also gives you a fair amount of control
+over your constructor(s) if you prefer.
+</p>
+
+<p>
+The defstruct macro creates an instanceof-like predicate function named after the struct, so you can say:
+</p>
+
+<p>
+(person-p (make-person))
+t
+(employee-p (make-person))
+nil
+(employee-p (make-employee))
+t
+(person-p (make-employee))  ; yes, it inherits from person
+t
+</p>
+
+<p>
+Java may suck at declaring constructors, but Emacs Lisp makes up for it by sucking at setting fields. To set
+a field in a struct, you have to use the setf function, and construct the field name by prepending the
+structure name. So:
+</p>
+
+<p>
+┌─────────────────────────────────────┬──────────────────────────────┐
+│             Emacs Lisp              │             Java             │
+├─────────────────────────────────────┼──────────────────────────────┤
+│ (setq e (make-employee))            │ Employee e = new Employee(); │
+│ (setf (employee-name e) "Steve"     │ e.name = "Steve";            │
+│       (employee-age e) 39           │ e.age = 39;                  │
+│       (employee-company e) "Google" │ e.company = "Google";        │
+│       (employee-title e) "Janitor") │ e.title = "Janitor";         │
+└─────────────────────────────────────┴──────────────────────────────┘
+</p>
+
+<p>
+The Lisp one doesn't look too bad here, but in practice (because Elisp has no namespace support and no
+with-slots macro), you wind up with long structure and field names. So your defstruct-enabled elisp code
+tends to look more like this:
+</p>
+
+<p>
+(setf (js2-compiler-data-current-script-or-function compiler-data) current-script
+       (js2-compiler-data-line-number compiler-data) current-line
+       (js2-compiler-data-allow-member-expr-as-function-name compiler-data) allow
+       (js2-compiler-data-language-version compiler-data) language-version)
+</p>
+
+<p>
+So it goes.
+</p>
+
+<p>
+To fetch the value of a field in a struct variable, you concatenate the struct name with the field name and
+use it as a function call:
+</p>
+
+<p>
+(person-name steve)  ; yields "Steve"
+</p>
+
+<p>
+There's more that defstruct can do – it's a pretty decent facility, all things considered, though it falls
+well short of a full object system.
+</p>
+
+<p>
+Buffers as classes
+</p>
+
+<p>
+In Elisp programming it can often be useful to think of buffers as instances of your own classes. This is
+because Emacs supports the notion of buffer-local variables: variables that automatically become
+buffer-local whenever they are set in any fashion. They become part of the scope chain for any code
+executing in the buffer, so they act a lot like encapsulated instance variables.
+</p>
+
+<p>
+You can use the function make-variable-buffer-local to declare a variable as buffer-local. Usually it comes
+right after the defvar or defconst declaration (see below.)
+</p>
+
+<p>
+Variables
+</p>
+
+<p>
+You can declare a variable, optionally giving it some runtime documentation, with defvar or defconst:
+</p>
+
+<p>
+(defconst pi 3.14159 "A gross approximation of pi.")
+</p>
+
+<p>
+The syntax is (defvar name value [ doc-string ]).
+</p>
+
+<p>
+Ironically, defconst is variable and defvar is constant, at least if you re-evaluate them. To change the
+value of a defvar variable by re-evaluating its declaration you need to use makunbound to unbind it first.
+You can always change the value of any defvar or defconst variable using setq. The only difference between
+the two is that defconst makes it clearer to the programmer that the value is not intended to change.
+</p>
+
+<p>
+You can use setq to create brand-new variables, but if you use defvar, the byte-compiler will be able to
+catch more typos.
+</p>
+
+<p>
+Further reading
+</p>
+
+<p>
+Emacs Lisp is a real programming language. It has a compiler, a debugger, a profiler, pretty-printers,
+runtime documentation, libraries, I/O, networking, process control and much more. There's a lot to learn,
+but I'm hoping this little primer has got you over the hump, as it were.
+</p>
+
+<p>
+In spite of its various quirks and annoyances, Elisp is reasonably fun to program in once you get the hang
+of it. As a language it's not that great, and everyone wishes it were Common Lisp or Scheme or some other
+reasonable Lisp dialect. Some people even wish it weren't Lisp at all, if you can believe that! (hee)
+</p>
+
+<p>
+But it's really, really useful to be able to customize your editor, and also to be able to fix problems with
+elisp code you borrowed or inherited. So a little Elisp goes a long way.
+</p>
+
+<p>
+For those of you learning Emacs Lisp, please let me know if you found this useful. If you try writing some
+Emacs extensions, let me know what you would like to see documented next; I can always do another
+installment of the Emergency Elisp series if there's enough interest.
+</p>
+
+<p>
+Good luck!
+Posted by Steve Yegge at 2:47 PM ●
+</p>
+</div>
+</div>
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">
+<span class="section-number-2">10</span> URI (<a href="http://www.gnu.org/software/emacs/manual/html_node/url/index.html#Top">http://www.gnu.org/software/emacs/manual/html_node/url/index.html#Top</a>)</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-sec-10-1" class="outline-3">
+<h3 id="sec-10-1">
+<span class="section-number-3">10.1</span> URI Parsing(<a href="http://www.gnu.org/software/emacs/manual/html_node/url/Parsed-URIs.html#Parsed-URIs">http://www.gnu.org/software/emacs/manual/html_node/url/Parsed-URIs.html#Parsed-URIs</a>)</h3>
+<div class="outline-text-3" id="text-10-1">
+<p>
+A URI consists of several components, each having a different meaning. For example, the URI
+</p>
+
+<p>
+<a href="http://www.gnu.org/software/emacs/">http://www.gnu.org/software/emacs/</a>
+</p>
+
+<p>
+specifies the scheme component ‘http’, the hostname component ‘www.gnu.org’, and the path component ‘/software/emacs/’.
+</p>
+
+<p>
+The format of URIs is specified by RFC 3986. The url library provides the Lisp function url-generic-parse-url, a (mostly) standard-compliant URI parser, as well as function url-recreate-url, which converts a parsed URI back into a URI string.
+— Function: url-generic-parse-url uri-string
+</p>
+
+<p>
+This function returns a parsed version of the string uri-string. 
+</p>
+
+<p>
+— Function: url-recreate-url uri-obj
+</p>
+
+<p>
+Given a parsed URI, this function returns the corresponding URI string. 
+</p>
+
+<p>
+The return value of url-generic-parse-url, and the argument expected by url-recreate-url, is a parsed URI: a CL structure whose slots hold the various components of the URI. See the CL Manual, for details about CL structures. Most of the other functions in the url library act on parsed URIs. 
+</p>
+</div>
+<div id="outline-container-sec-10-1-1" class="outline-4">
+<h4 id="sec-10-1-1">
+<span class="section-number-4">10.1.1</span> Parsed URI structures</h4>
+<div class="outline-text-4" id="text-10-1-1">
+<ul class="org-ul">
+<li>type
+</li>
+<li>user
+</li>
+<li>password
+</li>
+<li>host
+</li>
+<li>port
+</li>
+<li>filename
+</li>
+<li>target
+</li>
+<li>fullness
+</li>
+</ul>
+
+<p>
+The slots can be set using setf. For example:
+</p>
+
+<p>
+(setf (url-port url) 80)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-10-2" class="outline-3">
+<h3 id="sec-10-2">
+<span class="section-number-3">10.2</span> URI Encoding</h3>
+<div class="outline-text-3" id="text-10-2">
+<p>
+— Function: url-encode-url url-string
+</p>
+
+<p>
+This function return a properly URI-encoded version of url-string. It also performs URI normalization, e.g., converting the scheme component to lowercase if it was previously uppercase. 
+</p>
+
+<p>
+To convert between a string containing arbitrary characters and a percent-encoded all-ASCII string, use the functions url-hexify-string and url-unhex-string:
+— Function: url-hexify-string string &amp;optional allowed-chars
+</p>
+
+<p>
+This function performs percent-encoding on string, and returns the result.
+</p>
+
+<p>
+If string is multibyte, it is first converted to a UTF-8 byte string. Each byte corresponding to an allowed character is left as-is, while all other bytes are converted to a three-character sequence: ‘%’ followed by two upper-case hex digits.
+</p>
+
+<p>
+The allowed characters are specified by allowed-chars. If this argument is nil, the allowed characters are those specified as unreserved characters by RFC 3986 (see the variable url-unreserved-chars). Otherwise, allowed-chars should be a vector whose n-th element is non-nil if character n is allowed. 
+</p>
+
+<p>
+— Function: url-unhex-string string &amp;optional allow-newlines
+</p>
+
+<p>
+This function replaces percent-encoding sequences in string with their character equivalents, and returns the resulting string. 
+</p>
+</div>
+</div>
+<div id="outline-container-sec-10-3" class="outline-3">
+<h3 id="sec-10-3">
+<span class="section-number-3">10.3</span> Retrieving URLs</h3>
+<div class="outline-text-3" id="text-10-3">
+<p>
+— Function: url-retrieve-synchronously url
+— Function: url-retrieve url callback &amp;optional cbargs silent no-cookies
+— Function: url-queue-retrieve url callback &amp;optional cbargs silent no-cookies
+    This function acts like url-retrieve, but with limits on the number of concurrently-running network processes. The option url-queue-parallel-processes controls the number of concurrent processes, and the option url-queue-timeout sets a timeout in seconds.
+</p>
+
+<p>
+To use this function, you must (require 'url-queue). 
+</p>
+
+<p>
+— User Option: url-queue-parallel-processes
+</p>
+
+<p>
+The value of this option is an integer specifying the maximum number of concurrent url-queue-retrieve network processes. If the number of url-queue-retrieve calls is larger than this number, later ones are queued until ealier ones are finished. 
+</p>
+
+<p>
+— User Option: url-queue-timeout
+</p>
+
+<p>
+The value of this option is a number specifying the maximum lifetime of a url-queue-retrieve network process, once it is started. If a process is not finished by then, it is killed and removed from the queue. 
+</p>
+</div>
+</div>
+<div id="outline-container-sec-10-4" class="outline-3">
+<h3 id="sec-10-4">
+<span class="section-number-3">10.4</span> Command and Function Index</h3>
+<div class="outline-text-3" id="text-10-4">
+<p>
+Info-goto-node: info
+man: man
+terminal-emulator: rlogin/telnet/tn3270
+url-attributes: Parsed URIs
+url-cache-create-filename-human-readable: Disk Caching
+url-cache-create-filename-using-md5: Disk Caching
+url-cache-expired: Disk Caching
+url-completion-function: History
+url-do-setup: History
+url-encode-url: URI Encoding
+url-fetch-from-cache: Disk Caching
+url-filename: Parsed URIs
+url-fullness: Parsed URIs
+url-generic-parse-url: URI Parsing
+url-hexify-string: URI Encoding
+url-history-parse-history: History
+url-history-save-history: History
+url-history-setup-save-timer: History
+url-history-update-url: History
+url-host: Parsed URIs
+url-http-options: HTTP URL Options
+url-open-stream: Gateways in general
+url-password: Parsed URIs
+url-port: Parsed URIs
+url-queue-retrieve: Retrieving URLs
+url-recreate-url: URI Parsing
+url-retrieve: Retrieving URLs
+url-retrieve-synchronously: Retrieving URLs
+url-target: Parsed URIs
+url-type: Parsed URIs
+url-unhex-string: URI Encoding
+url-user: Parsed URIs
+</p>
+</div>
+</div>
+<div id="outline-container-sec-10-5" class="outline-3">
+<h3 id="sec-10-5">
+<span class="section-number-3">10.5</span> Variable Index</h3>
+<div class="outline-text-3" id="text-10-5">
+<p>
+HTTP<sub>PROXY</sub>: Proxies
+mail-user-agent: mailto
+NNTPSERVER: news/nntp/snews
+NO<sub>PROXY</sub>: Proxies
+socks-nslookup-program: Gateways in general
+socks-password: Gateways in general
+socks-server: Gateways in general
+socks-timeout: Gateways in general
+socks-username: Gateways in general
+TMPDIR: Customization
+url-automatic-caching: Disk Caching
+url-bad-port-list: Customization
+url-cache-creation-function: Disk Caching
+url-cache-directory: Disk Caching
+url-cache-expire-time: Disk Caching
+url-configuration-directory: Customization
+url-confirmation-func: Customization
+url-cookie-confirmation: Cookies
+url-cookie-file: Cookies
+url-cookie-multiple-line: Cookies
+url-cookie-save-interval: Cookies
+url-cookie-trusted-urls: Cookies
+url-cookie-untrusted-urls: Cookies
+url-debug: Customization
+url-directory-index-file: file/ftp
+url-gateway-local-host-regexp: Gateways in general
+url-gateway-method: Customization
+url-gateway-method: Gateways in general
+url-gateway-prompt-pattern: Gateways in general
+url-gateway-rlogin-host: Gateways in general
+url-gateway-rlogin-parameters: Gateways in general
+url-gateway-rlogin-user-name: Gateways in general
+url-gateway-telnet-host: Gateways in general
+url-gateway-telnet-login-prompt: Gateways in general
+url-gateway-telnet-parameters: Gateways in general
+url-gateway-telnet-password: Gateways in general
+url-gateway-telnet-password-prompt: Gateways in general
+url-gateway-telnet-user-name: Gateways in general
+url-gateway-unplugged: Suppressing network connections
+url-history-file: History
+url-history-hash-table: History
+url-history-save-interval: History
+url-history-track: History
+url-honor-refresh-requests: http/https
+url-irc-function: irc
+url-mail-command: mailto
+url-max-password-attempts: Customization
+url-mime-charset-string: HTTP language/coding
+url-mime-language-string: HTTP language/coding
+url-news-server: news/nntp/snews
+url-nfs-automounter-directory-spec: nfs
+url-passwd-entry-func: Customization
+url-personal-mail-address: Customization
+url-privacy-level: Customization
+url-proxy-services: Proxies
+url-queue-parallel-processes: Retrieving URLs
+url-queue-timeout: Retrieving URLs
+url-show-status: Customization
+url-standalone-mode: Customization
+url-temporary-directory: Customization
+url-uncompressor-alist: Customization
+url-unreserved-chars: URI Encoding
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-10-6" class="outline-3">
+<h3 id="sec-10-6">
+<span class="section-number-3">10.6</span> EXAMPLE</h3>
+<div class="outline-text-3" id="text-10-6">
+<div class="org-src-container">
+
+<pre class="src src-elisp">(<span class="org-keyword">defun</span> <span class="org-function-name">get-url-content</span> (url)
+  <span class="org-doc">"simplily get content from url"</span>
+  (<span class="org-keyword">let</span> ((ret nil)
+<span class="org-comment-delimiter">;       </span><span class="org-comment">(url-proxy-services '(("http" . "localhost:8888")))</span>
+        (url-request-extra-headers 
+          '((<span class="org-string">"Content-Type"</span> . <span class="org-string">"application/json; charset=utf-8"</span>)
+            (<span class="org-string">"X-Requested-With"</span> . <span class="org-string">"XMLHttpRequest"</span>)
+            (<span class="org-string">"User-Agent"</span> . <span class="org-string">" Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.75 Safari/537.1"</span>)
+            (<span class="org-string">"Referer"</span> . <span class="org-string">"http://www.simsimi.com/talk.htm"</span>)
+            )
+        ))
+    (<span class="org-keyword">with-current-buffer</span>
+      (url-retrieve-synchronously  url) 
+<span class="org-comment-delimiter">;      </span><span class="org-comment">(setq status url-http-response-status)</span>
+      (goto-char (point-min))
+      (<span class="org-keyword">if</span>  (search-forward-regexp <span class="org-string">"{"</span> nil t)
+          (setq ret (decode-coding-string (substring (car (split-string (buffer-substring (point) (point-max)) <span class="org-string">","</span> )) 12 -1) 'utf-8)
+                )
+<span class="org-comment-delimiter">;         </span><span class="org-comment">(message (buffer-substring (point-min) (point-max)))</span>
+        (message <span class="org-string">"invalid request"</span>)
+        )
+      )
+    ret
+    )
+ )
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">coffee</span> ()
+   <span class="org-doc">"Submit a BREW request to an RFC2324-compliant coffee device"</span>
+   (interactive)
+   (<span class="org-keyword">require</span> '<span class="org-constant">url</span>)
+   (<span class="org-keyword">let*</span> ((additions-list
+           (append coffee-milk-types
+                   coffee-syrup-types
+                   coffee-sweetener-types
+                   coffee-alcohol-types))
+          (additions-string
+           (mapconcat #'identity additions-list <span class="org-string">","</span>))
+          (url (coffee-url))
+          (url-request-method <span class="org-string">"BREW"</span>)
+          (url-request-extra-headers
+           `((<span class="org-string">"Content-type"</span>     . <span class="org-string">"message-coffeepot"</span>)
+             (<span class="org-string">"Accept-Additions"</span> . ,additions-string)))         
+          (url-request-data <span class="org-string">"START"</span>))
+     (run-hooks 'coffee-brew-hook)
+     (url-retrieve url)))
+
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+        (<span class="org-keyword">let</span> ((url-request-method        <span class="org-string">"POST"</span>)
+              (url-request-extra-headers `((<span class="org-string">"Content-Type"</span> . <span class="org-string">"application/x-www-form-urlencoded"</span>)))
+              (url-request-data          <span class="org-string">"field1=Hello&amp;field2=from&amp;field3=Emacs"</span>))
+          (<span class="org-keyword">with-current-buffer</span> (url-retrieve-synchronously url)
+            (buffer-string)))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11">
+<span class="section-number-2">11</span> 翻译</h2>
+<div class="outline-text-2" id="text-11">
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">This buffer is for notes you don't want to save, and for Lisp evaluation.</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">If you want to create a file, visit that file with C-x C-f,</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">then enter the text in that file's own buffer.</span>
+(<span class="org-keyword">defvar</span> <span class="org-variable-name">bd-url</span> (concat 
+              <span class="org-string">"http://openapi.baidu.com/public/2.0/bmt/translate?"</span>
+              <span class="org-string">"client_id=ganHbvW7N4T6jEQ98K0ykXia"</span>
+              <span class="org-string">"&amp;from=auto&amp;to=auto"</span>))
+(setq str <span class="org-string">"您"</span>)
+(<span class="org-keyword">defun</span> <span class="org-function-name">baidu-translate</span>(str)
+  (<span class="org-keyword">let</span> ((url-request-method <span class="org-string">"GET"</span>)
+        buffer
+        result)
+    (setq buffer (url-retrieve-synchronously (url-generic-parse-url (concat bd-url (url-encode-url (format <span class="org-string">"&amp;q=%s"</span> str))))))
+<span class="org-comment-delimiter">;    </span><span class="org-comment">(switch-to-buffer buffer)</span>
+    (<span class="org-keyword">with-current-buffer</span> buffer
+      (goto-char (point-min))
+      (re-search-forward <span class="org-string">"^$"</span>)
+      (forward-char)
+      (setq result (buffer-substring  (point) (point-max))))
+    result))
+
+
+
+(baidu-translate <span class="org-string">"你"</span>)
+<span class="org-string">"{\"from\":\"zh\",\"to\":\"en\",\"trans_result\":[{\"src\":\"\\u4f60\",\"dst\":\"You\"}]}"</span>
+
+
+(setq result 
+      (json-read-from-string (baidu-translate <span class="org-string">"你是谁"</span>)))
+
+(assoc 'trans_result  result)
+(trans_result . [((dst . <span class="org-string">"Who is it"</span>) (src . <span class="org-string">"你是谁"</span>))])
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12">
+<span class="section-number-2">12</span> 代码</h2>
+<div class="outline-text-2" id="text-12">
+<div class="org-src-container">
+
+<pre class="src src-language">(buffer-name) ;;function buffer-name return the buffer's name
+(buffer-file-name);;return the full path of file
+;;C-x C-e runs the command eval-last-sexp, and echoes the result in the minibuffer
+;;C-u C-x C-e echoes the result in the current buffer
+(current-buffer);;fuction current-buffer retuns the current-buffer
+(other-buffer);;
+(switch-to-buffer (other-buffer));;switch to the other buffer,C-x b 
+（set-buffer);;
+;;;;;;;;;;;;;;;;;;;;;;
+;;location in the buffer
+(buffer-size);;function returns the size of current buffer
+(point);;return the current point of the buffer
+(point-min)
+(point-max)
+
+;;;;;;;;;;;;;;;;;;;;;;
+;;defin a function
+(defun multiply-by-seven (number)
+  "Multiply NUMBER by seven"
+  (* 7 number))    ;;C-x C-e load the function
+(multiply-by-seven 3)    ;;3*7
+;;C-h f (describe-function) multiply-by-seven can echo relative docs in a "help" buffer
+
+;;make a fuction interactive
+(defun multiply-by-seven (number)
+  "Multiply NUMBER by seven"
+  (interactive "p")
+  (message "The result is %d" (* 7 number)))
+;;use C-u 8  give a parameter 8 and M-x multiply-by-seven then return 56
+;;OR M-8 M-x multiply-by-seven 
+;;;;;;;;;;;;;;;;;;;;;;
+;;interactive options
+;;"p" numeric prefix argument
+;;"r" point and mark
+;;"b"　一个已经存在的缓冲区的名字
+;;"f“　一个已经存在的文件的名字
+(forword-sentence);; M-e
+(let ((var1 'hello)
+      (var2 'world))
+  (message "%s %s\n" var1 var2))
+(message "hello world")
+;;;;;;;;;;;;;;;;;;;;;;
+(save-excursion
+	body ...);;将位点和标记的当前位置保存起来。并当特殊表主体代码解释器执行完毕之后恢复原来位置
+(set-mark-command);;C-SPC make mark
+(exchange-point-and-mark);;C-x C-x
+
+;;C-h f 查看函数文档
+;;Ｃ-h v　查看变量文档
+;;find-tags 查看函数定义
+;;M-.  查看函数定义
+(beginning-of-buffer) ;;C-&lt;
+(defun simplified-begnning-of-buffer ()
+  ""
+  (interactive)
+  (push-mark)
+  (goto-char (point-min)))
+
+(describe-function);;C-h f
+(describe-variable);;C-h v
+
+(defun mark-whole-buffer ()
+  ""
+  (interactive)
+  (push-mark)
+  (push-mark (point-max))
+  (goto-char (point-min)))
+
+(defun append-to-buffer (buffer start end)
+   ""
+  (interactive "BAppend to buffer: \nr")
+  (let ((oldbuf (current-buffer)))
+     (save-excursion
+	(set-buffer (get-buffer-create buffer))
+	(insert-buffer-substring oldbuf start end))))
+
+(defun copy-to-buffer (buffer start end)
+   ""
+   (interactive "BCopy to buffer: \nr")
+   (let ((oldbuf (current-buffer)))
+      (save-excursion
+	 (set-buffer (get-buffer-create buffer))
+	 (erase-buffer)
+	 (save-excursion
+	   (insert-buffer-substring oldbuf start end)))))
+
+(defun insert-buffer (buffer)
+  ""
+  (interactive "*bInsert buffer: ")
+  (or (bufferp buffer)
+      (setq buffer (get-buffer buffer)))
+   (let (start end newmark)
+     (save-excursion
+       (save-excursion
+	 (set-buffer buffer)
+	 (setq start (point-min) end (point-max)))
+     (insert-buffer-substring buffer start end)
+     (setq newmark (point)))
+     (push-mark newmark)))
+</pre>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef">
+<sup><a id="fn.1" name="fn.1" class="footnum" href="../.././en/posts/elisp-notes.html#fnr.1">1</a></sup> <p class="footpara">
+<a href="http://steve-yegge.blogspot.com/2008/01/emergency-elisp.html">http://steve-yegge.blogspot.com/2008/01/emergency-elisp.html</a>
+</p>
+</div>
+
+
+</div>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+        <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/elisp.html" rel="tag">elisp</a></li>
+           <li><a class="tag p-category" href="../categories/emacs.html" rel="tag">emacs</a></li>
+        </ul>
+
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../.././en/posts/influence.html" rel="prev" title="Influence 影响力">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../.././en/posts/yasnippet.html" rel="next" title="Yasnippet">Next post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+        
+        
+
+
+        </section>
+    
+
+</article>
+
+        
+
+
+
+    </div>
+    </div>
+    <!--End of body content-->
+</div>
+<div class="footerbox">
+    Contents © 2014         <a href="mailto:xor3@outlook.com">Xor3</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/2.5/cn/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">Creative Commons Attribution-NonCommercial-ShareAlike 2.5 China Mainland License</a>.
+    
+</div>
+
+            <script src="../../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
+
+
+</body>
+</html>

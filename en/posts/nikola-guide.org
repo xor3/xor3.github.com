@@ -60,8 +60,11 @@ nikola build
    不会显示，但会部署
 ** post type
    text, micro
-
+* 参考
++ [fn:2] [[http://self-definition.com/index.html][一个比较好的 nikola 中文配置]]
 * Footnotes
 
 [fn:1] http://getnikola.com/handbook.html
+
+[fn:2] http://self-definition.com/index.html
 

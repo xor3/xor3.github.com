@@ -5,36 +5,48 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
+  <loc>/2013/index.html</loc>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
   <loc>/2014/index.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/archive.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/categories/elisp.html</loc>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/categories/emacs.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/categories/eshell.html</loc>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/categories/guide.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/categories/how.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/categories/index.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/categories/nikola.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/categories/notes.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/categories/python-uuid.html</loc>
@@ -42,47 +54,59 @@
  </url>
  <url>
   <loc>/categories/python.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/categories/uuid.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/categories/yasnippet.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/en/2013/index.html</loc>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/2014/index.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/archive.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/en/categories/elisp.html</loc>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/categories/emacs.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/en/categories/eshell.html</loc>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/categories/guide.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/categories/how.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/categories/index.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/categories/nikola.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/categories/notes.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/categories/python-uuid.html</loc>
@@ -90,74 +114,106 @@
  </url>
  <url>
   <loc>/en/categories/python.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/categories/uuid.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/categories/yasnippet.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/galleries/index.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/index.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/en/posts/elisp-notes.html</loc>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/en/posts/emacs-notes.html</loc>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/en/posts/eshell.html</loc>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/posts/github-ssh-config.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/posts/hello.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/en/posts/influence.html</loc>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/posts/nikola-guide.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/posts/python-get-mac-address-by-uuid.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/en/posts/yasnippet.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/galleries/index.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/index.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/listings/index.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/posts/elisp-notes.html</loc>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/posts/emacs-notes.html</loc>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
+  <loc>/posts/eshell.html</loc>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/posts/github-ssh-config.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/posts/hello11.html</loc>
   <lastmod>2014-10-03</lastmod>
  </url>
  <url>
+  <loc>/posts/influence.html</loc>
+  <lastmod>2014-10-05</lastmod>
+ </url>
+ <url>
   <loc>/posts/nikola-guide.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/posts/python-get-mac-address-by-uuid.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
  <url>
   <loc>/posts/yasnippet.html</loc>
-  <lastmod>2014-10-04</lastmod>
+  <lastmod>2014-10-05</lastmod>
  </url>
 </urlset>

@@ -1,7 +1,7 @@
 #+BEGIN_COMMENT
 .. title: Emacs 笔记
 .. slug: emacs-notes
-.. date: 2014-10-05 00:38:01 +0800
+.. date: 2013-8-05 00:38:01 +0800
 .. tags: emacs, notes
 .. link: 
 .. description: 

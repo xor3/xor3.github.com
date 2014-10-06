@@ -1,0 +1,66 @@
+#+BEGIN_COMMENT
+.. title: 禁止某目录下的程序联网
+.. slug: windows-advfirewall
+.. date: 2014-10-07 00:11:13 +0800
+.. tags: windows, firewall,elisp,emacs
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+** netsh advfirewall
+命令行下添加防墙规则的命令行如下
+#+BEGIN_SRC sh :session "shell"
+# netsh advfirewall firewall add rule
+netsh advfirewall firewall add rule name="deny wps" dir=in program="" action=block profile=any
+#+END_SRC
+
+* 定义 w32-firewall-add-rule 函数
+** elisp 执行外部命令用 shell-command-to-string
+#+BEGIN_SRC emacs-lisp
+  ;;  (shell-command-to-string "netsh advfirewall firewall add rule")
+#+END_SRC
+
+下面函数利用了 traverselisp 库，它提供了遍历文件系统的方法
+#+BEGIN_SRC emacs-lisp
+  (traverse-walk-directory "~" :file-fn #'(lambda (x) (princ x) (terpri)))
+#+END_SRC
+
+函数定义
+#+BEGIN_SRC emacs-lisp
+
+  (require 'traverselisp)
+  (defun w32-firewall-add-rule (directory prefix &optional  action dir  dryrun)
+    "add firewall rule.
+          
+          `action' :block :allow :bypass default :block
+          `dir' :in :out default :out
+          "
+    (interactive)
+    
+    (let* ((directory (or directory default-directory))
+           (prefix (or prefix  ""))
+           ;; # (name (format "%s%s-%d" prefix name (random)))
+           (dir (case dir
+                  ('in "in")
+                  (t "out")))
+           (action (case action
+                     ('bypass "bypass")
+                     ('allow "allow")
+                     (t "block"))))
+      
+      (dolist (prog (traverse-collect-files-in-tree-if directory 'file-executable-p))
+        (let* ((prog (convert-standard-filename (expand-file-name prog)))
+               (name (file-name-sans-extension (file-name-nondirectory prog)))
+               (name (format "%s-%s-%s" prefix action name))
+               ;; (command (format "netsh advfirewall firewall add rule name=%s program=\"%s\" dir=%s action=%s" name prog dir action))
+               (command (concat "netsh advfirewall firewall add rule name=" name
+                                " program=" (shell-quote-argument prog)
+                                " dir=" dir
+                                " action=" action)))
+          (message command)
+          (unless dryrun
+            (shell-command-to-string command))))
+      ))
+  ;; eshell for i in ${find  $(princ default-directory) |grep .exe} {(w32-firewall-add-rule i nil nil "wps")}
+#+END_SRC

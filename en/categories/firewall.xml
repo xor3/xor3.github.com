@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Xor3's World! (firewall)</title><link>/</link><description></description><language>en</language><lastBuildDate>Tue, 07 Oct 2014 00:23:35 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>禁止某目录下的程序联网</title><link>/en/posts/windows-advfirewall.html</link><dc:creator>Xor3</dc:creator><description>&lt;div id="table-of-contents"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/en/posts/windows-advfirewall.html#sec-0-1"&gt;0.1. netsh advfirewall&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;li&gt;&lt;a href="/en/posts/windows-advfirewall.html#sec-1"&gt;1. 定义 w32-firewall-add-rule 函数&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/en/posts/windows-advfirewall.html#sec-1-1"&gt;1.1. elisp 执行外部命令用 shell-command-to-string&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-sec-0-1" class="outline-3"&gt;
+&lt;h3 id="sec-0-1"&gt;&lt;span class="section-number-3"&gt;0.1&lt;/span&gt; netsh advfirewall&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-0-1"&gt;
+&lt;p&gt;
+命令行下添加防墙规则的命令行如下
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+
+&lt;pre class="src src-sh"&gt;&lt;span class="org-comment-delimiter"&gt;# &lt;/span&gt;&lt;span class="org-comment"&gt;netsh advfirewall firewall add rule&lt;/span&gt;
+netsh advfirewall firewall add rule &lt;span class="org-variable-name"&gt;name&lt;/span&gt;=&lt;span class="org-string"&gt;"deny wps"&lt;/span&gt; &lt;span class="org-variable-name"&gt;dir&lt;/span&gt;=in &lt;span class="org-variable-name"&gt;program&lt;/span&gt;=&lt;span class="org-string"&gt;""&lt;/span&gt; &lt;span class="org-variable-name"&gt;action&lt;/span&gt;=block &lt;span class="org-variable-name"&gt;profile&lt;/span&gt;=any
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-sec-1" class="outline-2"&gt;
+&lt;h2 id="sec-1"&gt;&lt;span class="section-number-2"&gt;1&lt;/span&gt; 定义 w32-firewall-add-rule 函数&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;&lt;div id="outline-container-sec-1-1" class="outline-3"&gt;
+&lt;h3 id="sec-1-1"&gt;&lt;span class="section-number-3"&gt;1.1&lt;/span&gt; elisp 执行外部命令用 shell-command-to-string&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;div class="org-src-container"&gt;
+
+&lt;pre class="src src-emacs-lisp"&gt;&lt;span class="org-comment-delimiter"&gt;;;  &lt;/span&gt;&lt;span class="org-comment"&gt;(shell-command-to-string "netsh advfirewall firewall add rule")&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+下面函数利用了 traverselisp 库，它提供了遍历文件系统的方法
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+
+&lt;pre class="src src-emacs-lisp"&gt;(traverse-walk-directory &lt;span class="org-string"&gt;"~"&lt;/span&gt; &lt;span class="org-builtin"&gt;:file-fn&lt;/span&gt; #'(&lt;span class="org-keyword"&gt;lambda&lt;/span&gt; (x) (princ x) (terpri)))
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+函数定义
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+
+&lt;pre class="src src-emacs-lisp"&gt;(&lt;span class="org-keyword"&gt;require&lt;/span&gt; '&lt;span class="org-constant"&gt;traverselisp&lt;/span&gt;)
+(&lt;span class="org-keyword"&gt;defun&lt;/span&gt; &lt;span class="org-function-name"&gt;w32-firewall-add-rule&lt;/span&gt; (directory prefix &lt;span class="org-type"&gt;&amp;amp;optional&lt;/span&gt;  action dir  dryrun)
+  &lt;span class="org-doc"&gt;"add firewall rule.&lt;/span&gt;
+
+&lt;span class="org-doc"&gt;        `&lt;/span&gt;&lt;span class="org-doc"&gt;&lt;span class="org-constant"&gt;action&lt;/span&gt;&lt;/span&gt;&lt;span class="org-doc"&gt;' :block :allow :bypass default :block&lt;/span&gt;
+&lt;span class="org-doc"&gt;        `&lt;/span&gt;&lt;span class="org-doc"&gt;&lt;span class="org-constant"&gt;dir&lt;/span&gt;&lt;/span&gt;&lt;span class="org-doc"&gt;' :in :out default :out&lt;/span&gt;
+&lt;span class="org-doc"&gt;        "&lt;/span&gt;
+  (interactive)
+
+  (&lt;span class="org-keyword"&gt;let*&lt;/span&gt; ((directory (or directory default-directory))
+         (prefix (or prefix  &lt;span class="org-string"&gt;""&lt;/span&gt;))
+         &lt;span class="org-comment-delimiter"&gt;;; &lt;/span&gt;&lt;span class="org-comment"&gt;# (name (format "%s%s-%d" prefix name (random)))&lt;/span&gt;
+         (dir (case dir
+                ('in &lt;span class="org-string"&gt;"in"&lt;/span&gt;)
+                (t &lt;span class="org-string"&gt;"out"&lt;/span&gt;)))
+         (action (case action
+                   ('bypass &lt;span class="org-string"&gt;"bypass"&lt;/span&gt;)
+                   ('allow &lt;span class="org-string"&gt;"allow"&lt;/span&gt;)
+                   (t &lt;span class="org-string"&gt;"block"&lt;/span&gt;))))
+
+    (&lt;span class="org-keyword"&gt;dolist&lt;/span&gt; (prog (traverse-collect-files-in-tree-if directory 'file-executable-p))
+      (&lt;span class="org-keyword"&gt;let*&lt;/span&gt; ((prog (convert-standard-filename (expand-file-name prog)))
+             (name (file-name-sans-extension (file-name-nondirectory prog)))
+             (name (format &lt;span class="org-string"&gt;"%s-%s-%s"&lt;/span&gt; prefix action name))
+             &lt;span class="org-comment-delimiter"&gt;;; &lt;/span&gt;&lt;span class="org-comment"&gt;(command (format "netsh advfirewall firewall add rule name=%s program=\"%s\" dir=%s action=%s" name prog dir action))&lt;/span&gt;
+             (command (concat &lt;span class="org-string"&gt;"netsh advfirewall firewall add rule name="&lt;/span&gt; name
+                              &lt;span class="org-string"&gt;" program="&lt;/span&gt; (shell-quote-argument prog)
+                              &lt;span class="org-string"&gt;" dir="&lt;/span&gt; dir
+                              &lt;span class="org-string"&gt;" action="&lt;/span&gt; action)))
+        (message command)
+        (&lt;span class="org-keyword"&gt;unless&lt;/span&gt; dryrun
+          (shell-command-to-string command))))
+    ))
+&lt;span class="org-comment-delimiter"&gt;;; &lt;/span&gt;&lt;span class="org-comment"&gt;eshell for i in ${find  $(princ default-directory) |grep .exe} {(w32-firewall-add-rule i nil nil "wps")}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description><guid>/en/posts/windows-advfirewall.html</guid><pubDate>Mon, 06 Oct 2014 16:11:13 GMT</pubDate></item></channel></rss>

@@ -1,5 +1,5 @@
 #+BEGIN_COMMENT
-.. title: Elsip 笔记
+.. title: Elisp 笔记
 .. slug: elisp-notes
 .. date: 2014-1-05 00:36:49 +0800
 .. tags: emacs, elisp

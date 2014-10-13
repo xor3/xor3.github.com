@@ -1,0 +1,45 @@
+#+BEGIN_COMMENT
+.. title: ag on windows
+.. slug: ag-on-windows
+.. date: 2014-10-13 13:19:58 +0800
+.. tags: ag, ack, grep, windows
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+#+HTML: <!-- TEASER_END -->
+
+*  ag (the silver searcher)
+** Ack&ag简介
+在大量源代码中搜索某个函数定义或者某个日志输出的内容有很多方法，通常我们使用find 命令并结合 xargs和grep。
+Ack 是用Perl写的，功能比较完备。
+Ag是用C++写的，搜索速度快。这两个工具都比grep更有效率。
+
+在 Windows 上 Ack 需要 perl 环境，在我的机器上也不快。Ag 的话可以自己port。如下
+** 项目地址及wiki
+https://github.com/ggreer/the_silver_searcher
+** windows 下用 cygwin 编译 ag
+*** 使用MinGW 编译指南 https://github.com/ggreer/the_silver_searcher/wiki/Windows
+*** cygwin 编译
++ 获取源码
+从 https://github.com/ggreer/the_silver_searcher 获取源码
+#+BEGIN_SRC sh
+git clone https://github.com/ggreer/the_silver_searcher.git
+#+END_SRC
+
++ cygwin 安装 pkg-config 和 automake（方法略)
+#+BEGIN_EXAMPLE
+./configure: line 3950: syntax error near unexpected token `PCRE,'
+./configure: line 3950: `PKG_CHECK_MODULES(PCRE, libpcre)'
+#+END_EXAMPLE
+出现上述错误时需要安装 pkg-config, PKG_CHECK_MODULES 宏来自于该包。
+
++ 编译
+进入cygwin shell
+#+BEGIN_SRC sh
+cd the_silver_searcher
+./build.sh
+#+END_SRC
+
+编译出来的 ag.exe 在项目根目录下，放到 PATH 环境变量所在的路径即可使用。

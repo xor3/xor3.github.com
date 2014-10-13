@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Xor3's World!</title><link>/</link><description>This is a *** site.</description><language>zh_cn</language><lastBuildDate>Tue, 07 Oct 2014 00:23:35 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>禁止某目录下的程序联网</title><link>/posts/windows-advfirewall.html</link><dc:creator>Xor3</dc:creator><description>&lt;div id="table-of-contents"&gt;
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Xor3's World!</title><link>/</link><description>This is a *** site.</description><language>zh_cn</language><lastBuildDate>Mon, 13 Oct 2014 13:22:27 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ag on windows</title><link>/posts/ag-on-windows.html</link><dc:creator>Xor3</dc:creator><description>&lt;div&gt;&lt;div id="table-of-contents"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/posts/ag-on-windows.html#sec-1"&gt;1. ag (the silver searcher)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/posts/ag-on-windows.html#sec-1-1"&gt;1.1. Ack&amp;amp;ag简介&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/ag-on-windows.html#sec-1-2"&gt;1.2. 项目地址及wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/ag-on-windows.html#sec-1-3"&gt;1.3. windows 下用 cygwin 编译 ag&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/posts/ag-on-windows.html#sec-1-3-1"&gt;1.3.1. 使用MinGW 编译指南 &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/ag-on-windows.html#sec-1-3-2"&gt;1.3.2. cygwin 编译&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="/posts/ag-on-windows.html"&gt;更多…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>ack</category><category>ag</category><category>grep</category><category>windows</category><guid>/posts/ag-on-windows.html</guid><pubDate>Mon, 13 Oct 2014 05:19:58 GMT</pubDate></item><item><title>禁止某目录下的程序联网</title><link>/posts/windows-advfirewall.html</link><dc:creator>Xor3</dc:creator><description>&lt;div id="table-of-contents"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents"&gt;
 &lt;ul&gt;
@@ -218,7 +237,7 @@ netsh advfirewall firewall add rule &lt;span class="org-variable-name"&gt;name&l
 一般字符都可使用，其中 "\", "$", "`" 三个字符需要用 "\" 转义.
 &lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/posts/yasnippet.html"&gt;更多…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>emacs</category><category>yasnippet</category><guid>/posts/yasnippet.html</guid><pubDate>Mon, 03 Mar 2014 02:02:38 GMT</pubDate></item><item><title>Elsip 笔记</title><link>/posts/elisp-notes.html</link><dc:creator>Xor3</dc:creator><description>&lt;div&gt;&lt;div id="table-of-contents"&gt;
+&lt;p&gt;&lt;a href="/posts/yasnippet.html"&gt;更多…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>emacs</category><category>yasnippet</category><guid>/posts/yasnippet.html</guid><pubDate>Mon, 03 Mar 2014 02:02:38 GMT</pubDate></item><item><title>Elisp 笔记</title><link>/posts/elisp-notes.html</link><dc:creator>Xor3</dc:creator><description>&lt;div&gt;&lt;div id="table-of-contents"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents"&gt;
 &lt;ul&gt;

@@ -146,7 +146,8 @@
 </div>
     </header>
     <div class="p-summary entry-summary">
-    <div id="table-of-contents">
+    <div>
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
@@ -161,90 +162,7 @@
 </li>
 </div>
 </div>
-
-<div id="outline-container-sec-0-1" class="outline-3">
-<h3 id="sec-0-1">
-<span class="section-number-3">0.1</span> netsh advfirewall</h3>
-<div class="outline-text-3" id="text-0-1">
-<p>
-命令行下添加防墙规则的命令行如下
-</p>
-<div class="org-src-container">
-
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">netsh advfirewall firewall add rule</span>
-netsh advfirewall firewall add rule <span class="org-variable-name">name</span>=<span class="org-string">"deny wps"</span> <span class="org-variable-name">dir</span>=in <span class="org-variable-name">program</span>=<span class="org-string">""</span> <span class="org-variable-name">action</span>=block <span class="org-variable-name">profile</span>=any
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">
-<span class="section-number-2">1</span> 定义 w32-firewall-add-rule 函数</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">
-<span class="section-number-3">1.1</span> elisp 执行外部命令用 shell-command-to-string</h3>
-<div class="outline-text-3" id="text-1-1">
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp"><span class="org-comment-delimiter">;;  </span><span class="org-comment">(shell-command-to-string "netsh advfirewall firewall add rule")</span>
-</pre>
-</div>
-
-<p>
-下面函数利用了 traverselisp 库，它提供了遍历文件系统的方法
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">(traverse-walk-directory <span class="org-string">"~"</span> <span class="org-builtin">:file-fn</span> #'(<span class="org-keyword">lambda</span> (x) (princ x) (terpri)))
-</pre>
-</div>
-
-<p>
-函数定义
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">(<span class="org-keyword">require</span> '<span class="org-constant">traverselisp</span>)
-(<span class="org-keyword">defun</span> <span class="org-function-name">w32-firewall-add-rule</span> (directory prefix <span class="org-type">&amp;optional</span>  action dir  dryrun)
-  <span class="org-doc">"add firewall rule.</span>
-
-<span class="org-doc">        `</span><span class="org-doc"><span class="org-constant">action</span></span><span class="org-doc">' :block :allow :bypass default :block</span>
-<span class="org-doc">        `</span><span class="org-doc"><span class="org-constant">dir</span></span><span class="org-doc">' :in :out default :out</span>
-<span class="org-doc">        "</span>
-  (interactive)
-
-  (<span class="org-keyword">let*</span> ((directory (or directory default-directory))
-         (prefix (or prefix  <span class="org-string">""</span>))
-         <span class="org-comment-delimiter">;; </span><span class="org-comment"># (name (format "%s%s-%d" prefix name (random)))</span>
-         (dir (case dir
-                ('in <span class="org-string">"in"</span>)
-                (t <span class="org-string">"out"</span>)))
-         (action (case action
-                   ('bypass <span class="org-string">"bypass"</span>)
-                   ('allow <span class="org-string">"allow"</span>)
-                   (t <span class="org-string">"block"</span>))))
-
-    (<span class="org-keyword">dolist</span> (prog (traverse-collect-files-in-tree-if directory 'file-executable-p))
-      (<span class="org-keyword">let*</span> ((prog (convert-standard-filename (expand-file-name prog)))
-             (name (file-name-sans-extension (file-name-nondirectory prog)))
-             (name (format <span class="org-string">"%s-%s-%s"</span> prefix action name))
-             <span class="org-comment-delimiter">;; </span><span class="org-comment">(command (format "netsh advfirewall firewall add rule name=%s program=\"%s\" dir=%s action=%s" name prog dir action))</span>
-             (command (concat <span class="org-string">"netsh advfirewall firewall add rule name="</span> name
-                              <span class="org-string">" program="</span> (shell-quote-argument prog)
-                              <span class="org-string">" dir="</span> dir
-                              <span class="org-string">" action="</span> action)))
-        (message command)
-        (<span class="org-keyword">unless</span> dryrun
-          (shell-command-to-string command))))
-    ))
-<span class="org-comment-delimiter">;; </span><span class="org-comment">eshell for i in ${find  $(princ default-directory) |grep .exe} {(w32-firewall-add-rule i nil nil "wps")}</span>
-</pre>
-</div>
-</div>
-</div>
+<p class="more"><a href=".././en/posts/windows-advfirewall.html">Read more…</a></p>
 </div>
     </div>
     </article>
@@ -282,22 +200,7 @@ netsh advfirewall firewall add rule <span class="org-variable-name">name</span>=
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">
-<span class="section-number-2">1</span> nikola 安装 <sup><a id="fnr.1" name="fnr.1" class="footref" href=".././en/posts/nikola-guide.html#fn.1">1</a></sup>
-</h2>
-<div class="outline-text-2" id="text-1">
-<div class="org-src-container">
-
-<pre class="src src-sh">pip install nikola
-</pre>
-</div>
-<p>
-在windows 下部分 python package 需要编译，若pip安装失败，请单独下载相应的package 执行文件安装 
-</p>
 <p class="more"><a href=".././en/posts/nikola-guide.html">Read more…</a></p>
-</div>
-</div>
 </div>
     </div>
     </article>
@@ -315,7 +218,8 @@ netsh advfirewall firewall add rule <span class="org-variable-name">name</span>=
 </div>
     </header>
     <div class="p-summary entry-summary">
-    <div id="table-of-contents">
+    <div>
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
@@ -324,39 +228,7 @@ netsh advfirewall firewall add rule <span class="org-variable-name">name</span>=
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">
-<span class="section-number-2">1</span> code</h2>
-<div class="outline-text-2" id="text-1">
-<div class="org-src-container">
-
-<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">get_mac_address</span>():
-    <span class="org-keyword">import</span> uuid
-    <span class="org-variable-name">node</span> = uuid.getnode()
-    <span class="org-variable-name">mac</span> = uuid.UUID(<span class="org-builtin">int</span> = node).<span class="org-builtin">hex</span>[-12:]
-    <span class="org-keyword">return</span> mac
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">
-<span class="section-number-2">2</span> UUID <sup><a id="fnr.1" name="fnr.1" class="footref" href=".././en/posts/python-get-mac-address-by-uuid.html#fn.1">1</a></sup>
-</h2>
-</div>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef">
-<sup><a id="fn.1" name="fn.1" class="footnum" href=".././en/posts/python-get-mac-address-by-uuid.html#fnr.1">1</a></sup> <p class="footpara">
-<a href="https://docs.python.org/2/library/uuid.html?highlight=uuid#module-uuid">https://docs.python.org/2/library/uuid.html?highlight=uuid#module-uuid</a>
-</p>
-</div>
-
-
-</div>
+<p class="more"><a href=".././en/posts/python-get-mac-address-by-uuid.html">Read more…</a></p>
 </div>
     </div>
     </article>
@@ -374,7 +246,8 @@ netsh advfirewall firewall add rule <span class="org-variable-name">name</span>=
 </div>
     </header>
     <div class="p-summary entry-summary">
-    <div id="table-of-contents">
+    <div>
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
@@ -382,17 +255,7 @@ netsh advfirewall firewall add rule <span class="org-variable-name">name</span>=
 </ul>
 </div>
 </div>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">
-<span class="section-number-2">1</span> 测试 ssh</h2>
-<div class="outline-text-2" id="text-1">
-<div class="org-src-container">
-
-<pre class="src src-sh">ssh -T git@github.com
-</pre>
-</div>
-</div>
+<p class="more"><a href=".././en/posts/github-ssh-config.html">Read more…</a></p>
 </div>
     </div>
     </article>
@@ -439,31 +302,7 @@ netsh advfirewall firewall add rule <span class="org-variable-name">name</span>=
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">
-<span class="section-number-2">1</span> Write Snippets  <sup><a id="fnr.1" name="fnr.1" class="footref" href=".././en/posts/yasnippet.html#fn.1">1</a></sup>
-</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">
-<span class="section-number-3">1.1</span> Snippet 的关键字</h3>
-<div class="outline-text-3" id="text-1-1">
-</div>
-</div>
-
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">
-<span class="section-number-3">1.2</span> 一般内容 (plain text)</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-一般字符都可使用，其中 "\", "$", "`" 三个字符需要用 "\" 转义.
-</p>
-
 <p class="more"><a href=".././en/posts/yasnippet.html">Read more…</a></p>
-</div>
-</div>
-</div>
 </div>
     </div>
     </article>

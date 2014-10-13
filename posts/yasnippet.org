@@ -8,6 +8,8 @@
 .. type: text
 #+END_COMMENT
 
+#+HTML: <!-- TEASER_END -->
+
 #+TITLE: Writing Snippets
 #+AUTHOR: xor3
 #+HTML_HEAD:   <link href="org-manual.css" rel="stylesheet" type="text/css">
@@ -120,7 +122,6 @@ insert))}}%
 + yas-modified-p
 + yas-selected-text
 + yas-moving-away-p
-
 
 * Footnotes
 

@@ -7,12 +7,9 @@
 .. description: 
 .. type: text
 #+END_COMMENT
-
-#+TITLE: 影响力
-
 #+HTML: <!-- TEASER_END -->
 
-
+#+TITLE: 影响力
 * 前言[fn:1]
  人类的心理行为模式
 网上流传一份查理·芒格（Charlie Thomas Munger）的推荐书单。

@@ -8,6 +8,8 @@
 .. type: text
 #+END_COMMENT
 
+#+HTML: <!-- TEASER_END -->
+
 ** netsh advfirewall
 命令行下添加防墙规则的命令行如下
 #+BEGIN_SRC sh :session "shell"

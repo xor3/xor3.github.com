@@ -7,6 +7,9 @@
 .. description: 
 .. type: text
 #+END_COMMENT
+
+#+HTML: <!-- TEASER_END -->
+
 * code
 #+BEGIN_SRC python
   def get_mac_address():

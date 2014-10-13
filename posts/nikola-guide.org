@@ -9,6 +9,9 @@
 .. type: text
 #+END_COMMENT
 #+OPTIONS: ^:nil
+
+#+HTML: <!-- TEASER_END -->
+
 * nikola 安装 [fn:1]
 #+BEGIN_SRC sh
   pip install nikola

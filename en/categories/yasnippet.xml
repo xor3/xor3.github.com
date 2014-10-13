@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Xor3's World! (yasnippet)</title><link>/</link><description></description><language>en</language><lastBuildDate>Mon, 13 Oct 2014 13:22:28 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Yasnippet</title><link>/en/posts/yasnippet.html</link><dc:creator>Xor3</dc:creator><description>&lt;div&gt;&lt;div id="table-of-contents"&gt;
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Xor3's World! (yasnippet)</title><link>/</link><description></description><language>en</language><lastBuildDate>Mon, 13 Oct 2014 13:28:16 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Yasnippet</title><link>/en/posts/yasnippet.html</link><dc:creator>Xor3</dc:creator><description>&lt;div&gt;&lt;div id="table-of-contents"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents"&gt;
 &lt;ul&gt;
@@ -25,20 +25,4 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-sec-1" class="outline-2"&gt;
-&lt;h2 id="sec-1"&gt;&lt;span class="section-number-2"&gt;1&lt;/span&gt; Write Snippets  &lt;sup&gt;&lt;a id="fnr.1" name="fnr.1" class="footref" href="/en/posts/yasnippet.html#fn.1"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-1"&gt;
-&lt;/div&gt;&lt;div id="outline-container-sec-1-1" class="outline-3"&gt;
-&lt;h3 id="sec-1-1"&gt;&lt;span class="section-number-3"&gt;1.1&lt;/span&gt; Snippet 的关键字&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-1-1"&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-sec-1-2" class="outline-3"&gt;
-&lt;h3 id="sec-1-2"&gt;&lt;span class="section-number-3"&gt;1.2&lt;/span&gt; 一般内容 (plain text)&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-1-2"&gt;
-&lt;p&gt;
-一般字符都可使用，其中 "\", "$", "`" 三个字符需要用 "\" 转义.
-&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="/en/posts/yasnippet.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>/en/posts/yasnippet.html</guid><pubDate>Mon, 03 Mar 2014 02:02:38 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="/en/posts/yasnippet.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>/en/posts/yasnippet.html</guid><pubDate>Mon, 03 Mar 2014 02:02:38 GMT</pubDate></item></channel></rss>
